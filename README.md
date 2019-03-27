@@ -1,8 +1,4 @@
-# Online Book Store
-
-* Book e-commerce
-* Multimedia contents: about Books and Authors
-* 3-tier architecture
+# Shelf Awareness: Online Book Store
 
 ### Back-End technology: 3 components: 
 * REST API: swagger-OpenAPI

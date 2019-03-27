@@ -1,4 +1,4 @@
-# Shelf Awareness: Online Book Store
+# Shelf Awareness: Online Bookstore
 
 ### Back-End technology: 3 components: 
 * REST API: swagger-OpenAPI

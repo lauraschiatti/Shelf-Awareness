@@ -16,7 +16,7 @@ tags:
   - name: "author"
     description: "Information about author"
 schemes:
-  - "http"
+  - "https"
 paths:
   /books:
     get:

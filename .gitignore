@@ -1,2 +1,9 @@
+# Ignore Mac DS_Store files
+.DS_Store
+
 # Ignore WebStorm files
 .idea/
+
+# Ignore node_modules
+node_modules/
+package-lock.json

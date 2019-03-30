@@ -1,0 +1,178 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a simple bookstore server with a book inventory, users and\
+    \ a shopping cart."
+  version: "1.0.0"
+  title: "Shelf Awareness Bookstore"
+  license:
+    name: "Apache-2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/v2"
+tags:
+  - name: "book"
+    description: "Available book"
+  - name: "author"
+    description: "Information about author"
+schemes:
+  - "http"
+paths:
+  /books:
+    get:
+      tags:
+        - "book"
+      summary: "Books available in the inventory"
+      description: "List of books available in the inventory"
+      operationId: "booksGET"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "offset"
+          in: "query"
+          description: "Pagination offset. Default is 0."
+          required: false
+          type: "integer"
+        - name: "limit"
+          in: "query"
+          description: "Maximum number of items per page. Default is 20 and cannot exceed\
+          \ 500."
+          required: false
+          type: "integer"
+      responses:
+        200:
+          description: "A collection of Books"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Book"
+        404:
+          description: "Unexpected error"
+      x-swagger-router-controller: "Book"
+  /books/{bookId}:
+    get:
+      tags:
+        - "book"
+      summary: "Find book by ID"
+      description: "Returns a book"
+      operationId: "getBookById"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "bookId"
+          in: "path"
+          description: "ID of book to return"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Book"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Book not found"
+      x-swagger-router-controller: "Book"
+
+definitions:
+  Book:
+    type: "object"
+    required:
+      - "author"
+      - "price"
+      - "title"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      title:
+        type: "string"
+        example: "Il deserto dei tartari"
+      author:
+        $ref: "#/definitions/Author"
+      picture:
+        type: "string"
+      abstract:
+        type: "string"
+      genre:
+        type: "string"
+        description: "book genre"
+        enum: ["Adventure", "comic", "Crime", "Erotic", "Fiction", "Fantasy", "Historical", "Horror", "Magic", "Realism", "Mystery", "Paranoid", "Philosophical", "Political", "Romance", "Saga", "Satire", "Science", "Thriller", "Urban", "Western"]
+      price:
+        $ref: "#/definitions/Amount"
+      status:
+        type: "string"
+        description: "book availability in the inventory"
+        enum: ["available", "out of stock"]
+    title: "Book"
+    description: "A book for sale in the store"
+    example:
+      id: 0
+      title: "Il deserto dei tartari"
+      author:
+        $ref: "#/definitions/Author"
+      abstract: "La trama segue la vita del sottotenente Giovanni Drogo dal momento in cui, divenuto ufficiale, viene assegnato come prima nomina alla Fortezza Bastiani, molto distante dalla città"
+      picture: "string"
+      genre: "Romance"
+      price:
+        value: 602745618307040.375
+        currency: "eur"
+      status: "available"
+
+  Author:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      picture:
+        type: "string"
+      biography:
+        type: "string"
+      books:
+        type: "array"
+        items:
+          $ref: "#/definitions/Book"
+    title: "Author"
+    description: "An author"
+    example:
+      id: 0
+      name: "Dino Buzzati"
+      picture: "string"
+      bigraphy: "Nasce il 16 ottobre 1906 a San Pellegrino, nei pressi di Belluno. Sin dalla giovinezza si manifestano in lui gli interessi, i temi e le passioni del futuro scrittore, ai quali resterà fedele per tutta la vita la poesia, la musica (studia violino e pianoforte e non bisogna dimenticare che in futuro scriverà anche alcuni libretti d'Opera)"
+      books:
+        type: "array"
+        items:
+          $ref: "#/definitions/Book"
+
+  Amount:
+    type: "object"
+    required:
+      - "currency"
+      - "value"
+    properties:
+      value:
+        type: "number"
+        format: "double"
+        minimum: 0.01
+        maximum: 1000000000000000
+      currency:
+        $ref: "#/definitions/Currency"
+    description: "Price"
+    example:
+      currency: "eur"
+      value: 602745618307040.375
+
+  Currency:
+    type: "string"
+    pattern: "^[A-Z]{3,3}$"
+    description: "Money system"
+    example: "eur"
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

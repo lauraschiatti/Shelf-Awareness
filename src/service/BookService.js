@@ -1,5 +1,38 @@
 'use strict';
 
+let { database } = require ("./dataLayer");
+
+let sqlDb;
+
+exports.booksDbSetup = function(database) {
+    sql = database;
+    console.log("Checking if books table exists");
+    // async
+    return database.schema.hasTable("books").then(exists => {
+        if(!exists) { // create the table
+            console.log("It doesn't so we create it");
+            database.schema.createTable("books", table => {
+                table.increments();
+                table.text("title");
+                table.text("author");
+                table.float("value");
+                table.text("currency");
+                table.enum("status", ["available", "out of stock"]);
+            });
+        }
+    })
+}
+
+/**
+*   Books available in the inventory  
+**/
+exports.booksGET = function (offset, limit) {
+    return sqlDb("books").limit(limit).offset(offset).then( data => { 
+        return data.map( e => { // return models that comply specifications in the api
+            e.price = { value: e.value, currency: e.currency };
+        })
+    }) 
+};
 
 /**
  * Books available in the inventory

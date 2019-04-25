@@ -1,39 +1,5 @@
 'use strict';
 
-let { database } = require ("./dataLayer");
-
-
-
-// exports.booksDbSetup = function(database) {
-//     sql = database;
-//     console.log("Checking if books table exists");
-//     // async
-//     return database.schema.hasTable("books").then(exists => {
-//         if(!exists) { // create the table
-//             console.log("It doesn't so we create it");
-//             database.schema.createTable("books", table => {
-//                 table.increments();
-//                 table.text("title");
-//                 table.text("author");
-//                 table.float("value");
-//                 table.text("currency");
-//                 table.enum("status", ["available", "out of stock"]);
-//             });
-//         }
-//     })
-// }
-
-/**
-*   Books available in the inventory
-**/
-exports.booksGET = function (offset, limit) {
-    return sqlDb("books").limit(limit).offset(offset).then( data => {
-        return data.map( e => { // return models that comply specifications in the api
-            e.price = { value: e.value, currency: e.currency };
-        })
-    })
-};
-
 /**
  * Books available in the inventory
  * List of books available in the inventory
@@ -42,32 +8,33 @@ exports.booksGET = function (offset, limit) {
  * limit Integer Maximum number of items per page. Default is 20 and cannot exceed 500. (optional)
  * returns List
  **/
- var sqlDb = {
-   client: 'pg',
-   connection: {
-     host : '127.0.0.1',
-     user : 'postgres',
-     password : 'root',
-     database : 'shelfAwareness'
-   }
- }
- const knex = require('knex')(sqlDb);
 
-exports.booksGET = function(offset,limit) {
-    return new Promise(function(resolve, reject) {
-        var examples = {};
-      examples['application/json'] =   knex.from('books').select("*")
-            .catch((err) => { console.log( err); throw err })
-            .finally(() => {
-                knex.destroy();
+// DB configuration
+var knex = require('../knex/knex');
+
+exports.booksGET = function (offset, limit) {
+    return knex('books')
+        .select()
+        .offset(offset)
+        .limit(limit)
+        .then(data => {
+            return data.map(e => {
+                e.price = { value: e.value, currency: e.currency };
+                return e;
             });
-        if (Object.keys(examples).length > 0) {
-            resolve(examples[Object.keys(examples)[0]]);
-        } else {
-            resolve();
-        }
-    });
-}
+        })
+        .catch((err) => console.log(err));
+
+    // return sqlDb("books")
+    //     .limit(limit)
+    //     .offset(offset)
+    //     .then(data => {
+    //         return data.map(e => {
+    //             e.price = { value: e.value, currency: e.currency };
+    //             return e;
+    //         });
+    //     });
+};
 
 
 /**

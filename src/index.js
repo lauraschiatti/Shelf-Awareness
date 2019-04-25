@@ -8,20 +8,9 @@ var app = require('connect')();
 var oas3Tools = require('oas3-tools');
 var jsyaml = require('js-yaml');
 var serverPort = process.env.PORT || 8090;
-const knex = require('./knex/knex.js');
 
-// const pg = require('pg');
-// const pool = new pg.Pool({
-// user: 'postgres',
-// host: '127.0.0.1',
-// database: 'shelfAwareness',
-// password: 'root',
-// port: '5432'});
-//
-// pool.query("SELECT NOW()", (err, res) => {
-// console.log(err, res);
-// pool.end();
-// });
+// DB configuration
+// const knex = require('./knex/knex.js');
 
 // static files
 let serveStatic = require("serve-static");

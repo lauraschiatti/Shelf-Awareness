@@ -12,7 +12,7 @@ host: "localhost:8090"
 basePath: "/v2"
 tags:
   - name: "book"
-    description: "Available book"
+    description: "Book's fact sheet"
   - name: "author"
     description: "Information about author"
 schemes:
@@ -89,10 +89,9 @@ definitions:
         format: "int64"
       title:
         type: "string"
-        example: "Il deserto dei tartari"
       author:
         $ref: "#/definitions/Author"
-      picture:
+      cover:
         type: "string"
       abstract:
         type: "string"
@@ -111,13 +110,12 @@ definitions:
     example:
       id: 0
       title: "Il deserto dei tartari"
-      author:
-        $ref: "#/definitions/Author"
+      author: "Dino Buzzati"
+      cover:
       abstract: "La trama segue la vita del sottotenente Giovanni Drogo dal momento in cui, divenuto ufficiale, viene assegnato come prima nomina alla Fortezza Bastiani, molto distante dalla città"
-      picture: "string"
-      genre: "Romance"
+      genre: "Fiction"
       price:
-        value: 602745618307040.375
+        value: 10
         currency: "eur"
       status: "available"
 
@@ -129,9 +127,7 @@ definitions:
         format: "int64"
       name:
         type: "string"
-      picture:
-        type: "string"
-      biography:
+      bio:
         type: "string"
       books:
         type: "array"
@@ -142,8 +138,8 @@ definitions:
     example:
       id: 0
       name: "Dino Buzzati"
-      picture: "string"
-      bigraphy: "Nasce il 16 ottobre 1906 a San Pellegrino, nei pressi di Belluno. Sin dalla giovinezza si manifestano in lui gli interessi, i temi e le passioni del futuro scrittore, ai quali resterà fedele per tutta la vita la poesia, la musica (studia violino e pianoforte e non bisogna dimenticare che in futuro scriverà anche alcuni libretti d'Opera)"
+      bio: "Nasce il 16 ottobre 1906 a San Pellegrino, nei pressi di Belluno. Sin dalla giovinezza si manifestano in lui gli interessi, i temi e le passioni del futuro scrittore, ai quali resterà fedele per tutta la vita la poesia, la musica (studia violino e pianoforte e non bisogna dimenticare che in futuro scriverà anche alcuni libretti d'Opera)"
+      picture: ""
       books:
         type: "array"
         items:

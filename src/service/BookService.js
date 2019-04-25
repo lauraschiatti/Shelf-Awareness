@@ -20,6 +20,11 @@ exports.booksGET = function (offset, limit) {
         .then(data => {
             return data.map(e => {
                 e.price = { value: e.value, currency: e.currency };
+                delete e.currency;
+                delete e.value;
+                delete e.created_at;
+                delete e.updated_at;
+
                 return e;
             });
         })

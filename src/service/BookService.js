@@ -21,20 +21,7 @@ exports.booksGET = function (offset, limit) {
         .orderBy('title', 'asc')
         .then((book) => {
             return book.map(e => {
-                e.author = { name: e.name, picture: e.picture, bio: e.bio };
-                delete e.author_id;
-                delete e.name;
-                delete e.picture;
-                delete e.bio;
-
-                e.price = { value: e.value, currency: e.currency };
-
-                delete e.currency;
-                delete e.value;
-                delete e.created_at;
-                delete e.updated_at;
-
-                return e;
+                return formatBook(e);
             });
         })
         .catch((err) => console.log(err));
@@ -49,22 +36,28 @@ exports.booksGET = function (offset, limit) {
  * returns Book
  **/
 exports.getBookById = function(bookId) {
-    return new Promise(function(resolve, reject) {
-        var examples = {};
-        examples['application/json'] = {
-            "author" : "Dino Buzzati",
-            "price" : {
-                "currency" : "eur",
-                "value" : 6.027456183070404E14
-            },
-            "id" : 0,
-            "title" : "Il deserto dei tartari",
-            "status" : "available"
-        };
-        if (Object.keys(examples).length > 0) {
-            resolve(examples[Object.keys(examples)[0]]);
-        } else {
-            resolve();
-        }
-    });
+    return knex('books')
+        .join('authors', 'authors.id', '=', 'books.author_id')
+        .first()
+        .where('books.id', bookId)
+        .then((book) => {
+            return formatBook(book);
+        })
+        .catch((err) => console.log(err));
+};
+
+function formatBook(book){
+    book.author = { name: book.name, picture: book.picture, bio: book.bio };
+    delete book.author_id;
+    delete book.name;
+    delete book.picture;
+    delete book.bio;
+
+    book.price = { value: book.value, currency: book.currency };
+    delete book.currency;
+    delete book.value;
+    delete book.created_at;
+    delete book.updated_at;
+
+    return book;
 }

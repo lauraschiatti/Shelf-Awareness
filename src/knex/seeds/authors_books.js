@@ -31,8 +31,7 @@ const createBook = (knex, book, author) => {
                 abstract: book.abstract,
                 genre: book.genre,
                 currency: book.currency,
-                value: book.value,
-                status: book.status
+                value: book.value
             });
         });
 };

@@ -14,12 +14,21 @@ var knex = require('../knex/knex');
 
 exports.booksGET = function (offset, limit) {
     return knex('books')
+        .join('authors', 'authors.id', '=', 'books.author_id')
         .select()
         .offset(offset)
         .limit(limit)
-        .then(data => {
-            return data.map(e => {
+        .orderBy('title', 'asc')
+        .then((book) => {
+            return book.map(e => {
+                e.author = { name: e.name, picture: e.picture, bio: e.bio };
+                delete e.author_id;
+                delete e.name;
+                delete e.picture;
+                delete e.bio;
+
                 e.price = { value: e.value, currency: e.currency };
+
                 delete e.currency;
                 delete e.value;
                 delete e.created_at;
@@ -29,16 +38,6 @@ exports.booksGET = function (offset, limit) {
             });
         })
         .catch((err) => console.log(err));
-
-    // return sqlDb("books")
-    //     .limit(limit)
-    //     .offset(offset)
-    //     .then(data => {
-    //         return data.map(e => {
-    //             e.price = { value: e.value, currency: e.currency };
-    //             return e;
-    //         });
-    //     });
 };
 
 

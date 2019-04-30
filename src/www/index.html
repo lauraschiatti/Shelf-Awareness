@@ -6,6 +6,7 @@
 <h1>Our first server!</h1>
 <ul></ul>
 <script>
+    // Fetching data over HTTP with NodeJS using node-fetch.
     fetch('v2/books').then(function(response) {
         return response.json();
     }).then(function(json) {

@@ -1,12 +1,13 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Book = require('../service/BookService');
+var BookService = require('../service/BookService');
 
 module.exports.booksGET = function booksGET (req, res, next) {
   var offset = req.swagger.params['offset'].value;
   var limit = req.swagger.params['limit'].value;
-  Book.booksGET(offset,limit)
+
+  BookService.booksGET(offset,limit)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -17,7 +18,8 @@ module.exports.booksGET = function booksGET (req, res, next) {
 
 module.exports.getBookById = function getBookById (req, res, next) {
   var bookId = req.swagger.params['bookId'].value;
-  Book.getBookById(bookId)
+
+  BookService.getBookById(bookId)
     .then(function (response) {
       utils.writeJson(res, response);
     })

@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
             table.string('password').notNullable();
             table.string('address');
             table.string('creditcard');
+            table.unique('email');
         })
     ]);
 };

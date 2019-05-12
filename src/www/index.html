@@ -22,9 +22,8 @@
     }).then(function(json) {
         for(let i = 0; i < json.length; i++) {
             let listItem = document.createElement("li");
-            listItem.innerHTML = json[i];
-            //let { title, author, price } = json[i];
-            //listItem.innerHTML = `${title} - ${author} - ${price.value}`;
+            let { name, email, address } = json[i];
+            listItem.innerHTML = `${name} (${email} - ${address})`;
             document.querySelector("ul").append(listItem);
         }
     });

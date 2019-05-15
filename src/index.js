@@ -14,7 +14,7 @@ var serverPort = process.env.PORT || 8090;
 
 // Static files
 let serveStatic = require("serve-static");
-app.use(serveStatic(__dirname + "/www"));
+app.use(serveStatic(__dirname + "/public"));
 
 // swaggerRouter configuration
 var options = {
@@ -48,9 +48,4 @@ oas3Tools.initializeMiddleware(swaggerDoc, function (middleware) {
     console.log('Swagger-ui is available on http://localhost:%d/docs', serverPort);
   });
 
-  app.use('/backend/swaggerui', function (req, res, next) {
-     // redirect
-     res.writeHead(301, { "Location": "http://" + req.headers['host'] + '/docs' });
-     return res.end();
-  })
 });

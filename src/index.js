@@ -8,7 +8,8 @@ var app = require('connect')();
 var oas3Tools = require('oas3-tools');
 var jsyaml = require('js-yaml');
 var serverPort = process.env.PORT || 8090;
-
+let cookieSession = require("cookie-session");
+let cookieParser = require("cookie-parser");
 // DB configuration
 // const knex = require('./knex/knex.js');
 
@@ -27,6 +28,10 @@ var options = {
 var spec = fs.readFileSync(path.join(__dirname,'api/swagger.yaml'), 'utf8');
 var swaggerDoc = jsyaml.safeLoad(spec);
 
+
+// Add cookies to responses
+app.use(cookieParser());
+app.use(cookieSession({ name: "session", keys: ["abc", "def"] }));
 // Initialize the Swagger middleware
 oas3Tools.initializeMiddleware(swaggerDoc, function (middleware) {
 
@@ -41,6 +46,8 @@ oas3Tools.initializeMiddleware(swaggerDoc, function (middleware) {
 
   // Serve the Swagger documents and Swagger UI
   app.use(middleware.swaggerUi());
+
+  app.use(serveStatic(__dirname + "/www"));
 
   // Start the server
   http.createServer(app).listen(serverPort, function () {

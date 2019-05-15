@@ -201,7 +201,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "username"
+      - name: "email"
         in: "formData"
         required: true
         type: "string"
@@ -290,7 +290,7 @@ definitions:
       password: 123456
       address: "DEIB"
       creditcard: "xyzabc"
-  
+
   Book:
     type: "object"
     required:

@@ -12,10 +12,16 @@
  * no response value expected for this operation
  **/
 exports.userLoginPOST = function(username,password) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
+  return knex('users')
+      .select()
+      .where('users.email','=', username)
+      .andWhere('users.password','=', password)
+      .then((user) => {
+        console.log(user[0].email);
+          return formatUser(user);
+      })
+      .catch((err) => console.log(err));
+};
 
 
 /**
@@ -26,9 +32,32 @@ exports.userLoginPOST = function(username,password) {
  * no response value expected for this operation
  **/
 exports.userRegisterPOST = function(body) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
+  var registeredUser;
+  knex('users')
+      .first()
+      .where('users.email', body.email)
+      .then((user) => {
+          registeredUser = user;
+      })
+      .catch((err) => registeredUser = undefined);
+      console.log(registeredUser);
+    if(registeredUser==undefined && body.name!=undefined){
+      console.log("usao u upis");
+      knex('users').insert({
+        name: ""+body.name+"",
+        email:""+body.email+"",
+        password:""+body.password+"",
+        address:""+body.address+"",
+        creditcard:""+body.creditcard+""
+      });
+    }
+  return knex('users')
+      .select()
+      .where('users.email', body.email)
+      .then((user) => {
+          return formatUser(user);
+      })
+      .catch((err) => console.log(err));
 }
 
 /**

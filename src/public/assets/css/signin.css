@@ -13,7 +13,7 @@ body {
 .form-signin {
   width: 100%;
   max-width: 330px;
-  padding: 15px;
+  padding: 25px 15px;
   margin: 0 auto;
 }
 .form-signin .checkbox {
@@ -22,4 +22,8 @@ body {
 .form-control:focus {
   border-color: #D10024;
   box-shadow: 0 0 0 0;
+}
+
+.space{
+  padding: 1.2em;
 }

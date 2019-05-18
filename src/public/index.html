@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <script src="scripts/jquery-3.2.1.min.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/home.js"></script>
 
 </head>
 
@@ -30,9 +33,12 @@
                     </a>
                 </div>
                 <div class="col-4 d-flex justify-content-end">
-                    <a class="btn btn-default btn-sm ml-3" href="#">
+                  <div id="loggedIn"></div>
+                    <div id="login">
+                      <a class="btn btn-default btn-sm ml-3" href="pages/login.html">
                         <i class="fa fa-sign-in"></i> Sign in
-                    </a>
+                      </a>
+                    </div>
                     <a class="btn btn-primary btn-sm ml-3" href="#">
                         <i class="fa fa-shopping-cart"></i> Cart
                         <span class="badge badge-light">3</span>
@@ -65,9 +71,9 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">FAQ</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="pages/login.html">Login</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>

@@ -17,29 +17,27 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/signin.css" rel="stylesheet">
+    <script src="scripts/jquery-3.2.1.min.js"></script>
+    <script src="scripts/login.js"></script>
 </head>
 
 <body class="text-center">
     <div class="container mb-5">
-        <form class="form-signin">
+        <form id="loginForm" class="form-signin">
             <a class="header-logo" href="/">
                 <img src="assets/img/logo.png" alt="logo" width="50">
                 Shelf Awareness
             </a>
             <div class="space"></div>
+            <div class="row" id="loginMessage"></div>
             <div class="input-group input-group-lg mb-3">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus/>
             </div>
             <div class="input-group input-group-lg mb-3">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required/>
             </div>
-            <!--<div class="checkbox mb-3">-->
-                <!--<label>-->
-                    <!--<input type="checkbox" value="remember-me"> Remember me-->
-                <!--</label>-->
-            <!--</div>-->
             <br>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" id="loginSubmit" type="submit">Sign in</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
         </form>
     </div>

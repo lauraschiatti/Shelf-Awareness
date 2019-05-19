@@ -31,34 +31,40 @@ exports.userLoginPOST = function(username,password) {
  * body User
  * no response value expected for this operation
  **/
-exports.userRegisterPOST = function(body) {
-  var registeredUser;
-  knex('users')
-      .first()
-      .where('users.email', body.email)
-      .then((user) => {
-          registeredUser = user;
-      })
-      .catch((err) => registeredUser = undefined);
-      console.log(registeredUser);
-    if(registeredUser==undefined && body.name!=undefined){
-      console.log("usao u upis");
-      knex('users').insert({
-        name: ""+body.name+"",
-        email:""+body.email+"",
-        password:""+body.password+"",
-        address:""+body.address+"",
-        creditcard:""+body.creditcard+""
-      });
-    }
-  return knex('users')
-      .select()
-      .where('users.email', body.email)
-      .then((user) => {
-          return formatUser(user);
-      })
-      .catch((err) => console.log(err));
-}
+ exports.userRegisterPOST = function(email,password,name,address,creditcard) {
+   var registeredUser;
+   knex('users')
+       .first()
+       .where('users.email', email)
+       .then((user) => {
+           registeredUser = user;
+       })
+       .catch((err) =>  new Promise(function(resolve, reject) {
+         reject("NOK");
+       }));
+       console.log(registeredUser);
+     if(registeredUser==undefined){
+       console.log("usao u upis");
+       knex('users').insert({
+         name: ""+name+"",
+         email:""+email+"",
+         password:""+password+"",
+         address:""+address+"",
+         creditcard:""+creditcard+""
+       }).then( function (result) {
+          return new Promise(function(resolve, reject) {
+           resolve("OK");
+         });
+          // result.json({ success: true, message: 'ok' });     // respond back to request
+       });
+     }
+       return new Promise(function(resolve, reject) {
+         resolve("OK");
+       });
+
+
+
+ }
 
 /**
  * Users available in the inventory

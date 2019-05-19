@@ -257,15 +257,30 @@ paths:
       description: "Register into the store"
       operationId: "userRegisterPOST"
       consumes:
-      - "application/x-www-form-urlencoded"
+      - "application/json"
       produces:
       - "application/json"
       parameters:
-      - in: "body"
-        name: "body"
+      - name: "name"
+        in: "formData"
         required: true
-        schema:
-          $ref: "#/definitions/User"
+        type: "string"
+      - name: "password"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "email"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "address"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "creditcard"
+        in: "formData"
+        required: true
+        type: "string"
       responses:
         200:
           description: "succesfull registration"

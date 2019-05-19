@@ -20,7 +20,7 @@ $(document).on("click","#signOut", function(){
       response.json()
       .then(function(data) {
         var user = data;
-        if(user==undefined){
+        if(user.loggedin==false){
           window.location="/index.html";
         }
       });

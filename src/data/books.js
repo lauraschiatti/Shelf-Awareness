@@ -10,6 +10,7 @@ module.exports = [
         genre: 'Fiction',
         currency: 'eur',
         value: 10.60,
+        interview: ''
     },
     {
         title: 'Misery',
@@ -21,6 +22,37 @@ module.exports = [
             'book modifying the story – no matter what it takes.',
         genre: 'Horror',
         currency: 'eur',
-        value: 10.60
+        value: 10.60,
+        interview: ' '
+    },
+    {
+        title: 'Harry Potter and the Philosopher\'s Stone',
+        author: 'J. K. Rowling',
+        cover: 'https://en.wikipedia.org/wiki/File:Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg',
+        abstract: 'The first novel in the Harry Potter series and Rowling\'s debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few enemies during his first year at the school, and with the help of his friends, Harry faces an attempted comeback by the dark wizard Lord Voldemort, who killed Harry\'s parents, but failed to kill Harry when he was just 15 months old',
+        genre: 'Fantasy',
+        currency: 'eur',
+        value: 10.60,
+        interview: ' '
+    },
+    {
+        title: 'In Dessert and Wilderness',
+        author: 'Henryk Sienkiewicz',
+        cover: 'https://en.wikipedia.org/wiki/In_Desert_and_Wilderness#/media/File:InDesertandWildernessBookCover.jpg',
+        abstract: 'In the tradition of Robinson Crusoe and Treasure Island comes a Sienkiewicz novel for readers of all ages! This thrilling adventure saga and coming-of-age tale sets two young children, Stas Tarkowski, fourteen, and Nelly Rawlison, eight, within the reaches of Africa\'s desert storms, the ravages of hunger, and threatening jungles filled with vicious animals and warring tribes. Everything for the pair seemed comfortable and safe in Egypt. But when the children are separated from their fathers during a vacation along the Nile, they become pawns in a treacherous plot and are abducted by the vengeful followers of the Mahdi.',
+        genre: 'Adventure',
+        currency: 'eur',
+        value: 10.60,
+        interview: ' '
+    },
+    {
+        title: 'Wizard\'s First Rule',
+        author: 'Terry Goodkind',
+        cover: 'https://en.wikipedia.org/wiki/File:Wizard%27s_First_Rule.jpg',
+        abstract: 'In the aftermath of the brutal murder of his father, a mysterious woman, Kahlan Amnell, appears in Richard Cypher\'s forest sanctuary seeking help . . . and more. His world, his very beliefs, are shattered when ancient debts come due with thundering violence. In a dark age it takes courage to live, and more than mere courage to challenge those who hold dominion, Richard and Kahlan must take up that challenge or become the next victims.',
+        genre: 'Fantasy',
+        currency: 'eur',
+        value: 10.60,
+        interview: ' '
     }
 ];

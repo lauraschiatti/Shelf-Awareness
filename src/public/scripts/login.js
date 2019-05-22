@@ -1,4 +1,5 @@
-$(document).on("click","#loginSubmit", function(){
+$(document).on("click","#loginSubmit", function(e){
+	e.preventDefault();
   var email = document.getElementById("inputEmail").value;
   var password = document.getElementById("inputPassword").value;
   $.post('v2/user/login', {

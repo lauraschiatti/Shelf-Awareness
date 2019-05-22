@@ -1,4 +1,5 @@
-$(document).on("click", "#registerSubmit", function() {
+$(document).on("click", "#registerSubmit", function(e) {
+	e.preventDefault();
   var name = document.getElementById("inputName").value;
   var email = document.getElementById("inputEmail").value;
   var password = document.getElementById("inputPassword").value;

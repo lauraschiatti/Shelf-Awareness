@@ -14,7 +14,8 @@ $(document).ready ( function(){
     });
 });
 
-$(document).on("click","#signOut", function(){
+$(document).on("click","#signOut", function(e){
+	e.preventDefault();	
   fetch('v2/users/logoutUser')
   .then(function(response){
       response.json()

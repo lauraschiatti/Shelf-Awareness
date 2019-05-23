@@ -200,31 +200,11 @@
                 listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
 
                 let { title, cover, author, genre, price } = json[i];
-<<<<<<< HEAD
-                listItem.innerHTML = `<div class="col">
-                            <div class="card">
-                                <div class="card-block">
-                                    <figure class="profile">
-                                        <img src="` + cover + `" class="profile-avatar" alt="">
-                                    </figure>
-                                    <small class="text-primary"> ${genre}</small>
-                                    <p class="mb-0"><a class="text-dark" href="#">${title}</a></p>
-                                    <div class="meta card-text">
-                                        <small class="font-italic">${author.name}</small>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <small>$ ${price.value} ${price.currency}</small>
-                                    <a class="btn btn-primary pull-right btn-sm ml-3" href="cart.html">
-                                        <i class="fa fa-shopping-cart"></i> Cart
-                                    </a>
-                                </div>
-                            </div>
-                        </div>`;
-=======
                 listItem.innerHTML =
                     `<div class="card mb-4">
-                      <img class="card-img-top" src="https://picsum.photos/200/150/?random" alt="Card image cap">
+
+                        <img class="card-header" src="` + cover + `" alt="Card image cap" style="width: 100%">
+                      
                       <div class="card-body">
                        <small class="text-primary"> ${genre}</small>
                        <p class="card-title"><a class="text-dark" href="#">${title}</a></p>
@@ -236,7 +216,7 @@
                                 <small class="text-muted">$ ${price.value} ${price.currency}</small>
                                </div>
                                <div class="col-xs-6">
-                                <a class="btn btn-primary pull-right btn-sm ml-3" href="cart.html">
+                                <a class="pull-right btn btn-primary btn-sm ml-3" href="cart.html">
                                     <i class="fa fa-shopping-cart"></i> Cart
                                 </a>
                                </div>
@@ -244,7 +224,6 @@
                            </div>
                       </div>
                     </div>`;
->>>>>>> 6685355b784fd190d5f17e22ab9f79cf5de641e1
 
                 $("#books-list").append(listItem);
             }

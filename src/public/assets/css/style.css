@@ -78,8 +78,9 @@ ul, ol {
 .card {
   font-size: 1em;
   overflow: hidden;
-  height: 320px;
+  height: 150 em;
   padding: 0;
+  display: grid;
   border: none;
   border-radius: .28571429rem;
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
@@ -90,10 +91,9 @@ ul, ol {
 }
 
 .card-title a{
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  white-space: normal;
   display: block;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .card-subtitle {
@@ -112,6 +112,9 @@ ul, ol {
   background: #fff;
 }
 
+.card-header: {
+    overflow: hidden;
+}
 
 /* Responsive breakpoints
 -------------------------------------------------- */

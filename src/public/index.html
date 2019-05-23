@@ -139,16 +139,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-lg-4 col-xl-3">
-                    <h5>About</h5>
-                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <h5 class="text-primary">About</h5>
+                    <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
                     <p class="mb-0">
                         Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
                     </p>
                 </div>
 
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
-                    <h5>Informations</h5>
-                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <h5 class="text-primary">Informations</h5>
+                    <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
                     <ul class="list-unstyled">
                         <li><a href="">Link 1</a></li>
                         <li><a href="">Link 2</a></li>
@@ -158,8 +158,8 @@
                 </div>
 
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
-                    <h5>Others links</h5>
-                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <h5 class="text-primary">Others links</h5>
+                    <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
                     <ul class="list-unstyled">
                         <li><a href="">Link 1</a></li>
                         <li><a href="">Link 2</a></li>
@@ -169,8 +169,8 @@
                 </div>
 
                 <div class="col-md-4 col-lg-3 col-xl-3">
-                    <h5>Contact</h5>
-                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <h5 class="text-primary">Contact</h5>
+                    <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
                     <ul class="list-unstyled">
                         <li><i class="fa fa-home mr-2"></i> My company</li>
                         <li><i class="fa fa-envelope mr-2"></i> email@example.com</li>
@@ -178,8 +178,8 @@
                         <li><i class="fa fa-print mr-2"></i> + 33 12 14 15 16</li>
                     </ul>
                 </div>
-                <div class="col-12 copyright mt-3 center">
-                    <span class="text-center"> &copy; 2019. Shelf Awareness, Inc. <a href="#">Back to top</a></span>
+                <div class="col-12 copyright mt-3 text-center">
+                    <small> &copy; 2019. Shelf Awareness, Inc. <a class="text-primary" href="#">Back to top</a></small>
                 </div>
             </div>
         </div>
@@ -190,42 +190,5 @@
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 
-    <script>
-        // Fetching data over HTTP with NodeJS using node-fetch.
-        fetch('v2/books').then(function(response) {
-            return response.json();
-        }).then(function(json) {
-            for(let i = 0; i< json.length; i++) {
-                let listItem = document.createElement("div");
-                listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
-
-                let { title, cover, author, genre, price } = json[i];
-                listItem.innerHTML =
-                    `<div class="card mb-4">
-                      <img class="card-img-top" src="https://picsum.photos/200/150/?random" alt="Card image cap">
-                      <div class="card-body">
-                       <small class="text-primary"> ${genre}</small>
-                       <p class="card-title"><a class="text-dark" href="#">${title}</a></p>
-                       <p class="card-subtitle"><small class="font-italic">${author.name}</small></p>
-
-                       <div class="card-footer">
-                           <div class="row text-center">
-                               <div class="col-xs-6">
-                                <small class="text-muted">$ ${price.value} ${price.currency}</small>
-                               </div>
-                               <div class="col-xs-6">
-                                <a class="btn btn-primary pull-right btn-sm ml-3" href="cart.html">
-                                    <i class="fa fa-shopping-cart"></i> Cart
-                                </a>
-                               </div>
-                           </div>
-                           </div>
-                      </div>
-                    </div>`;
-
-                $("#books-list").append(listItem);
-            }
-        });
-    </script>
 </body>
 </html>

@@ -24,9 +24,9 @@ $(document).ready ( function(){
             let { title, cover, author, genre, price } = json[i];
             listItem.innerHTML =
                 `<div class="card mb-4">
-
-                    <img class="card-header" src="` + cover + `" alt="Card image cap" style="width: 100%">
-
+                  <div id="imgFill">
+                    <img class="card-header" src="` + cover + `" alt="Card image cap" >
+                  </div>
                   <div class="card-body">
                    <small class="text-primary"> ${genre}</small>
                    <p class="card-title"><a class="text-dark" href="#">${title}</a></p>

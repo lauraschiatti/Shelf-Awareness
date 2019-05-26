@@ -44,7 +44,6 @@ ul, ol {
 /* Header
 -------------------------------------------------- */
 .header-logo {
-  font-size: 2rem;
   margin-bottom: 0;
   color: #D10024;
 }
@@ -67,7 +66,6 @@ ul, ol {
   /*color: #fff;*/
   text-align: center;
   background-color: #e9ecef;
-  margin-top: 2em;
 
 }
 .footer p:last-child {
@@ -80,26 +78,26 @@ ul, ol {
 .card {
   font-size: 1em;
   overflow: hidden;
+  height: 150 em;
   padding: 0;
+  display: grid;
   border: none;
   border-radius: .28571429rem;
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 }
 
-.card-block {
-  font-size: 1em;
-  /*position: relative;*/
-  margin: 0;
-  padding: 1em;
-  border: none;
-  border-top: 1px solid rgba(34, 36, 38, .1);
-  box-shadow: none;
+.card-title {
+  margin-bottom: 10px;
 }
 
-.card-text {
-  clear: both;
-  margin-top: 0;
-  color: rgba(0, 0, 0, .68);
+.card-title a{
+  white-space: normal;
+  display: block;
+  /*overflow: hidden;*/
+}
+
+.card-subtitle {
+  margin-bottom: 10px;
 }
 
 .card-footer {
@@ -108,8 +106,43 @@ ul, ol {
   top: 0;
   left: 0;
   max-width: 100%;
-  padding: .75em 1em;
+  padding: .75em 1em 0;
   color: rgba(0, 0, 0, .4);
   border-top: 1px solid rgba(0, 0, 0, .05) !important;
   background: #fff;
+}
+
+.card-header: {
+    overflow: hidden;
+}
+
+/* Responsive breakpoints
+-------------------------------------------------- */
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767px) {
+  .container{
+    max-width: 98%;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991px){
+  .container{
+    max-width: 96%;
+  }
+
+  .header-logo {
+    font-size: 1.8rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container{
+    max-width: 90%;
+  }
+
+  .header-logo {
+    font-size: 2rem;
+  }
 }

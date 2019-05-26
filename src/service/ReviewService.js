@@ -50,9 +50,11 @@ exports.getReviewById = function(reviewId) {
 
 function formatReview(review){
     review.user = { name: review.name, email: review.email, password: review.password,
-        address: review.address,creditcard: review.creditcard };
-    review.book = {title: review.title,author: review.author,cover: review.cover,
-        abstract: review.abstract, genre: review.genre, currency: review.currency, value: review.value };
+        address: review.address, creditcard: review.creditcard };
+    review.book = {title: review.title, author: review.author, cover: review.cover,
+        abstract: review.abstract, genre: review.genre, currency: review.currency,
+        value: review.value, interview: review.interview };
+
     delete review.user_id;
     delete review.book_id;
     delete review.password;
@@ -67,6 +69,7 @@ function formatReview(review){
     delete review.created_at;
     delete review.updated_at;
     delete review.author_id;
+    delete review.interview;
 
     delete review.user.password;
     delete review.user.address;

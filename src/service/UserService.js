@@ -12,15 +12,16 @@
  * no response value expected for this operation
  **/
 exports.userLoginPOST = function(username,password) {
-  return knex('users')
-      .select()
-      .where('users.email','=', username)
-      .andWhere('users.password','=', password)
-      .then((user) => {
-        console.log(user[0].email);
-          return formatUser(user);
-      })
-      .catch((err) => console.log(err));
+    return knex('users')
+        .select()
+        .where('users.email','=', username)
+        .andWhere('users.password','=', password)
+        .then((user) => {
+            return formatUser(user);
+        })
+        .catch((err) => console.log(err));
+
+
 };
 
 
@@ -42,9 +43,9 @@ exports.userLoginPOST = function(username,password) {
        .catch((err) =>  new Promise(function(resolve, reject) {
          reject("NOK");
        }));
-       console.log(registeredUser);
+       // console.log(registeredUser);
      if(registeredUser==undefined){
-       console.log("usao u upis");
+       // console.log("usao u upis");
        knex('users').insert({
          name: ""+name+"",
          email:""+email+"",
@@ -102,12 +103,13 @@ exports.usersGET = function (offset, limit) {
  **/
 exports.getUserById = function(userId) {
     return knex('users')
-        .first()
+        .select()
         .where('users.id', userId)
         .then((user) => {
+          // console.log("\nDOBIO USERA " + user.name);
             return formatUser(user);
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>  console.log(err));
 };
 
 function formatUser(user){

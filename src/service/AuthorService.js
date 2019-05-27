@@ -37,13 +37,13 @@ exports.getAuthorById = function(authorId) {
         .select()
         .where('authors.id', authorId)
         .then((author) => {
+        // console.log("\nauthor name is " + author.name);
             return formatAuthor(author);
         })
         .catch((err) => console.log(err));
 };
 
 function formatAuthor(author){
-    delete author.bio;
 
     return author;
 }

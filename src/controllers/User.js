@@ -6,18 +6,15 @@ var UserService = require('../service/UserService');
 module.exports.userLoginPOST = function userLoginPOST(req, res, next) {
   var username = req.swagger.params["email"].value;
   var password = req.swagger.params["password"].value;
-  if (!req.session.loggedin) {
-    req.session.loggedin = true;
-  } else {
-    req.session.loggedin = !req.session.loggedin;
-  }
   UserService.userLoginPOST(username, password)
     .then(function(response) {
+      req.session.loggedin = true;
       req.session.username = response[0].name;
       req.session.id = response[0].id;
       utils.writeJson(res, response);
     })
     .catch(function(response) {
+      console.log("\n noooo" );
       utils.writeJson(res, response);
     });
 };
@@ -31,24 +28,25 @@ module.exports.logoutUserGET = function logoutUserGET(req, res, next) {
     req.session.username = undefined;
     req.session.id = undefined;
   }
-  // console.log("req ", req);
-  // console.log("session ", req.session);
-  // console.log("id", req.session.id);
-  // console.log("username", req.session.username);
   utils.writeJson(res, req.session);
 };
 
 module.exports.loggedInUserGET = function loggedInUserGET(req, res, next) {
-  if (req.session.loggedin) {
-    var userId = req.session.id;
-    UserService.getUserById(userId)
-      .then(function(response) {
-        utils.writeJson(res, response);
-      })
-      .catch(function(response) {
-        utils.writeJson(res, response);
-      });
+  if (req.session.loggedin ) {
+  console.log("Getting logged in user");
+  console.log("loggedIn" + req.session.loggedIn);
+  console.log("session id" + req.session.id);
+  var userId = req.session.id;
+  UserService.getUserById(userId)
+    .then(function(response) {
+      console.log("\nDOBIO USERA " + response[0].name);
+      utils.writeJson(res, response);
+    })
+    .catch(function(response) {
+      utils.writeJson(res, response);
+    });
   } else {
+  console.log("\n NIJE TREBALO DA UDJES OVDE ");
     utils.writeJson(res, undefined);
   }
 };
@@ -59,7 +57,7 @@ module.exports.userRegisterPOST = function userRegisterPOST(req, res, next) {
   var name = req.swagger.params["name"].value;
   var address = req.swagger.params["address"].value;
   var creditcard = req.swagger.params["creditcard"].value;
-  UserService.userRegisterPOST(email,password,name,address,creditcard)
+  UserService.userRegisterPOST(email, password, name, address, creditcard)
     .then(function(response) {
       utils.writeJson(res, response);
     })

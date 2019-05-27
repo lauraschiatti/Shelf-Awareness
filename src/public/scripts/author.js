@@ -12,17 +12,17 @@ $(document).ready(function() {
           }
         });
     });
-
-  fetch('v2/authors')
+var authorId = window.location.href.split("=")[1];
+alert(url);
+  fetch('v2/authors/'+ authorId)
     .then(function(response) {
       response.json()
         .then(function(json) {
-          for (let i = 0; i < json.length; i++) {
             let listItem = document.createElement("div");
             listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
             let {
               name,
-              id,
+              bio,
               picture
             } = json[i];
             listItem.innerHTML =
@@ -34,7 +34,7 @@ $(document).ready(function() {
                    <p class="card-title"><a class="text-dark" href="/pages/authors/author-page.html?id=`+ id + `">${name }</a></p>
                 </div>`;
             $("#books-list").append(listItem);
-          }
+
         });
     });
 });

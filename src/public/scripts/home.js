@@ -1,29 +1,26 @@
-$(document).ready ( function(){
-  fetch('v2/users/loggedInUser')
-  .then(function(response){
-      response.json()
-      .then(function(data) {
-        var user = data;
-        if(user!=undefined){
-          $('#login').empty();
-          $('#loggedIn').empty();
-          $('#loggedIn').append('<a class="btn btn-default btn-sm ml-3" id="loggedIn">'+user.name+'</a>');
-          $('#login').append('<a class="btn btn-default btn-sm ml-3" id="signOut"><i class="fa fa-sign-in"></i> Sign out</a>');
-        }
-      });
-    });
+$(document).ready(function() {
+  getUser();
+  getBooks();
+});
 
+function getBooks() {
   fetch('v2/books')
-  .then(function(response) {
-    response.json()
-    .then(function(json) {
-        for(let i = 0; i< json.length; i++) {
+    .then(function(response) {
+      response.json()
+        .then(function(json) {
+          for (let i = 0; i < json.length; i++) {
             let listItem = document.createElement("div");
             listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
 
-            let { title, cover, author, genre, price } = json[i];
+            let {
+              title,
+              cover,
+              author,
+              genre,
+              price
+            } = json[i];
             listItem.innerHTML =
-                `<div class="card mb-4">
+              `<div class="card mb-4">
                   <div style = "width: 50em; height: 20em; " >
                     <img class="card-header" src="` + cover + `" alt="Card image cap" style="max-width: 100%;max-height: 100%;" >
                   </div>
@@ -48,21 +45,41 @@ $(document).ready ( function(){
                 </div>`;
 
             $("#books-list").append(listItem);
-        }
+          }
+        });
     });
-  });
+}
+
+$(document).on("click", "#logout", function(e) {
+  e.preventDefault();
+  fetch('v2/users/logoutUser')
+    .then(function(response) {
+      response.json()
+        .then(function(data) {
+          var user = data;
+          if (user.loggedin == false) {
+            window.location = "/index.html";
+          }
+        });
+    });
 });
 
-$(document).on("click","#signOut", function(e){
-	e.preventDefault();
-  fetch('v2/users/logoutUser')
-  .then(function(response){
+function getUser() {
+  fetch('v2/users/loggedInUser')
+    .then(function(response) {
+      // if(response.status=)
       response.json()
-      .then(function(data) {
-        var user = data;
-        if(user.loggedin==false){
-          window.location="/index.html";
-        }
-      });
+        .then(function(data) {
+          var user = data[0];
+          if (user != undefined) {
+            $('#login').empty();
+            $('#loggedIn').empty();
+            $('#loggedIn').append('<a class="btn btn-default btn-sm ml-3" id="loggedIn">' + user.name + '</a>');
+            $('#logout').append('<a class="btn btn-default btn-sm ml-3" id="logout"><i class="fa fa-sign-in"></i> Sign out</a>');
+          } else{
+            $('#logout').empty();
+          }
+        });
     });
-});
+
+}

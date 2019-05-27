@@ -40,7 +40,7 @@ ul, ol {
   color: #D10024!important;
 }
 
-.header {
+.h3-header {
   text-align: center;
   text-underline: #D10024;
 }
@@ -80,6 +80,7 @@ ul, ol {
 
 /* Cards
 -------------------------------------------------- */
+
 .card {
   font-size: 1em;
   overflow: hidden;

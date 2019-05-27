@@ -1,5 +1,8 @@
 'use strict';
 
+// DB configuration
+var knex = require('../knex/knex');
+
 /**
  * Books available in the inventory
  * List of books available in the inventory
@@ -8,11 +11,7 @@
  * limit Integer Maximum number of items per page. Default is 20 and cannot exceed 500. (optional)
  * returns List
  **/
-
-// DB configuration
-var knex = require('../knex/knex');
-
-exports.booksGET = function (offset, limit) {
+ exports.booksGET = function (offset, limit) {
     return knex('books')
         .join('authors', 'authors.id', '=', 'books.author_id')
         .select()

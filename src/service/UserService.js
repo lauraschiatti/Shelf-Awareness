@@ -43,9 +43,9 @@ exports.userLoginPOST = function(username,password) {
        .catch((err) =>  new Promise(function(resolve, reject) {
          reject("NOK");
        }));
-       console.log(registeredUser);
+       // console.log(registeredUser);
      if(registeredUser==undefined){
-       console.log("usao u upis");
+       // console.log("usao u upis");
        knex('users').insert({
          name: ""+name+"",
          email:""+email+"",
@@ -106,7 +106,7 @@ exports.getUserById = function(userId) {
         .select()
         .where('users.id', userId)
         .then((user) => {
-          console.log("\nDOBIO USERA " + user.name);
+          // console.log("\nDOBIO USERA " + user.name);
             return formatUser(user);
         })
         .catch((err) =>  console.log(err));

@@ -20,6 +20,7 @@
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="scripts/login.js"></script>
     <script src="scripts/authors.js"></script>
+    <script src="scripts/home.js"></script>
     <script src="assets/js/toastr.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -41,6 +42,8 @@
                       <a class="btn btn-sm ml-3" href="pages/login.html">
                         <i class="fa fa-sign-in"></i> Sign in
                       </a>
+                    </div>
+                    <div id="logout">
                     </div>
                     <div id="register">
                       <a class="btn btn-sm ml-3" href="pages/register.html">
@@ -71,7 +74,7 @@
                         <a class="nav-link" href="#">Ordering/Shipping</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link focus" href="/pages/authors/show-authors.html">Authors</a>
+                        <a class="nav-link focus" href="/pages/show-authors.html">Authors</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact Us</a>
@@ -131,7 +134,7 @@
             </aside><!-- /.sidebar -->
 
             <div class="col-xs-12 col-md-8 main">
-                <div class="card-group" id="books-list"></div>
+                <div class="card-group" id="authors-list"></div>
             </div>
         </div><!-- /.row -->
     </main><!-- /.main -->

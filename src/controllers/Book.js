@@ -27,3 +27,15 @@ module.exports.getBookById = function getBookById (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+// module.exports.getBookByGenre = function getBookByGenre (req, res, next) {
+//   var genre = req.swagger.params['genre'].value;
+//
+//   BookService.getBookByGenre(genre)
+//     .then(function (response) {
+//       utils.writeJson(res, response);
+//     })
+//     .catch(function (response) {
+//       utils.writeJson(res, response);
+//     });
+// };

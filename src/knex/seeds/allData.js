@@ -3,15 +3,27 @@ const reviewsData = require('../../data/reviews');
 const usersData = require('../../data/users');
 const authorsData = require('../../data/authors');
 const booksData = require('../../data/books');
+const similarBooksData = require('../../data/similar_books');
 const eventsData = require('../../data/events');
+const cartsData = require('../../data/carts');
+const booksInCartData = require('../../data/books_in_cart');
 
 exports.seed = function(knex, Promise) {
   return knex('reviews').del()
+  .then(() => {
+      return knex('books_in_cart').del();
+  })
+  .then(() => {
+      return knex('carts').del();
+  })
   .then(() => {
       return knex('users').del();
   })
   .then(() => {
       return knex('events').del();
+  })
+  .then(() => {
+      return knex('similar_books').del();
   })
   .then(() => {
       return knex('books').del();
@@ -21,6 +33,15 @@ exports.seed = function(knex, Promise) {
   })
   .then(() => {
       return knex('users').insert(usersData);
+  })
+  .then(() => {
+      let cartPromises = [];
+      cartsData.forEach((cart) => {
+          let user = cart.user;
+          cartPromises.push(createCart(knex, cart, user));
+      });
+
+      return Promise.all(cartPromises);
   })
   .then(() => {
       return knex('authors').insert(authorsData);
@@ -33,6 +54,26 @@ exports.seed = function(knex, Promise) {
       });
 
       return Promise.all(bookPromises);
+  })
+  .then(() => {
+      let similarBooksPromises = [];
+      similarBooksData.forEach((row) => {
+          let book_1 = row.book_1;
+          let book_2 = row.book_2;
+          similarBooksPromises.push(createSimilarBooks(knex, book_1, book_2));
+      });
+
+      return Promise.all(similarBooksPromises);
+  })
+  .then(() => {
+      let booksInCartPromises = [];
+      booksInCartData.forEach((bookInCart) => {
+          let user = bookInCart.user;
+          let book = bookInCart.book;
+          booksInCartPromises.push(createBookInCart(knex, bookInCart, user, book));
+      });
+
+      return Promise.all(booksInCartPromises);
   })
   .then(() => {
       let eventPromises = [];
@@ -55,6 +96,18 @@ exports.seed = function(knex, Promise) {
   });
 };
 
+const createCart = (knex, cart, user) => {
+    console.log('storing cart seeds ...');
+    return knex('users').where('email', user).first()
+        .then((userRecord) => {
+            return knex('carts').insert({
+                id: userRecord.id,
+                currency: cart.currency,
+                value: cart.value
+            });
+        });
+};
+
 const createBook = (knex, book, author) => {
     console.log('storing book seeds ...');
     return knex('authors').where('name', author).first()
@@ -69,6 +122,35 @@ const createBook = (knex, book, author) => {
                 value: book.value,
                 interview: book.interview
             });
+        });
+};
+
+const createSimilarBooks = (knex, book_1, book_2) => {
+    console.log('storing similar books seeds ...');
+    return knex('books').where('title' , book_1).first()
+        .then((book1Record) => {
+            return knex('books').where('title', book_2).first()
+                .then((book2Record) => {
+                    return knex('similar_books').insert({
+                                    book_1: book1Record.id,
+                                    book_2: book2Record.id
+                                });
+                });
+        });
+};
+
+createBookInCart = (knex, bookInCart, user, book) => {
+    console.log('storing books in cart seeds ...');
+    return knex('users').where('email' , user).first()
+        .then((userRecord) => {
+            return knex('books').where('title', book).first()
+                .then((bookRecord) => {
+                    return knex('books_in_cart').insert({
+                                    book_id: bookRecord.id,
+                                    cart_id: userRecord.id,
+                                    status: bookInCart.status
+                                });
+                });
         });
 };
 

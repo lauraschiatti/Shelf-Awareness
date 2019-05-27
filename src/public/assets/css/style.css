@@ -40,6 +40,11 @@ ul, ol {
   color: #D10024!important;
 }
 
+.header {
+  text-align: center;
+  text-underline: #D10024;
+}
+
 
 /* Header
 -------------------------------------------------- */
@@ -64,6 +69,7 @@ ul, ol {
 .footer {
   padding: 2.5rem 0;
   /*color: #fff;*/
+  text-align: center;
   background-color: #e9ecef;
 
 }
@@ -74,25 +80,25 @@ ul, ol {
 
 /* Cards
 -------------------------------------------------- */
-/*.card {*/
-  /*font-size: 1em;*/
-  /*!*overflow: hidden;*!*/
-  /*!*height: 320px;*!*/
-  /*padding: 0;*/
-  /*border: none;*/
-  /*border-radius: .28571429rem;*/
-  /*box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;*/
-/*}*/
+.card {
+  font-size: 1em;
+  overflow: hidden;
+  height: 150 em;
+  padding: 0;
+  display: grid;
+  border: none;
+  border-radius: .28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
 
 .card-title {
   margin-bottom: 10px;
 }
 
 .card-title a{
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  white-space: normal;
   display: block;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .card-subtitle {
@@ -111,6 +117,18 @@ ul, ol {
   background: #fff;
 }
 
+.card-header {
+  overflow: hidden;
+  background-color: #fff;
+  max-width: 98%;
+}
+
+.single-line {
+  width: 90%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+}
 
 /* Responsive breakpoints
 -------------------------------------------------- */

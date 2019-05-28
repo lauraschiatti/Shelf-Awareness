@@ -11,17 +11,15 @@
  * password String
  * no response value expected for this operation
  **/
-exports.userLoginPOST = function(username,password) {
-    return knex('users')
-        .select()
-        .where('users.email','=', username)
-        .andWhere('users.password','=', password)
-        .then((user) => {
-            return formatUser(user);
-        })
-        .catch((err) => console.log(err));
-
-
+exports.userLoginPOST = function(username, password) {
+  return knex('users')
+    .select()
+    .where('users.email', '=', username)
+    .andWhere('users.password', '=', password)
+    .then((user) => {
+      return formatUser(user);
+    })
+    .catch((err) => console.log(err));
 };
 
 
@@ -32,40 +30,40 @@ exports.userLoginPOST = function(username,password) {
  * body User
  * no response value expected for this operation
  **/
- exports.userRegisterPOST = function(email,password,name,address,creditcard) {
-   var registeredUser;
-   knex('users')
-       .first()
-       .where('users.email', email)
-       .then((user) => {
-           registeredUser = user;
-       })
-       .catch((err) =>  new Promise(function(resolve, reject) {
-         reject("NOK");
-       }));
-       // console.log(registeredUser);
-     if(registeredUser==undefined){
-       // console.log("usao u upis");
-       knex('users').insert({
-         name: ""+name+"",
-         email:""+email+"",
-         password:""+password+"",
-         address:""+address+"",
-         creditcard:""+creditcard+""
-       }).then( function (result) {
-          return new Promise(function(resolve, reject) {
-           resolve("OK");
-         });
-          // result.json({ success: true, message: 'ok' });     // respond back to request
-       });
-     }
-       return new Promise(function(resolve, reject) {
-         resolve("OK");
-       });
+exports.userRegisterPOST = function(email, password, name, address, creditcard) {
+  var registeredUser;
+  knex('users')
+    .first()
+    .where('users.email', email)
+    .then((user) => {
+      registeredUser = user;
+    })
+    .catch((err) => new Promise(function(resolve, reject) {
+      reject("NOK");
+    }));
+  // console.log(registeredUser);
+  if (registeredUser == undefined) {
+    // console.log("usao u upis");
+    knex('users').insert({
+      name: "" + name + "",
+      email: "" + email + "",
+      password: "" + password + "",
+      address: "" + address + "",
+      creditcard: "" + creditcard + ""
+    }).then(function(result) {
+      return new Promise(function(resolve, reject) {
+        resolve("OK");
+      });
+      // result.json({ success: true, message: 'ok' });     // respond back to request
+    });
+  }
+  return new Promise(function(resolve, reject) {
+    resolve("OK");
+  });
 
 
 
- }
+}
 
 /**
  * Users available in the inventory
@@ -79,18 +77,18 @@ exports.userLoginPOST = function(username,password) {
 // DB configuration
 var knex = require('../knex/knex');
 
-exports.usersGET = function (offset, limit) {
-    return knex('users')
-        .select()
-        .offset(offset)
-        .limit(limit)
-        .orderBy('id', 'asc')
-        .then((user) => {
-            return user.map(e => {
-                return formatUser(e);
-            });
-        })
-        .catch((err) => console.log(err));
+exports.usersGET = function(offset, limit) {
+  return knex('users')
+    .select()
+    .offset(offset)
+    .limit(limit)
+    .orderBy('id', 'asc')
+    .then((user) => {
+      return user.map(e => {
+        return formatUser(e);
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 
@@ -102,18 +100,18 @@ exports.usersGET = function (offset, limit) {
  * returns User
  **/
 exports.getUserById = function(userId) {
-    return knex('users')
-        .select()
-        .where('users.id', userId)
-        .then((user) => {
-          // console.log("\nDOBIO USERA " + user.name);
-            return formatUser(user);
-        })
-        .catch((err) =>  console.log(err));
+  return knex('users')
+    .select()
+    .where('users.id', userId)
+    .then((user) => {
+      // console.log("\nDOBIO USERA " + user.name);
+      return formatUser(user);
+    })
+    .catch((err) => console.log(err));
 };
 
-function formatUser(user){
-    delete user.password;
+function formatUser(user) {
+  delete user.password;
 
-    return user;
+  return user;
 }

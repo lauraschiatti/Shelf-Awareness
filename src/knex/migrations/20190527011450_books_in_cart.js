@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
           table.increments('id').primary().unsigned();
           table.integer('book_id').unsigned().references('books.id');
           table.integer('cart_id').unsigned().references('carts.id');
-          table.string('status')
+          table.string('status');
       })
   ]);
 };

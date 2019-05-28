@@ -8,9 +8,25 @@ module.exports.cartCartIdGET = function cartCartIdGET(req, res, next) {
   if (!req.session || !req.session.loggedin) {
     utils.writeJson(res, { error: "sorry, you must be authorized" }, 404);
   } else {
-    Cart.cartCartIdGET(cartId)
+    Cart.getCartById(cartId)
       .then(function(response) {
-        utils.writeJson(res, response);
+          var cart = response[0];
+          Cart.getBookIDs(cartId)
+          .then(function(response){
+              var result = {};
+              result['title'] = {
+                  "currency": cart.currency,
+                  "value": cart.value
+              };
+              console.log(response);
+              result["books"] = response;
+
+              utils.writeJson(res, result);
+          })
+          .catch(function(response) {
+            utils.writeJson(res, response);
+          });
+
       })
       .catch(function(response) {
         utils.writeJson(res, response);

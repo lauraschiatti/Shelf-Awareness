@@ -12,14 +12,16 @@ var knex = require('../knex/knex');
  * returns List
  **/
  exports.booksGET = function (offset, limit) {
-    return knex('books')
-        .join('authors', 'authors.id', '=', 'books.author_id')
+    return knex('authors')
+        .join('books', 'books.author_id', '=', 'authors.id')
         .select()
         .offset(offset)
         .limit(limit)
         .orderBy('title', 'asc')
         .then((book) => {
             return book.map(e => {
+                console.log("\nid " + e.book_id);
+                console.log("\nname " + e.title);
                 return formatBook(e);
             });
         })

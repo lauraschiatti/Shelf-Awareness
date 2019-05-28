@@ -1,6 +1,7 @@
 'use strict';
 
-
+// DB configuration
+var knex = require('../knex/knex');
 
 
 /**
@@ -20,8 +21,6 @@ exports.userLoginPOST = function(username,password) {
             return formatUser(user);
         })
         .catch((err) => console.log(err));
-
-
 };
 
 
@@ -32,39 +31,51 @@ exports.userLoginPOST = function(username,password) {
  * body User
  * no response value expected for this operation
  **/
- exports.userRegisterPOST = function(email,password,name,address,creditcard) {
-   var registeredUser;
-   knex('users')
-       .first()
-       .where('users.email', email)
-       .then((user) => {
-           registeredUser = user;
-       })
-       .catch((err) =>  new Promise(function(resolve, reject) {
-         reject("NOK");
-       }));
-       // console.log(registeredUser);
-     if(registeredUser==undefined){
-       // console.log("usao u upis");
-       knex('users').insert({
+exports.userRegisterPOST = function(email,password,name,address,creditcard) {
+    var registeredUser;
+    knex('users')
+        .first()
+        .where('users.email', email)
+        .then((user) => {
+            registeredUser = user;
+        })
+        .catch((err) =>  new Promise(function(resolve, reject) {
+            reject("NOK");
+        }));
+    // console.log(registeredUser);
+    if(registeredUser==undefined){
+        // console.log("usao u upis");
+        knex('users').insert({
          name: ""+name+"",
          email:""+email+"",
          password:""+password+"",
          address:""+address+"",
          creditcard:""+creditcard+""
-       }).then( function (result) {
-          return new Promise(function(resolve, reject) {
-           resolve("OK");
-         });
-          // result.json({ success: true, message: 'ok' });     // respond back to request
+        })
+       .returning('id')
+       .then(function (result) {
+           var id = result[0];
+           console.log("Result of insert a row in user: ");
+           console.log(id);
+           knex('carts').insert({
+               id: id,
+               currency: "eur",
+               value: 0
+           })
+           .then(function(result) {
+               return new Promise(function(resolve, reject) {
+                   resolve("OK");
+               });
+           });
+           return new Promise(function(resolve, reject) {
+               resolve("OK");
+           });
+           // result.json({ success: true, message: 'ok' });     // respond back to request
        });
      }
-       return new Promise(function(resolve, reject) {
+     return new Promise(function(resolve, reject) {
          resolve("OK");
-       });
-
-
-
+     });
  }
 
 /**
@@ -75,10 +86,6 @@ exports.userLoginPOST = function(username,password) {
  * limit Integer Maximum number of items per page. Default is 20 and cannot exceed 500. (optional)
  * returns List
  **/
-
-// DB configuration
-var knex = require('../knex/knex');
-
 exports.usersGET = function (offset, limit) {
     return knex('users')
         .select()

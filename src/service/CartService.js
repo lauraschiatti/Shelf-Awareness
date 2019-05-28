@@ -24,7 +24,7 @@ exports.getBookIDs = function(cartId) {
         .where('books_in_cart.cart_id', cartId)
         .then((books) => {
             return books.map(e => {
-                console.log("\nid " + e.book_id);
+                // console.log("\nid " + e.book_id);
                 return e;
             });
         })

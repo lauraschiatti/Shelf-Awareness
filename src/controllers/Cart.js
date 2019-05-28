@@ -18,7 +18,7 @@ module.exports.cartCartIdGET = function cartCartIdGET(req, res, next) {
                   "currency": cart.currency,
                   "value": cart.value
               };
-              console.log(response);
+              // console.log(response);
               result["books"] = response;
 
               utils.writeJson(res, result);

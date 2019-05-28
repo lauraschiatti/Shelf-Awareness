@@ -20,8 +20,8 @@ var knex = require('../knex/knex');
         .orderBy('title', 'asc')
         .then((book) => {
             return book.map(e => {
-                console.log("\nid " + e.book_id);
-                console.log("\nname " + e.title);
+                // console.log("\nid " + e.book_id);
+                // console.log("\nname " + e.title);
                 return formatBook(e);
             });
         })

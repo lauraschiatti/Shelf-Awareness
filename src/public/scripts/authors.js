@@ -28,7 +28,9 @@ $(document).ready(function() {
             listItem.innerHTML =
               `<div class="card mb-4">
                   <div style = "width: 50em; height: 20em; ">
+                  <a class="text-dark" href="pages/author-page.html?id=${id}">
                     <img class="card-header" src="` + picture + `" alt="Card image cap" style="max-width: 100%;max-height: 100%;" >
+                  </a>
                   </div>
                   <div class="card-body">
                    <p class="card-title"><a class="text-dark" href="/pages/author-page.html?id=`+ id + `">${name }</a></p>

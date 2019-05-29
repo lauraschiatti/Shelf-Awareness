@@ -2,7 +2,7 @@
 
 var utils = require('../utils/writer.js');
 var ReviewService = require('../service/ReviewService');
-var UserService = require('../service/UserService');
+var User = require('../controllers/User');
 
 module.exports.reviewsGET = function reviewsGET(req, res, next) {
   var offset = req.swagger.params['offset'].value;
@@ -29,21 +29,23 @@ module.exports.getReviewById = function getReviewById(req, res, next) {
     });
 };
 
+module.exports.getReviewsByBook = function getReviewsByBook(req, res, next) {
+  var bookId = req.swagger.params['bookId'].value;
+
+  ReviewService.getReviewsByBook(bookId)
+    .then(function(response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function(response) {
+      utils.writeJson(res, response);
+    });
+};
+
 module.exports.createReviewPOST = function userRegisterPOST(req, res, next) {
   var bookId = req.swagger.params["bookId"].value;
   var comment = req.swagger.params["comment"].value;
-  var user;
-  if (req.session.id) {
-    UserService.getUserById(req.session.id)
-      .then(function(response) {
-        console.log("response " + response);
-        console.log("response[0] " + response[0]);
-        console.log("response json " + response.json());
-        user = response.json();
-      })
-      .catch(function(response) {
-        utils.writeJson(res, response);
-      });
+  var user = User.loggedInUserGET(req, res, next);
+  console.log("user " + user);
     if (user) {
       ReviewService.createReview(user.email,bookId,comment)
         .then(function(response) {
@@ -53,6 +55,6 @@ module.exports.createReviewPOST = function userRegisterPOST(req, res, next) {
           utils.writeJson(res, response);
         });
     }
-  }
+
 
 };

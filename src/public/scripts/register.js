@@ -60,26 +60,6 @@ $(document).on("click", "#registerSubmit", function(e) {
 
         });
     }
-    // $.post('v2/user/register', {
-    //     name: name,
-    //     email: email,
-    //     password: password,
-    //     address: address,
-    //     creditcard: creditcard
-    //   }, function(data, status) {
-    //     if (user == "NOK") {
-    //       $("#registerMessage").empty();
-    //       $("#registerMessage").append('<p>Please eneter all the fields correctly. </p>');
-    //     } else if (user == "EXISTS") {
-    //       $("#registerMessage").empty();
-    //       $("#registerMessage").append('<p>User already exists. </p>');
-    //     } else if (user == "OK") {
-    //       toastr.success("Registration successful");
-    //       window.location = "/index.html";
-    //     }
-    //
-    //   }
-    // )
 
 
 });

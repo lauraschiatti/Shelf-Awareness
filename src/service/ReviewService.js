@@ -48,6 +48,20 @@ exports.getReviewById = function(reviewId) {
     .catch((err) => console.log(err));
 };
 
+exports.getReviewsByBook = function(bookId) {
+  return knex('reviews')
+    .join('users', 'users.id', '=', 'reviews.user_id')
+    .select()
+    .where('reviews.book_id', bookId)
+    .then((reviews) => {
+      return reviews.map(e => {
+        return e;
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
+
 exports.createReview = function(user, bookId, comment) {
   knex('reviews').insert({
       comment: "" + comment + "",

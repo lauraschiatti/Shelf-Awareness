@@ -58,7 +58,7 @@ $(document).ready(function() {
 
                     <hr>
 
-                    <small class="font-weight-light">
+                    <small class="font-weight-light" id = "bookReviewButton">
                         <a href="#" class="font-italic"><i class="fa fa-pencil-square-o"></i> Review this product</a>
                         <br>
                         Share your thoughts with other customers

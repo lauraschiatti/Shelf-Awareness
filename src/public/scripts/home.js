@@ -35,6 +35,7 @@ function getBooks() {
                                 <i class="fa fa-shopping-cart"></i> Cart
                             </a>
                            </div>
+                           
                        </div>
                        </div>
                   </div>

@@ -63,10 +63,10 @@ exports.getReviewsByBook = function(bookId) {
 
 
 exports.createReview = function(user, bookId, comment) {
-  knex('reviews').insert({
+ return knex('reviews').insert({
       comment: "" + comment + "",
-      user: "" + user + "",
-      book: "" + bookId + ""
+      user_id: "" + user + "",
+      book_id: "" + bookId + ""
     }).then(function(result) {
       console.log("inserting review");
       return new Promise(function(resolve, reject) {

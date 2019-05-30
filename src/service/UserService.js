@@ -113,7 +113,7 @@ exports.getUserById = function(userId) {
     .select()
     .where('users.id', userId)
     .then((user) => {
-      // console.log("\nDOBIO USERA " + user.name);
+      console.log("\nDOBIO USERA " + user.name);
       return formatUser(user);
     })
     .catch((err) => console.log(err));

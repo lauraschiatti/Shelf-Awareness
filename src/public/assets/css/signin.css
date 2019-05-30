@@ -27,3 +27,13 @@ body {
 .space{
   padding: 1.2em;
 }
+.form-review {
+  width: 100%;
+  max-width: 600px;
+  padding: 25px 15px;
+  /* margin: 0 auto; */
+  margin-left: 85px;
+}
+.form-review .checkbox {
+  font-weight: 400;
+}

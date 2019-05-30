@@ -451,6 +451,11 @@ paths:
         required: true
         type: "integer"
         format: "int64"
+      - name: "userId"
+        in: "formData"
+        required: true
+        type: "integer"
+        format: "int64"
       - name: "comment"
         in: "formData"
         required: true

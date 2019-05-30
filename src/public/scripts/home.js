@@ -1,3 +1,4 @@
+var currentUser = {};
 $(document).ready(function() {
   getUser();
   getBooks();
@@ -35,7 +36,7 @@ function getBooks() {
                                 <i class="fa fa-shopping-cart"></i> Cart
                             </a>
                            </div>
-                           
+
                        </div>
                        </div>
                   </div>
@@ -68,6 +69,7 @@ function getUser() {
       response.json()
         .then(function(data) {
           var user = data[0];
+          currentUser = user;
           if (user != undefined) {
             $('#login').empty();
             $('#loggedIn').empty();
@@ -79,4 +81,7 @@ function getUser() {
         });
     });
 
+}
+function getLoggedInUser(){
+  return currentUser;
 }

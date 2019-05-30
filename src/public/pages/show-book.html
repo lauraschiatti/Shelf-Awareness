@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <!-- Custom styles for this template -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/signin.css" rel="stylesheet">
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="assets/js/jquery-3.2.1.min.js"></script>
   <script src="scripts/login.js"></script>
@@ -104,7 +105,7 @@
 
 
       <div class="col-md-10 col-center m-auto">
-        <h3 class="text-danger h3-header">Customer Reviews</h3>
+        <div id='customerReviews'></div>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Carousel indicators -->
           <ol class="carousel-indicators" id="indicators">
@@ -112,12 +113,9 @@
           <div class="carousel-inner" id="reviewsDiv">
           </div>
           <!-- Carousel controls -->
-          <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-          </a>
-          <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
-            <i class="fa fa-angle-right"></i>
-          </a>
+          <div id="controls">
+          </div>
+
         </div>
       </div>
 

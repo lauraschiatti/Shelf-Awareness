@@ -33,13 +33,14 @@ module.exports.logoutUserGET = function logoutUserGET(req, res, next) {
 
 module.exports.loggedInUserGET = function loggedInUserGET(req, res, next) {
   if (req.session.loggedin ) {
-  // console.log("Getting logged in user");
+  console.log("Getting logged in user");
   // console.log("loggedIn" + req.session.loggedIn);
-  // console.log("session id" + req.session.id);
+  console.log("session id" + req.session.id);
   var userId = req.session.id;
+  console.log("user id" + req.session.id);
   UserService.getUserById(userId)
     .then(function(response) {
-      // console.log("\nDOBIO USERA " + response[0].name);
+      console.log("\nDOBIO USERA U KONTROLERU" + response[0].name);
       utils.writeJson(res, response);
     })
     .catch(function(response) {

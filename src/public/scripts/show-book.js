@@ -58,8 +58,8 @@ $(document).ready(function() {
 
                     <hr>
 
-                    <small class="font-weight-light" id = "bookReviewButton">
-                        <a href="#" class="font-italic"><i class="fa fa-pencil-square-o"></i> Review this product</a>
+                    <small class="font-weight-light" >
+                        <a href="#" id="bookReviewButton" class="font-italic"><i class="fa fa-pencil-square-o"></i> Review this product</a>
                         <br>
                         Share your thoughts with other customers
                     </small>
@@ -67,4 +67,8 @@ $(document).ready(function() {
             </div>
         </div>`);
     });
+});
+$('a#bookReviewButton').click(function(){
+  alert('Yuoo have clicked create review');
+  return false;
 });

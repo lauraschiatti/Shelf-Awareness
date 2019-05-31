@@ -14,7 +14,7 @@ module.exports.cartCartIdGET = function cartCartIdGET(req, res, next) {
           Cart.getBookIDs(cartId)
           .then(function(response){
               var result = {};
-              result['title'] = {
+              result['total'] = {
                   "currency": cart.currency,
                   "value": cart.value
               };
@@ -33,3 +33,14 @@ module.exports.cartCartIdGET = function cartCartIdGET(req, res, next) {
       });
   }
 };
+
+module.exports.addBookPOST = function addBookPOST(req, res, next) {
+    var bookId = req.swagger.params["bookId"].value;
+    var userId = req.swagger.params["userId"].value;
+    // TODO: can we get the userId from session?
+    if (!req.session || !req.session.loggedin) {
+        utils.writeJson(res, { error: "sorry, you must be authorized" }, 404);
+    } else {
+
+    }
+}

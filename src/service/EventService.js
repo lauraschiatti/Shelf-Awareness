@@ -13,9 +13,9 @@
 var knex = require('../knex/knex');
 
 exports.eventsGET = function (offset, limit) {
-    return knex('events')
-        .join('books', 'books.id', '=', 'events.book_id')
+    return knex('books')
         .join('authors', 'authors.id', '=', 'books.author_id')
+        .join('events', 'books.id', '=', 'events.book_id')
         .select()
         .offset(offset)
         .limit(limit)

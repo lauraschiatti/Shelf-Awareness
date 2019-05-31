@@ -24,7 +24,7 @@ $(document).ready(function() {
                             <p class="text-success text-uppercase"> ${status} </p>
                         </div>
                         <div class="col-sm-4">
-                            <img src="${cover}" class="rounded mx-auto d-block img-fluid" style="width:70%;">
+                            <img src="${cover}" class="rounded mx-auto d-block img-fluid" style="width:70%;" />
                         </div>
                     </div>
 

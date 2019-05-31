@@ -49,10 +49,10 @@ exports.getEventById = function(eventId) {
 };
 
 function formatEvent(event){
-    event.book = { title: event.title, cover: event.cover, abstract: event.abstract,
+    event.book = { id: event.book_id, title: event.title, cover: event.cover, abstract: event.abstract,
        genre: event.genre, currency: event.currency, value: event.value,
        status: event.status, interview: event.interview };
-    event.author = { name: event.name, picture: event.picture, bio: event.bio };
+    event.author = { id: event.author_id, name: event.name, picture: event.picture, bio: event.bio };
 
     delete event.book_id;
     delete event.title;

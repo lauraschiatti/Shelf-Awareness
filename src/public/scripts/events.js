@@ -1,3 +1,5 @@
+import { getDate } from './time.js';
+
 $(document).ready(function() {
   fetch('v2/events')
     .then(function(response) {
@@ -13,7 +15,8 @@ $(document).ready(function() {
               book,
               author
             } = json[i];
-            var date = /[0-9]{4}-[0-9]{2}-[0-9]{2}/.exec(held_on);
+            // var date = /[0-9]{4}-[0-9]{2}-[0-9]{2}/.exec(held_on);
+            var date = getDate(held_on);
             // TODO: change column held_on to timestamp? or check if the time of the event can be explicitly stated this way
             listItem.innerHTML =
                 `<div class="card mb-4">

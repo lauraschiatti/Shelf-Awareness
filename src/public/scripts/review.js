@@ -20,7 +20,7 @@ function loadReviews(bookId) {
             $('#customerReviews').empty();
             $('#customerReviews').append(`<h3 class="text-danger h3-header">Customer Reviews</h3>`);
             $('#reviewsDiv').append(` <div class="item carousel-item pb-5 active" id="0">
-              <div class="img-box"><img src="https://picsum.photos/120/200/?random" alt=""></div>
+              <div class="img-box"><img src="https://picsum.photos/120/200/?random" alt="" /></div>
               <p class="p-3">${comment}</p>
             <p><b class="text-success text-uppercase">${name}, </b>   ${date.split("T")[0]}</p>
             </div>`);

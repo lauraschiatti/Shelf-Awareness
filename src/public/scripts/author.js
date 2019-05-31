@@ -18,7 +18,7 @@ $(document).ready(function() {
                             <h4 class="text-dark mb-0">${name}</h4>
                         </div>
                         <div class="col-sm-4">
-                            <img src="${picture}" class="rounded mx-auto d-block img-fluid" style="width:70%;">
+                            <img src="${picture}" class="rounded mx-auto d-block img-fluid" style="width:70%;" />
                         </div>
                     </div>
 

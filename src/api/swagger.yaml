@@ -170,7 +170,7 @@ paths:
     get:
       tags:
         - "user"
-      summary: "Find user by ID"
+      summary: "Find user that is currently logged in"
       description: "Returns a user"
       operationId: "loggedInUserGET"
       produces:
@@ -187,8 +187,8 @@ paths:
     get:
       tags:
         - "user"
-      summary: "Find user by ID"
-      description: "Returns a user"
+      summary: "Log out the user that is logged in"
+      description: "returns the result of logging out"
       operationId: "logoutUserGET"
       produces:
         - "application/json"
@@ -289,7 +289,7 @@ paths:
       tags:
         - "review"
       summary: "Find reviews by book ID"
-      description: "Returns reviews"
+      description: "Returns reviews for one book"
       operationId: "getReviewsByBook"
       produces:
         - "application/json"

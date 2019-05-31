@@ -42,10 +42,17 @@ ul, ol {
 }
 
 .h3-header {
-  text-align: center;
+  /*text-align: center;*/
   text-underline: #D10024;
 }
 
+.navbar-light .navbar-nav .active>.nav-link{
+  color: #D10024!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #343a40;
+}
 
 /* Header
 -------------------------------------------------- */
@@ -64,14 +71,19 @@ ul, ol {
   font-size:1.1rem;
 }
 
+.breadcrumb{
+  background-color: transparent;
+  padding: 0;
+  color: black;
+}
 
 /* Footer
 -------------------------------------------------- */
 .footer {
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
   /*color: #fff;*/
-  text-align: center;
   background-color: #e9ecef;
+  font-size: 90%;
 
 }
 .footer p:last-child {

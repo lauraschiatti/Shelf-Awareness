@@ -26,7 +26,6 @@ $(document).ready(function() {
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Books</a></li>
                 <li class="breadcrumb-item" aria-current="page"><a href="#">${genre}</a></li>
-                <li class="breadcrumb-item text-primary" aria-current="page"><a href="#">${author.name}</a></li>
               </ol>
           </nav>
         </div>

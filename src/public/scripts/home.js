@@ -17,13 +17,13 @@ function getBooks() {
             listItem.innerHTML =
               `<div class="card mb-4">
                   <div style = "width: 50em; height: 20em; " >
-                    <a class="text-dark" href="pages/show-book.html?id=${id}">
+                    <a class="text-dark" href="pages/book.html?id=${id}">
                         <img class="card-header" src="${cover}" alt="Card image cap" style="max-width: 100%;max-height: 100%;" />
                     </a>
                   </div>
                   <div class="card-body">
                    <small class="text-primary"> ${genre}</small>
-                   <p class="card-title"><a class="text-dark" href="pages/show-book.html?id=${id}">${title}</a></p>
+                   <p class="card-title"><a class="text-dark" href="pages/book.html?id=${id}">${title}</a></p>
                    <p class="card-subtitle"><small class="font-italic">${author.name}</small></p>
 
                    <div class="card-footer">

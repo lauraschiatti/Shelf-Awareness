@@ -97,12 +97,9 @@ ul, ol {
 
 /* Cards
 -------------------------------------------------- */
-
 .card {
   font-size: 1em;
   overflow: hidden;
-  height: 150 em;
-  padding: 0;
   display: grid;
   border: none;
   border-radius: .28571429rem;
@@ -123,37 +120,22 @@ ul, ol {
   margin-bottom: 10px;
 }
 
-.card-footer {
-  font-size: 1em;
-  position: static;
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  padding: .75em 1em 0;
-  color: rgba(0, 0, 0, .4);
-  border-top: 1px solid rgba(0, 0, 0, .05) !important;
-  background: #fff;
-}
-
 .card-header {
   overflow: hidden;
   background-color: #fff;
-  max-width: 98%;
-}
-
-.single-line {
-  width: 90%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: pre;
 }
 
 /* Responsive breakpoints
 -------------------------------------------------- */
 /*Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .container{
     max-width: 98%;
+  }
+
+  .card{
+    width: 70%;
+    margin-left: 60px
   }
 }
 

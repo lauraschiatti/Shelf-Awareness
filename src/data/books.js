@@ -10,7 +10,7 @@ module.exports = [
         genre: 'Fiction',
         currency: 'eur',
         value: 10.60,
-        interview: ''
+        interview: ' '
     },
     {
         title: 'Misery',
@@ -23,7 +23,7 @@ module.exports = [
         genre: 'Horror',
         currency: 'eur',
         value: 10.60,
-        interview: ' '
+        interview: 'Once in a while, something will declare itself so obviously that it’s inescapable. Take the psychotic nurse in Misery, which I wrote when I was having such a tough time with dope. I knew what I was writing about. There was never any question. Annie was my drug problem, and she was my number-one fan. God, she never wanted to leave.'
     },
     {
         title: 'Harry Potter and the Philosopher\'s Stone',

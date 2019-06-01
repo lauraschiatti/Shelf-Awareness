@@ -48,7 +48,7 @@ exports.getBookById = function(bookId) {
 };
 
 function formatBook(book){
-    book.author = { name: book.name, picture: book.picture, bio: book.bio };
+    book.author = { id: book.author_id, name: book.name, picture: book.picture, bio: book.bio };
     delete book.author_id;
     delete book.name;
     delete book.picture;

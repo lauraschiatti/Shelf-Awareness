@@ -52,6 +52,7 @@ ul, ol {
 
 .navbar-light .navbar-nav .nav-link {
   color: #343a40;
+  font-size: 80%;
 }
 
 /* Header
@@ -71,12 +72,15 @@ ul, ol {
   font-size:1.1rem;
 }
 
-.breadcrumb{
-  background-color: transparent;
-  padding: 0;
+.breadcrumb a{
   color: black;
 }
 
+.breadcrumb a:hover{
+  /*background-color: transparent;*/
+  /*padding: 0;*/
+  color: #D10024;
+}
 /* Footer
 -------------------------------------------------- */
 .footer {
@@ -182,7 +186,7 @@ ul, ol {
   font-weight: lighter;
 }
 
-/* Carousel
+/* Reviews Carousel
 -------------------------------------------------- */
 .carousel {
   margin: 50px auto;
@@ -244,4 +248,26 @@ ul, ol {
 .carousel-indicators li.active {
   border: none;
   background: #888;
+}
+
+
+/* Hme Carousel
+-------------------------------------------------- */
+.home .carousel-indicators {
+  left: 0;
+  top: auto;
+  bottom: -40px;
+
+}
+
+/* The colour of the indicators */
+.gome .carousel-indicators li {
+  background: #a3a3a3;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}
+
+.gome .carousel-indicators .active {
+  background: #707070;
 }

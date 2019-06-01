@@ -20,60 +20,70 @@ $(document).ready(function() {
       interview
     } = json;
 
-    $("#book").append(`<div class="row justify-content-md-center">
-            <div class="card m-5 col-xs-11 col-md-8">
-                <div class="card-body p-5">
-                    <div class="row pb-4">
-                        <div class="col-sm-8 border-right">
-                            <h4 class="text-dark mb-0">${title}</h4>
-                            <p>by <a href="#">${author.name}</a></p>
+    $("#book").append(`
+        <div class="col-xs-12">
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Books</a></li>
+                <li class="breadcrumb-item" aria-current="page"><a href="#">${genre}</a></li>
+                <li class="breadcrumb-item text-primary" aria-current="page"><a href="#">${author.name}</a></li>
+              </ol>
+          </nav>
+        </div>
+    
+        <div class="row">          
+            <div class="card-body p-5">
+             
+                <div class="row pb-4">
+                    <div class="col-sm-8 border-right">
+                        <h4 class="text-dark mb-0">${title}</h4>
+                        <p>by <a href="#">${author.name}</a></p>
 
-                            <h4 class="text-primary"> $ ${price.value} ${price.currency} </h4>
+                        <h4 class="text-primary"> $ ${price.value} ${price.currency} </h4>
 
-                            <p class="text-success text-uppercase"> ${status} </p>
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="${cover}" class="rounded mx-auto d-block img-fluid" style="width:70%;" />
-                        </div>
+                        <p class="text-success text-uppercase"> ${status} </p>
                     </div>
-
-                    <dl >
-                        <dt>Abstract</dt>
-                        <dd class="text-justify"><small class="font-weight-light">${abstract}</small></dd>
-                        <dt>Genre</dt>
-                        <dd><small class="font-weight-light">${genre}</small></dd>
-                        <dt>Interview</dt>
-                        <dd><q class="font-weight-light">${interview}</q></dd>
-                    </dl>
-
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <dl>
-                                <dt>Quantity: </dt>
-                                <dd>
-                                    <select class="form-control form-control-sm" style="width:70px;">
-                                        <option> 1 </option>
-                                        <option> 2 </option>
-                                        <option> 3 </option>
-                                    </select>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="col-sm-7">
-                            <a href="#" class="btn btn-outline-danger"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
-                        </div>
+                    <div class="col-sm-4">
+                        <img src="${cover}" class="rounded mx-auto d-block img-fluid" style="width:70%;" />
                     </div>
-
-                    <hr>
-
-                    <small class="font-weight-light" id="bookReviewButton" >
-                      <a nohref onClick="reviewCreate();" style = "text-decoration: underline; color: #D10024"  class="font-italic"><i class="fa fa-pencil-square-o"></i> Review this product</a>
-                      <br>
-                      Share your thoughts with other customers
-                    </small>
                 </div>
-            </div>
+
+                <dl >
+                    <dt>Abstract</dt>
+                    <dd class="text-justify"><small class="font-weight-light">${abstract}</small></dd>
+                    <dt>Genre</dt>
+                    <dd><small class="font-weight-light">${genre}</small></dd>
+                    <dt>Interview</dt>
+                    <dd><q class="font-weight-light">${interview}</q></dd>
+                </dl>
+
+                <hr>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <dl>
+                            <dt>Quantity: </dt>
+                            <dd>
+                                <select class="form-control form-control-sm" style="width:70px;">
+                                    <option> 1 </option>
+                                    <option> 2 </option>
+                                    <option> 3 </option>
+                                </select>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-7">
+                        <a href="#" class="btn btn-outline-danger"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <small class="font-weight-light" id="bookReviewButton" >
+                  <a nohref onClick="reviewCreate();" style = "text-decoration: underline; color: #D10024"  class="font-italic"><i class="fa fa-pencil-square-o"></i> Review this product</a>
+                  <br>
+                  Share your thoughts with other customers
+                </small>
+          </div>
         </div>`);
   });
 });

@@ -13,12 +13,11 @@ $(document).ready(function() {
       bio,
       picture
     } = json[0];
-    $("#author").append(
-        `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
+
+      $("#author").append(
+          `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
             <div class="row">          
-                <div class="card-body pb-5">
-                    <a href="pages/all_authors.html"> <i class="fa fa-angle-double-left mb-5 justify-content-end"></i> Back to all authors </a>
-                      
+                <div class="card-body pb-5">                      
                     <div class="row pb-4">
                         <div class="col-sm-8 border-right">
                             <h4 class="text-primary mb-0">${name}</h4>
@@ -31,18 +30,17 @@ $(document).ready(function() {
              
                     <h5><strong>Biography</strong></h5>
                     <p class="text-justify font-weight-light">${bio}</p>
- 
-                    <div class="pt-5">
-                        <h5>Related info</h5>
-                        <ol class="list-unstyled mb-1">
-                          <li><a class="text-primary" href="pages/books_by_author.html?id=${id}"> <i class="fa fa-book"></i> Books by ${name}</a></li>
-                        </ol>
-                    </div>
                     
                   </div>       
                   
                 </div>
             </div>
         </div>`);
+
+      $("#related_info").append(`<h5>Related info</h5>
+        <ol class="list-unstyled mb-1">
+          <li><a href="pages/books_by_author.html?id=${id}"> <i class="fa fa-book"></i> Books by ${name}</a></li>
+        </ol>`);
+
   });
 });

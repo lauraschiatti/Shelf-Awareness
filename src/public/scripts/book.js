@@ -1,31 +1,30 @@
 $(document).ready(function() {
-  $.urlParam = function(name) {
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return results[1] || 0;
-  }
+    $.urlParam = function(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results[1] || 0;
+    }
 
-  var id = $.urlParam('id');
+    var id = $.urlParam('id');
 
-  fetch('v2/books/' + id).then(function(response) {
-    return response.json();
-  }).then(function(json) {
-    let {
-      title,
-      cover,
-      abstract,
-      author,
-      genre,
-      price,
-      status,
-      interview
-    } = json;
+    fetch('v2/books/' + id).then(function(response) {
+        return response.json();
+    }).then(function(json) {
+        let {
+            id,
+            title,
+            cover,
+            abstract,
+            author,
+            genre,
+            price,
+            status,
+            interview
+        } = json;
 
-    $("#book").append(
-        `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
+        $("#book").append(
+            `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
             <div class="row">          
-                <div class="card-body pb-5">
-                    <a href="#"> <i class="fa fa-angle-double-left mb-5"></i> Go to all books of ${genre} </a>
-                      
+                <div class="card-body pb-5">   
                     <div class="row pb-4">
                         <div class="col-sm-8 border-right">
                             <h4 class="text-dark mb-0">${title}</h4>
@@ -82,21 +81,21 @@ $(document).ready(function() {
             </div>
         </div>`);
 
-    $("#related_info").append(`<h5>Related info</h5>
+        $("#related_info").append(`<h5>Related info</h5>
         <ol class="list-unstyled mb-1">
-          <li><a class="text-primary" href="pages/similar_books.html?id=${id}"> <i class="fa fa-book"></i> Similar books to ${title}</a></li>
-          <li><a class="text-primary" href="pages/presented_at.html?id=${id}"> <i class="fa fa-calendar-check-o"></i> Presented at <span class="text-primary" style="text-decoration: underline">events</span></a></li>
+          <li><a href="pages/similar_books.html?id=${id}"> <i class="fa fa-check-square"></i> Similar books to ${title}</a></li>
+          <li><a href="pages/events_by_book.html?id=${id}"> <i class="fa fa-calendar-check-o"></i> Book signing events</a></li>
         </ol>`);
-  });
+    });
 });
 
 function reviewCreate() {
-  $('#bookReviewButton').empty();
-  $('#reviewsDiv').empty();
-  $('#controls').empty();
-  $('#customerReviews').empty();
-  $('#customerReviews').append(`<h4 class="text-danger h3-header text-center">What do you think about the book?</h4>`);
-  $('#reviewsDiv').append(`
+    $('#bookReviewButton').empty();
+    $('#reviewsDiv').empty();
+    $('#controls').empty();
+    $('#customerReviews').empty();
+    $('#customerReviews').append(`<h4 class="text-danger h3-header text-center">What do you think about the book?</h4>`);
+    $('#reviewsDiv').append(`
         <form id="reviewForm" class="form-review">
           <div class="input-group input-group-lg mb-3">
             <textarea rows="4" cols="50" id="inputReview" class="form-control" placeholder="Enter review here" required ></textarea>
@@ -104,46 +103,46 @@ function reviewCreate() {
           <br>
           <button class="btn btn-lg btn-primary btn-block" style = "width: 50%;" id="reviewSubmit" type="button">Submit</button>
         </form>`);
-  return false;
+    return false;
 };
 
 $(document).on("click", "#reviewSubmit", function(e) {
-  e.preventDefault();
-  var comment = document.getElementById("inputReview").value;
-  var user = getLoggedInUser();
-  $.urlParam = function(name) {
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return results[1] || 0;
-  }
+    e.preventDefault();
+    var comment = document.getElementById("inputReview").value;
+    var user = getLoggedInUser();
+    $.urlParam = function(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results[1] || 0;
+    }
 
-  var id = $.urlParam('id');
-  var ok = true;
-  if (comment == "") {
-    ok = false;
-  }
-  if (ok) {
-    $.ajax({
-      url: "v2/reviews/create",
-      contentType: "application/json",
-      dataType: "text",
-      type: "POST",
-      data: JSON.stringify({
-        "userId": user.id,
-        "comment": comment,
-        "bookId": id
-      }),
-      success: function(data) {
-        var message = data;
-        if (message == "OK") {
-          $('#bookReviewButton').append(`
+    var id = $.urlParam('id');
+    var ok = true;
+    if (comment == "") {
+        ok = false;
+    }
+    if (ok) {
+        $.ajax({
+            url: "v2/reviews/create",
+            contentType: "application/json",
+            dataType: "text",
+            type: "POST",
+            data: JSON.stringify({
+                "userId": user.id,
+                "comment": comment,
+                "bookId": id
+            }),
+            success: function(data) {
+                var message = data;
+                if (message == "OK") {
+                    $('#bookReviewButton').append(`
                     <a nohref onClick="reviewCreate();" style = "text-decoration: underline; color: #D10024"  class="font-italic"><i class="fa fa-pencil-square-o"></i> Review this product</a>
                     <br>
                     Share your thoughts with other customers`);
 
-          loadReviews(id);
-        }
-      }
+                    loadReviews(id);
+                }
+            }
 
-    });
-  }
+        });
+    }
 });

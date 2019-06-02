@@ -16,44 +16,23 @@ $(document).ready(function() {
         var time = getTime(held_on);
 
         $("#event").append(`<div class="row justify-content-md-center">
-            <div class="card m-5 col-xs-11 col-md-8">
+            <div class="card mb-5 mt-5 col-xs-11 col-md-8">
                 <div class="card-body p-5">
-                    <div class="row pb-5">
+                    <div class="row">
                         <div class="col-sm-6 border-right">
-                            <h4 class="text-dark mb-0"><a class="text-dark" href="pages/show-book.html?id=${book.id}">${book.title}</a></h4>
-                            <p>by <a href="pages/author-page.html?id=${author.id}">${author.name}</a></p>
-
                             <h4 class="text-primary"> ${location} </h4>
 
                             <p class="text-success text-uppercase"> ${date}  at ${time}</p>
+                            
+                            <a href="pages/book.html?id=${book.id}"> <i class="fa fa-book"></i> About this book</a>
+
                         </div>
-                        <div class="col-sm-3">
-                            <a href="pages/show-book.html?id=${book.id}">
-                                <img src="${book.cover}" class="rounded mx-auto d-block img-fluid" style="" />
-                            </a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="pages/author-page.html?id=${author.id}">
-                            <img src="${author.picture}" class="rounded mx-auto d-block img-fluid" style="" />
+                        <div class="col-sm-6">
+                            <a href="pages/book.html?id=${book.id}">
+                                <img src="${book.cover}" class="mx-auto d-block img-fluid" style="height: 200px" />
                             </a>
                         </div>
                     </div>
-
-                    <dl>
-                        <dt>Abstract</dt>
-                        <dd class="text-justify"><small class="font-weight-light">${book.abstract}</small></dd>
-                        <dt>Genre</dt>
-                        <dd><small class="font-weight-light">${book.genre}</small></dd>
-                        <dt>Interview</dt>
-                        <dd><q class="font-weight-light">${book.interview}</q></dd>
-                    </dl>
-
-                    <hr>
-
-                    <dl >
-                        <dt>About the author</dt>
-                        <dd class="text-justify"><small class="font-weight-light">${author.bio}</small></dd>
-                    </dl>
                 </div>
             </div>
         </div>`);

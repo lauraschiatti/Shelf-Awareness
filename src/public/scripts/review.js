@@ -29,6 +29,7 @@ function loadReviews(bookId) {
             $('#reviewsDiv').empty();
             $('#controls').empty();
             $('#customerReviews').empty();
+            $('#customerReviews').append(`<h4 class="text-danger h3-header text-center">Customer reviews</h4>`);
             $('#reviewsDiv').append(` <div class="item carousel-item pb-5 active" id="0">
               <div class="img-box"><img src="https://picsum.photos/120/200/?random" alt=""></div>
               <p class="p-3">${comment}</p>
@@ -57,13 +58,3 @@ function loadReviews(bookId) {
         });
     });
 }
-
-// function getLoggedInUser() {
-//   fetch('v2/users/loggedInUser')
-//     .then(function(response) {
-//       response.json()
-//         .then(function(data) {
-//           return data;
-//         });
-//     });
-// }

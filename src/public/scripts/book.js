@@ -20,70 +20,73 @@ $(document).ready(function() {
       interview
     } = json;
 
-    $("#book").append(`
-        <div class="col-xs-12">
-          <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Books</a></li>
-                <li class="breadcrumb-item" aria-current="page"><a href="#">${genre}</a></li>
-              </ol>
-          </nav>
-        </div>
+    $("#book").append(
+        `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
+            <div class="row">          
+                <div class="card-body pb-5">
+                    <a href="#"> <i class="fa fa-angle-double-left mb-5"></i> Go to all books of ${genre} </a>
+                      
+                    <div class="row pb-4">
+                        <div class="col-sm-8 border-right">
+                            <h4 class="text-dark mb-0">${title}</h4>
+                            <p>by <a href="pages/author.html?id=${author.id}">${author.name}</a></p>
+        
+                            <h4 class="text-primary"> $ ${price.value} ${price.currency} </h4>
+        
+                            <p class="text-success text-uppercase"> ${status} </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="${cover}" class="rounded mx-auto d-block img-fluid" style="width:70%;" />
+                        </div>
+                    </div>
+        
+        
+                    <h5><strong>Abstract</strong></h5>
+                    <p class="text-justify font-weight-light">${abstract}</p>
+                    
+                    <h5><strong>Genre</strong></h5>
+                    <p class="text-justify font-weight-light">${genre}</p>
+                    
+                    <h5><strong>Interview</strong></h5>
+                    <p class="text-justify font-weight-light">${interview}</p>
+                  
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <dl>
+                                <dt>Quantity: </dt>
+                                <dd>
+                                    <select class="form-control form-control-sm" style="width:70px;">
+                                        <option> 1 </option>
+                                        <option> 2 </option>
+                                        <option> 3 </option>
+                                    </select>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-sm-7">
+                            <a href="#" class="btn btn-outline-danger"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
+                        </div>
+                    </div>
     
-        <div class="row">          
-            <div class="card-body p-5">
-             
-                <div class="row pb-4">
-                    <div class="col-sm-8 border-right">
-                        <h4 class="text-dark mb-0">${title}</h4>
-                        <p>by <a href="#">${author.name}</a></p>
-
-                        <h4 class="text-primary"> $ ${price.value} ${price.currency} </h4>
-
-                        <p class="text-success text-uppercase"> ${status} </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="${cover}" class="rounded mx-auto d-block img-fluid" style="width:70%;" />
-                    </div>
-                </div>
-
-                <dl >
-                    <dt>Abstract</dt>
-                    <dd class="text-justify"><small class="font-weight-light">${abstract}</small></dd>
-                    <dt>Genre</dt>
-                    <dd><small class="font-weight-light">${genre}</small></dd>
-                    <dt>Interview</dt>
-                    <dd><q class="font-weight-light">${interview}</q></dd>
-                </dl>
-
-                <hr>
-                <div class="row">
-                    <div class="col-sm-5">
-                        <dl>
-                            <dt>Quantity: </dt>
-                            <dd>
-                                <select class="form-control form-control-sm" style="width:70px;">
-                                    <option> 1 </option>
-                                    <option> 2 </option>
-                                    <option> 3 </option>
-                                </select>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="col-sm-7">
-                        <a href="#" class="btn btn-outline-danger"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
-                    </div>
-                </div>
-
-                <hr>
-
-                <small class="font-weight-light" id="bookReviewButton" >
-                  <a nohref onClick="reviewCreate();" style = "text-decoration: underline; color: #D10024"  class="font-italic"><i class="fa fa-pencil-square-o"></i> Review this product</a>
-                  <br>
-                  Share your thoughts with other customers
-                </small>
-          </div>
+                    <hr>
+                    
+                    <small class="font-weight-light" id="bookReviewButton" >
+                        <a nohref onClick="reviewCreate();" style="text-decoration: underline" class="font-italic text-info"><i class="fa fa-pencil-square-o"></i> Review this product</a>
+                        <br>
+                        Share your thoughts with other customers
+                    </small>
+                  </div>       
+            
+            </div>
         </div>`);
+
+    $("#related_info").append(`<h5>Related info</h5>
+        <ol class="list-unstyled mb-1">
+          <li><a class="text-primary" href="pages/similar_books.html?id=${id}"> <i class="fa fa-book"></i> Similar books to ${title}</a></li>
+          <li><a class="text-primary" href="pages/presented_at.html?id=${id}"> <i class="fa fa-calendar-check-o"></i> Presented at <span class="text-primary" style="text-decoration: underline">events</span></a></li>
+        </ol>`);
   });
 });
 
@@ -92,7 +95,7 @@ function reviewCreate() {
   $('#reviewsDiv').empty();
   $('#controls').empty();
   $('#customerReviews').empty();
-  $('#customerReviews').append(`<h3 class="text-danger h3-header" style = "text-align: left; margin-left: 175px;">What did you think about this book?</h3>`);
+  $('#customerReviews').append(`<h4 class="text-danger h3-header text-center">What do you think about the book?</h4>`);
   $('#reviewsDiv').append(`
         <form id="reviewForm" class="form-review">
           <div class="input-group input-group-lg mb-3">
@@ -144,12 +147,3 @@ $(document).on("click", "#reviewSubmit", function(e) {
     });
   }
 });
-// function getLoggedInUser() {
-//   fetch('v2/users/loggedInUser')
-//     .then(function(response) {
-//       response.json()
-//         .then(function(data) {
-//           return data;
-//         });
-//     });
-// }

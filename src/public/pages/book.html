@@ -115,43 +115,26 @@
 </div>
 
   <main class="container" id="mainCont">
-    <div class="row align-content-center">
-      <aside class="col-sm-12 col-md-4 col-lg-2 sidebar pt-5">
-        <div class="p-3">
-          <h4 class="font-weight-light">More info</h4>
-          <ol class="list-unstyled mb-0">
-            <li><a href="#"> <i class="fa fa-bookmark"></i> Similar books</a></li>
-            <li><a href="#"> <i class="fa fa-calendar"></i> Related events</a></li>
-          </ol>
-        </div>
-      </aside><!-- /.sidebar -->
+    <div class="row align-content-center" id="book"></div>
 
-      <div class="col-sm-12 col-md-8 col-lg-7 offset-lg-1 main mt-5">
-        <div id="book"></div>
-
-        <br>
-
-        <div class="pl-4">
-          <h5 class="text-danger">Customer Reviews</h5>
-          <div id="customerReviews"></div>
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Carousel indicators -->
-            <ol class="carousel-indicators" id="indicators">
-            </ol>
-            <div class="carousel-inner" id="reviewsDiv">
-            </div>
-            <!-- Carousel controls -->
-            <div id="controls">
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-12 mb-4">
-          <a class="btn btn-link" href="#"> <i class="fa fa-angle-double-left"></i> Back to all  books </a>
-        </div>
+    <div class="pl-4">
+      <div id="customerReviews"></div>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Carousel controls -->
+        <div id="controls"></div>
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators" id="indicators"></ol>
+        <div class="carousel-inner" id="reviewsDiv"></div>
       </div>
+    </div>
 
-    </div><!-- /.row -->
+    <div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mb-5">
+      <div id="related_info"></div>
+    </div>
+
+    <!--<div id="related_info" class="">-->
+      <!---->
+    <!--</div>&lt;!&ndash; /.row &ndash;&gt;-->
   </main><!-- /.main -->
 
   <footer class="footer">

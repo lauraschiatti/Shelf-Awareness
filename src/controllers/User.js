@@ -14,7 +14,7 @@ module.exports.userLoginPOST = function userLoginPOST(req, res, next) {
       utils.writeJson(res, response);
     })
     .catch(function(response) {
-      console.log("\n noooo" );
+      console.log("\n noooo");
       utils.writeJson(res, response);
     });
 };
@@ -32,22 +32,22 @@ module.exports.logoutUserGET = function logoutUserGET(req, res, next) {
 };
 
 module.exports.loggedInUserGET = function loggedInUserGET(req, res, next) {
-  if (req.session.loggedin ) {
-  console.log("Getting logged in user");
-  // console.log("loggedIn" + req.session.loggedIn);
-  console.log("session id" + req.session.id);
-  var userId = req.session.id;
-  console.log("user id" + req.session.id);
-  UserService.getUserById(userId)
-    .then(function(response) {
-      console.log("\nDOBIO USERA U KONTROLERU" + response[0].name);
-      utils.writeJson(res, response);
-    })
-    .catch(function(response) {
-      utils.writeJson(res, response);
-    });
+  if (req.session.loggedin) {
+    console.log("Getting logged in user");
+    // console.log("loggedIn" + req.session.loggedIn);
+    console.log("session id" + req.session.id);
+    var userId = req.session.id;
+    console.log("user id" + req.session.id);
+    UserService.getUserById(userId)
+      .then(function(response) {
+        console.log("\nDOBIO USERA U KONTROLERU" + response[0].name);
+        utils.writeJson(res, response);
+      })
+      .catch(function(response) {
+        utils.writeJson(res, response);
+      });
   } else {
-  // console.log("\n NIJE TREBALO DA UDJES OVDE ");
+    // console.log("\n NIJE TREBALO DA UDJES OVDE ");
     utils.writeJson(res, undefined);
   }
 };

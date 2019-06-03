@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a:hover, a:focus {
-  cursor:pointer;
+  cursor: pointer;
   color: #D10024;
   text-decoration: underline;
   outline: none;
@@ -33,13 +33,13 @@ ul, ol {
   list-style: none
 }
 
-.btn-primary, .btn-primary:hover{
+.btn-primary, .btn-primary:hover {
   background-color: #D10024;
   border: #D10024;
 }
 
-.text-primary{
-  color: #D10024!important;
+.text-primary {
+  color: #D10024 !important;
 }
 
 .h3-header {
@@ -47,8 +47,8 @@ ul, ol {
   text-underline: #D10024;
 }
 
-.navbar-light .navbar-nav .active>.nav-link{
-  color: #D10024!important;
+.navbar-light .navbar-nav .active>.nav-link {
+  color: #D10024 !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -67,21 +67,22 @@ ul, ol {
   text-decoration: none;
 }
 
-.navbar{
+.navbar {
   border-bottom: 1px solid #D10024;
   border-top: 1px solid #D10024;
-  font-size:1.1rem;
+  font-size: 1.1rem;
 }
 
-.breadcrumb a{
+.breadcrumb a {
   color: black;
 }
 
-.breadcrumb a:hover{
+.breadcrumb a:hover {
   /*background-color: transparent;*/
   /*padding: 0;*/
   color: #D10024;
 }
+
 /* Footer
 -------------------------------------------------- */
 .footer {
@@ -89,12 +90,11 @@ ul, ol {
   /*color: #fff;*/
   background-color: #e9ecef;
   font-size: 90%;
-
 }
+
 .footer p:last-child {
   margin-bottom: 0;
 }
-
 
 /* Cards
 -------------------------------------------------- */
@@ -111,7 +111,7 @@ ul, ol {
   margin-bottom: 10px;
 }
 
-.card-title a{
+.card-title a {
   white-space: normal;
   display: block;
   /*overflow: hidden;*/
@@ -130,19 +130,19 @@ ul, ol {
 -------------------------------------------------- */
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 767px) {
-  .container{
+  .container {
     max-width: 98%;
   }
 
-  .card{
+  .card {
     width: 70%;
     margin-left: 60px
   }
 }
 
 /*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) and (max-width: 991px){
-  .container{
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
     max-width: 96%;
   }
 
@@ -153,7 +153,7 @@ ul, ol {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .container{
+  .container {
     max-width: 90%;
   }
 
@@ -164,7 +164,7 @@ ul, ol {
 
 /* Login
 -------------------------------------------------- */
-#loggedIn{
+#loggedIn {
   color: #D10024;
   font-weight: lighter;
 }
@@ -244,80 +244,75 @@ ul, ol {
   background: #888;
 }
 
-
 /* Home Cards
 -------------------------------------------------- */
-#what-we-do .card{
-  padding: 1rem!important;
+#what-we-do .card {
+  padding: 1rem !important;
   border: none;
-  margin-bottom:1rem;
+  margin-bottom: 1rem;
   -webkit-transition: .5s all ease;
   -moz-transition: .5s all ease;
   transition: .5s all ease;
 }
 
-#what-we-do .card .card-block{
+#what-we-do .card .card-block {
   padding-left: 50px;
   position: relative;
 }
-#what-we-do .card .card-block a{
+
+#what-we-do .card .card-block a {
   color: #D10024 !important;
-  font-weight:700;
-  text-decoration:none;
+  font-weight: 700;
+  text-decoration: none;
 }
-#what-we-do .card .card-block a i{
-  display:none;
 
+#what-we-do .card .card-block a i {
+  display: none;
 }
-#what-we-do .card:hover .card-block a i{
-  display:inline-block;
-  font-weight:700;
 
+#what-we-do .card:hover .card-block a i {
+  display: inline-block;
+  font-weight: 700;
 }
-#what-we-do .card .card-block:before{
+
+#what-we-do .card .card-block:before {
   font-family: FontAwesome;
   position: absolute;
   font-size: 39px;
   color: #D10024;
   left: 0;
   -webkit-transition: -webkit-transform .2s ease-in-out;
-  transition:transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
 }
-#what-we-do .card .block-1:before{
+
+#what-we-do .card .block-1:before {
   content: "\f0e7";
 }
-#what-we-do .card .block-2:before{
+
+#what-we-do .card .block-2:before {
   content: "\f0eb";
 }
-#what-we-do .card .block-3:before{
+
+#what-we-do .card .block-3:before {
   content: "\f00c";
 }
-#what-we-do .card .block-4:before{
+
+#what-we-do .card .block-4:before {
   content: "\f209";
 }
-#what-we-do .card .block-5:before{
+
+#what-we-do .card .block-5:before {
   content: "\f0a1";
 }
-#what-we-do .card .block-6:before{
+
+#what-we-do .card .block-6:before {
   content: "\f218";
 }
-#what-we-do .card:hover .card-block:before{
+
+#what-we-do .card:hover .card-block:before {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
   -webkit-transition: .5s all ease;
   -moz-transition: .5s all ease;
   transition: .5s all ease;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

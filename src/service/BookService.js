@@ -28,6 +28,22 @@ var knex = require('../knex/knex');
         .catch((err) => console.log(err));
 };
 
+exports.booksByAuthorGET = function (authorId) {
+   return knex('authors')
+       .join('books', 'books.author_id', '=', 'authors.id')
+       .select()
+       .where('books.author_id', authorId)
+       .orderBy('title', 'asc')
+       .then((book) => {
+           return book.map(e => {
+               // console.log("\nid " + e.book_id);
+               // console.log("\nname " + e.title);
+               return formatBook(e);
+           });
+       })
+       .catch((err) => console.log(err));
+};
+
 
 /**
  * Find book by ID

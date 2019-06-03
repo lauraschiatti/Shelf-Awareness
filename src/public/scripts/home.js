@@ -73,6 +73,7 @@ function getUser() {
           }
         });
 
+});
 }
 
 function getLoggedInUser() {

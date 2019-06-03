@@ -6,13 +6,13 @@ $(document).ready(function() {
 
     var id = $.urlParam('id');
 
-    fetch('v2/books')
+    fetch('v2/books/byAuthor/' + id)
         .then(function(response) {
             response.json()
         .then(function(json) {
             $("#books_by_author_header").append(`<div class="row pb-4">
                 <div class="col-sm-8">
-                    <h4 class="text-primary mb-0"><strong>Author </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> author_name <i class="fa fa-angle-double-right"></i></h4>
+                    <h4 class="text-primary mb-0"><strong>Author </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${json[0].author.name} <i class="fa fa-angle-double-right"></i></h4>
                 </div>
             </div>`);
 
@@ -33,7 +33,7 @@ $(document).ready(function() {
                         <div class="view">
                             <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px">
                         </div>
-                
+
                         <!--Card content-->
                         <div class="card-body">
                             <small class="text-primary"> Genre</small>

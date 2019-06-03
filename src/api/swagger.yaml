@@ -134,6 +134,32 @@ paths:
         404:
           description: "Author not found"
       x-swagger-router-controller: "Author"
+  /books/byAuthor/{authorId}:
+    get:
+      tags:
+        - "book"
+      summary: "Books by author available in the inventory"
+      description: "List of books by author available in the inventory"
+      operationId: "booksByAuthorGET"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "authorId"
+          in: "path"
+          description: "ID of book of reviews"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        200:
+          description: "A collection of books"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Book"
+        404:
+          description: "Unexpected error"
+      x-swagger-router-controller: "Book"
   /users:
     get:
       tags:

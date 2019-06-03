@@ -28,6 +28,17 @@ module.exports.getBookById = function getBookById (req, res, next) {
     });
 };
 
+module.exports.booksByAuthorGET = function booksByAuthorGET (req, res, next) {
+  var authorId = req.swagger.params['authorId'].value;
+
+  BookService.booksByAuthorGET(authorId)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
 // module.exports.getBookByGenre = function getBookByGenre (req, res, next) {
 //   var genre = req.swagger.params['genre'].value;
 //

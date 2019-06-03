@@ -6,8 +6,10 @@ $(document).ready(function() {
     var allParams = window.location.href.split("?")[1];
     var bookParam = allParams.split("&")[1];
     var genreParam =allParams.split("&")[0];
+    var titleParam =allParams.split("&")[2];
     var id =bookParam.split("=")[1];
     var genre =genreParam.split("=")[1];
+    var title =titleParam.split("=")[1];
 
     fetch('v2/books/byGenre/' + genre)
         .then(function(response) {
@@ -49,7 +51,7 @@ $(document).ready(function() {
             }
 
             $("#related_info_genre").append(`<ol class="list-unstyled">
-              <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline"> book</span></a></li>
+              <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline"> ${title}</span></a></li>
             </ol>`);
 
         });

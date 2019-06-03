@@ -10,11 +10,12 @@ $(document).ready(function() {
         .then(function(response) {
             response.json()
         .then(function(json) {
-            $("#books_by_author_header").append(`<div class="row pb-4">
+            $("#similar_books_header").append(`<div class="row pb-4">
                 <div class="col-sm-8">
-                    <h4 class="text-primary mb-0"><strong>Author </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> author_name <i class="fa fa-angle-double-right"></i></h4>
+                    <h4 class="text-primary mb-0"><strong>Similar books to </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> book_name <i class="fa fa-angle-double-right"></i></h4>
                 </div>
             </div>`);
+
 
             for (let i = 0; i < json.length; i++) {
                 let listItem = document.createElement("div");
@@ -42,7 +43,7 @@ $(document).ready(function() {
                         </div>
                     </div>`;
 
-                $("#books_by_author").append(listItem);
+                $("#similar_books").append(listItem);
             }
 
             $("#related_info").append(`<ol class="list-unstyled">

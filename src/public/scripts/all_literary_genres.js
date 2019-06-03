@@ -22,7 +22,7 @@ $(document).ready(function() {
                           <!--Card content-->
                           <div class="card-body">
                               <small class="text-primary"> ${genre}</small>
-                              <small class="card-title"><a class="text-dark" href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
+                              <small class="card-title"><a class="text-dark" href="pages/books_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
                           </div>
                       </div>`;
 
@@ -38,7 +38,7 @@ $(document).ready(function() {
                           <!--Card content-->
                           <div class="card-body">
                               <small class="text-primary"> ${genre}</small>
-                              <small class="card-title"><a class="text-dark" href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
+                              <small class="card-title"><a class="text-dark" href="pages/books_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
                           </div>
                       </div>`;
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
                           <!--Card content-->
                           <div class="card-body">
                               <small class="text-primary"> ${genre}</small>
-                              <small class="card-title"><a class="text-dark" href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
+                              <small class="card-title"><a class="text-dark" href="pages/books_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
                           </div>
                       </div>`;
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
                           <!--Card content-->
                           <div class="card-body">
                               <small class="text-primary"> ${genre}</small>
-                              <small class="card-title"><a class="text-dark" href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
+                              <small class="card-title"><a class="text-dark" href="pages/books_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
                           </div>
                       </div>`;
 
@@ -86,7 +86,7 @@ $(document).ready(function() {
                           <!--Card content-->
                           <div class="card-body">
                               <small class="text-primary"> ${genre}</small>
-                              <small class="card-title"><a class="text-dark" href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
+                              <small class="card-title"><a class="text-dark" href="pages/books_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a></small>
                           </div>
                       </div>`;
 

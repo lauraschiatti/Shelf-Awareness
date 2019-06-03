@@ -18,7 +18,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" id="toastr-css">
     <link href="assets/css/style.css" rel="stylesheet">
     <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <!--<script src="scripts/books_by_genre.js"></script>-->
+    <script src="scripts/books_by_genre.js"></script>
     <script src="scripts/home.js"></script>
 
 </head>
@@ -108,9 +108,10 @@
 <main class="container p-5">
     <div class="row d-flex justify-content-center">
         <div class="col-xs-12 col-md-10 main">
-            <h3 class="text-danger h3-header pb-3"><i class="fa fa-book"></i> Books by genre </h3>
+          <div class="col-xs-12 col-md-10 main" id="books_by_genre_header"></div>
 
-            <!--<div class="card-group" id="books-by-genre-list"></div>-->
+            <div class="card-group" id="books-by-genre-list"></div>
+            <div id="related_info_genre" class="m-4"></div>
         </div>
     </div><!-- /.row -->
 </main><!-- /.main -->

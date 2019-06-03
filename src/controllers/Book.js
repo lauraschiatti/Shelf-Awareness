@@ -39,6 +39,18 @@ module.exports.booksByAuthorGET = function booksByAuthorGET (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+module.exports.booksByGenreGET = function booksByGenreGET (req, res, next) {
+  var genre = req.swagger.params['genre'].value;
+
+  BookService.booksByGenreGET(genre)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
 // module.exports.getBookByGenre = function getBookByGenre (req, res, next) {
 //   var genre = req.swagger.params['genre'].value;
 //

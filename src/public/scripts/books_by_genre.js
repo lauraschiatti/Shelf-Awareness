@@ -1,18 +1,21 @@
 $(document).ready(function() {
-    $.urlParam = function(name){
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        return results[1] || 0;
-    }
+    // $.urlParam = function(name){
+    //     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    //     return results[1] || 0;
+    // }
+    var allParams = window.location.href.split("?")[1];
+    var bookParam = allParams.split("&")[1];
+    var genreParam =allParams.split("&")[0];
+    var id =bookParam.split("=")[1];
+    var genre =genreParam.split("=")[1];
 
-    var id = $.urlParam('id');
-
-    fetch('v2/books/byAuthor/' + id)
+    fetch('v2/books/byGenre/' + genre)
         .then(function(response) {
             response.json()
         .then(function(json) {
-            $("#books_by_author_header").append(`<div class="row pb-4">
+            $("#books_by_genre_header").append(`<div class="row pb-4">
                 <div class="col-sm-8">
-                    <h4 class="text-primary mb-0"><strong>Author </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${json[0].author.name} <i class="fa fa-angle-double-right"></i></h4>
+                    <h4 class="text-primary mb-0"><strong>Genre </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${json[0].genre} <i class="fa fa-angle-double-right"></i></h4>
                 </div>
             </div>`);
 
@@ -42,12 +45,13 @@ $(document).ready(function() {
                         </div>
                     </div>`;
 
-                $("#books_by_author").append(listItem);
+                $("#books-by-genre-list").append(listItem);
             }
 
-            $("#related_info").append(`<ol class="list-unstyled">
-              <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline">book </span></a></li>
+            $("#related_info_genre").append(`<ol class="list-unstyled">
+              <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline"> book</span></a></li>
             </ol>`);
+
         });
     });
 });

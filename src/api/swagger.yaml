@@ -146,10 +146,35 @@ paths:
       parameters:
         - name: "authorId"
           in: "path"
-          description: "ID of book of reviews"
+          description: "ID of author of book"
           required: true
           type: "integer"
           format: "int64"
+      responses:
+        200:
+          description: "A collection of books"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Book"
+        404:
+          description: "Unexpected error"
+      x-swagger-router-controller: "Book"
+  /books/byGenre/{genre}:
+    get:
+      tags:
+        - "book"
+      summary: "Books by genre available in the inventory"
+      description: "List of books by genre available in the inventory"
+      operationId: "booksByGenreGET"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "genre"
+          in: "path"
+          description: "Name of genre"
+          required: true
+          type: "string"
       responses:
         200:
           description: "A collection of books"

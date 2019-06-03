@@ -45,6 +45,21 @@ exports.booksByAuthorGET = function (authorId) {
 };
 
 
+exports.booksByGenreGET = function (genre) {
+   return knex('authors')
+       .join('books', 'books.author_id', '=', 'authors.id')
+       .select()
+       .where('books.genre','=',  genre)
+       .orderBy('title', 'asc')
+       .then((book) => {
+           return book.map(e => {
+               // console.log("\nid " + e.book_id);
+               // console.log("\nname " + e.title);
+               return formatBook(e);
+           });
+       })
+       .catch((err) => console.log(err));
+};
 /**
  * Find book by ID
  * Returns a book

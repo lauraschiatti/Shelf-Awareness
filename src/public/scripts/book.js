@@ -23,34 +23,34 @@ $(document).ready(function() {
 
         $("#book").append(
             `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
-            <div class="row">          
-                <div class="card-body pb-5">   
+            <div class="row">
+                <div class="card-body pb-5">
                     <div class="row pb-4">
                         <div class="col-sm-8 border-right">
                             <h4 class="text-dark mb-0">${title}</h4>
                             <p>by <a href="pages/author.html?id=${author.id}">${author.name}</a></p>
-        
+
                             <h4 class="text-primary"> $ ${price.value} ${price.currency} </h4>
-        
+
                             <p class="text-success text-uppercase"> ${status} </p>
                         </div>
                         <div class="col-sm-4">
                             <img src="${cover}" class="rounded mx-auto d-block img-fluid" style="width:70%;" />
                         </div>
                     </div>
-        
-        
+
+
                     <h5><strong>Abstract</strong></h5>
                     <p class="text-justify font-weight-light">${abstract}</p>
-                    
+
                     <h5><strong>Genre</strong></h5>
                     <p class="text-justify font-weight-light">${genre}</p>
-                    
+
                     <h5><strong>Interview</strong></h5>
                     <p class="text-justify font-weight-light">${interview}</p>
-                  
+
                     <hr>
-                    
+
                     <div class="row">
                         <div class="col-sm-5">
                             <dl>
@@ -68,16 +68,16 @@ $(document).ready(function() {
                             <a href="#" class="btn btn-outline-danger"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
                         </div>
                     </div>
-    
+
                     <hr>
-                    
+
                     <small class="font-weight-light" id="bookReviewButton" >
                         <a nohref onClick="reviewCreate();" style="text-decoration: underline" class="font-italic text-success"><i class="fa fa-pencil-square-o"></i> Review this product</a>
                         <br>
                         Share your thoughts with other customers
                     </small>
-                  </div>       
-            
+                  </div>
+
             </div>
         </div>`);
 
@@ -86,6 +86,9 @@ $(document).ready(function() {
           <li><a href="pages/similar_books.html?id=${id}"> <i class="fa fa-check-square"></i> Similar books to ${title}</a></li>
           <li><a href="pages/events_by_book.html?id=${id}"> <i class="fa fa-calendar-check-o"></i> Book signing events</a></li>
         </ol>`);
+        $("#booksByGenre").append(`<ol class="list-unstyled mb-1">
+          <li><a href="pages/all_books_by_genre.html?genre=${genre}&id=${id}"> <i class="fa fa-book"></i> All books by genre ${genre}</a></li>
+        </ol> `);
     });
 });
 
@@ -146,15 +149,3 @@ $(document).on("click", "#reviewSubmit", function(e) {
         });
     }
 });
-<<<<<<< HEAD
-// function getLoggedInUser() {
-//   fetch('v2/users/loggedInUser')
-//     .then(function(response) {
-//       response.json()
-//         .then(function(data) {
-//           return data;
-//         });
-//     });
-// }
-=======
->>>>>>> aca4a860cedd16e085f811f89143343277b7aa79

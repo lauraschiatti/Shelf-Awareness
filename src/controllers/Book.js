@@ -51,6 +51,8 @@ module.exports.booksByGenreGET = function booksByGenreGET (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+
 // module.exports.getBookByGenre = function getBookByGenre (req, res, next) {
 //   var genre = req.swagger.params['genre'].value;
 //

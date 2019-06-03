@@ -72,7 +72,7 @@ $(document).ready(function() {
                     <hr>
                     
                     <small class="font-weight-light" id="bookReviewButton" >
-                        <a nohref onClick="reviewCreate();" style="text-decoration: underline" class="font-italic text-info"><i class="fa fa-pencil-square-o"></i> Review this product</a>
+                        <a nohref onClick="reviewCreate();" style="text-decoration: underline" class="font-italic text-success"><i class="fa fa-pencil-square-o"></i> Review this product</a>
                         <br>
                         Share your thoughts with other customers
                     </small>

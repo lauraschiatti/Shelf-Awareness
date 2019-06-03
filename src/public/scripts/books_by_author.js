@@ -46,7 +46,7 @@ $(document).ready(function() {
             }
 
             $("#related_info").append(`<ol class="list-unstyled">
-              <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline" ">book name</span></a></li>
+              <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline">book name</span></a></li>
             </ol>`);
         });
     });

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,16 +12,16 @@
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
     <!-- Bootstrap core CSS-->
-    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" id="toastr-css">
     <link href="assets/css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="scripts/login.js"></script>
     <script src="scripts/home.js"></script>
-
+    <!--<script src="scripts/events_by_book.js"></script>-->
 </head>
 
 <body>
@@ -53,14 +54,13 @@
             </div>
         </div>
     </header>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-1 mb-2 justify-content-end">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <!-- Dropdown -->
@@ -102,82 +102,30 @@
             </ul>
         </div>
     </nav>
-
 </div>
 
 <main class="container p-5">
-
     <div class="row d-flex justify-content-center">
-        <div class="col-xs-12 col-md-10 main">
-            <div class="card-group" id="books-list"></div>
+        <!--<div class="col-xs-12 col-md-10 main" id="events_by_book_header"></div>-->
+        <div class="col-xs-12 col-md-10 main" id="events_by_book_header">
+            <div class="row pb-4">
+                <div class="col-sm-8">
+                    <h4 class="text-primary mb-0"><strong>Book signing events </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> book_name <i class="fa fa-angle-double-right"></i></h4>
+                </div>
+            </div>
         </div>
     </div><!-- /.row -->
 
-    <blockquote class="text-center text-muted font-italic">“If you don’t like to read, you haven’t found the right book.” – J.K. Rowling</blockquote>
-
-    <section id="what-we-do">
-        <div class="container-fluid">
-            <h3 class="mb-4"> More </h3>
-            <div class="row mt-2">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                    <div class="card">
-                        <div class="card-block block-1">
-                            <h3 class="card-title">Special title</h3>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                    <div class="card">
-                        <div class="card-block block-2">
-                            <h3 class="card-title">Special title</h3>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                    <div class="card">
-                        <div class="card-block block-3">
-                            <h3 class="card-title">Special title</h3>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                    <div class="card">
-                        <div class="card-block block-4">
-                            <h3 class="card-title">Special title</h3>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                    <div class="card">
-                        <div class="card-block block-5">
-                            <h3 class="card-title">Special title</h3>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                    <div class="card">
-                        <div class="card-block block-6">
-                            <h3 class="card-title">Special title</h3>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                        </div>
-                    </div>
-                </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-xs-12 col-md-10 main">
+            <div class="card-group" id="events_by_book"></div>
+            <div id="related_info" class="m-4">
+                <ol class="list-unstyled">
+                    <li><a href="pages/book.html?id="> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline">book name</span></a></li>
+                </ol>
             </div>
         </div>
-    </section>
+    </div>
 </main><!-- /.main -->
 
 <footer class="footer">
@@ -195,9 +143,9 @@
                 <h5 class="text-primary">Help</h5>
                 <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
                 <ul class="list-unstyled">
-                    <li><a href="pages/ordering-shipping.html">Ordering & Shipping</a></li>
-                    <li><a href="#">Payment Options</a></li>
-                    <li><a href="pages/contact-us.html">Contact Us</a></li>
+                    <li><a href="pages/ordering_shipping.html">Ordering & Shipping</a></li>
+                    <li><a href="javascript:void(0)">Payment Options</a></li>
+                    <li><a href="pages/contact_us.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -205,9 +153,9 @@
                 <h5 class="text-primary">More Info</h5>
                 <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
                 <ul class="list-unstyled">
-                    <li><a href="#">Terms of use</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="javascript:void(0)">Terms of use</a></li>
+                    <li><a href="javascript:void(0)">Privacy</a></li>
+                    <li><a href="javascript:void(0)">FAQ</a></li>
                 </ul>
             </div>
 
@@ -222,16 +170,18 @@
             </div>
 
             <div class="col-12 copyright mt-3 text-center p-2">
-                <small> &copy; 2019. Shelf Awareness, Inc. <a class="text-primary" href="#">Back to top</a></small>
+                <small> &copy; 2019. Shelf Awareness, Inc.</small>
             </div>
         </div>
     </div>
 </footer>
 
+<script src="assets/js/toastr.min.js"></script>
 <!-- Bootstrap core JavaScript -->
-<script src="assets/js/jquery-3.2.1.slim.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
+

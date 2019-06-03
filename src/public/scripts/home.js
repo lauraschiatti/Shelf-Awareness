@@ -1,72 +1,58 @@
 var currentUser = {};
 $(document).ready(function() {
-  getUser();
-  getBooks();
+    getUser();
+    getBooks();
 });
 
 function getBooks() {
-  fetch('v2/books')
-    .then(function(response) {
-      response.json()
+    fetch('v2/books')
+        .then(function(response) {
+            response.json()
         .then(function(json) {
-          for (let i = 0; i < json.length; i++) {
-            let listItem = document.createElement("div");
-            listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
+            for (let i = 0; i < json.length; i++) {
+                let listItem = document.createElement("div");
+                listItem.setAttribute('class', 'col-lg-3 col-md-4 col-sm-6 col-xs-6');
 
-            let {
-              id,
-              title,
-              cover,
-              author,
-              genre,
-              price
-            } = json[i];
-            listItem.innerHTML =
-              `<div class="card mb-4">
-                  <div style = "width: 50em; height: 20em; " >
-                    <a class="text-dark" href="pages/show-book.html?id=${id}">
-                        <img class="card-header" src="${cover}" alt="Card image cap" style="max-width: 100%;max-height: 100%;" />
-                    </a>
-                  </div>
-                  <div class="card-body">
-                   <small class="text-primary"> ${genre}</small>
-                   <p class="card-title"><a class="text-dark" href="pages/show-book.html?id=${id}">${title}</a></p>
-                   <p class="card-subtitle"><small class="font-italic">${author.name}</small></p>
+                let {
+                    id,
+                    title,
+                    cover,
+                    author
+                } = json[i];
 
-                   <div class="card-footer">
-                       <div class="row text-center">
-                           <div class="col-xs-6">
-                            <small class="text-muted">$ ${price.value} ${price.currency}</small>
-                           </div>
-                           <div class="col-xs-6">
-                            <a class="pull-right btn btn-primary btn-sm ml-3" href="cart.html">
-                                <i class="fa fa-shopping-cart"></i> Cart
-                            </a>
-                           </div>
+                if(id <= 4){
+                    listItem.innerHTML =
+                        `<div class="card mb-3">
+                      <!--Card image-->
+                      <div class="view">
+                        <a href="pages/book.html?id=${id}">
+                          <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px">
+                        </a>
+                      </div>
 
-                       </div>
-                       </div>
-                  </div>
-                </div>`;
+                    </div>`;
 
-            $("#books-list").append(listItem);
-          }
+                    $("#books-list").append(listItem);
+                }
+
+
+            }
         });
     });
 }
 
 $(document).on("click", "#logout", function(e) {
-  e.preventDefault();
-  fetch('v2/users/logoutUser')
-    .then(function(response) {
-      response.json()
-        .then(function(data) {
-          var user = data;
-          if (user.loggedin == false) {
-            window.location = "/index.html";
-          }
+    e.preventDefault();
+    fetch('v2/users/logoutUser')
+        .then(function(response) {
+            response.json()
+                .then(function(data) {
+                    var user = data;
+                    if (user.loggedin == false) {
+                        window.location = "/index.html";
+                    }
+                });
         });
-    });
 });
 
 function getUser() {
@@ -86,7 +72,6 @@ function getUser() {
             $('#logout').empty();
           }
         });
-    });
 
 }
 

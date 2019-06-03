@@ -33,7 +33,7 @@ $(document).ready(function() {
                   </a>
                   </div>
                   <div class="card-body">
-                   <p class="card-title"><a class="text-dark" href="/pages/author-page.html?id=`+ id + `">${name }</a></p>
+                   <p class="card-title"><a class="text-dark" href="/pages/author-page.html?id=` + id + `">${name }</a></p>
                 </div>`;
             $("#authors-list").append(listItem);
           }

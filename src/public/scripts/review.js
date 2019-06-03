@@ -10,11 +10,15 @@ function loadReviews(bookId) {
     .then(function(response) {
       response.json()
         .then(function(json) {
-          if(json.length==0){
+          if (json.length == 0) {
             $('#reviewsDiv').empty();
             $('#reviewsDiv').append(`  <p class="p-3">No reviews</p>`);
-          } else if(json.length==1){
-            let {comment,date,name} = json[0];
+          } else if (json.length == 1) {
+            let {
+              comment,
+              date,
+              name
+            } = json[0];
             $('#reviewsDiv').empty();
             $('#controls').empty();
             $('#customerReviews').empty();
@@ -25,8 +29,12 @@ function loadReviews(bookId) {
             <p><b class="text-success text-uppercase">${name}, </b>   ${date.split("T")[0]}</p>
             </div>`);
 
-          } else{
-            let {comment,date,name} = json[0];
+          } else {
+            let {
+              comment,
+              date,
+              name
+            } = json[0];
             $('#reviewsDiv').empty();
             $('#controls').empty();
             $('#customerReviews').empty();

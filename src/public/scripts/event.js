@@ -1,21 +1,29 @@
-import { getDate, getTime } from './time.js';
+import {
+  getDate,
+  getTime
+} from './time.js';
 
 $(document).ready(function() {
-    $.urlParam = function(name){
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        return results[1] || 0;
-    }
+  $.urlParam = function(name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
+  }
 
-    var id = $.urlParam('id');
+  var id = $.urlParam('id');
 
-    fetch('v2/events/' + id).then(function(response) {
-        return response.json();
-    }).then(function(json) {
-        let { location, held_on, book, author } = json;
-        var date = getDate(held_on);
-        var time = getTime(held_on);
+  fetch('v2/events/' + id).then(function(response) {
+    return response.json();
+  }).then(function(json) {
+    let {
+      location,
+      held_on,
+      book,
+      author
+    } = json;
+    var date = getDate(held_on);
+    var time = getTime(held_on);
 
-        $("#event").append(`<div class="row justify-content-md-center">
+    $("#event").append(`<div class="row justify-content-md-center">
             <div class="card m-5 col-xs-11 col-md-8">
                 <div class="card-body p-5">
                     <div class="row pb-5">
@@ -57,5 +65,5 @@ $(document).ready(function() {
                 </div>
             </div>
         </div>`);
-    });
+  });
 });

@@ -1,4 +1,6 @@
-import { getDate } from './time.js';
+import {
+  getDate
+} from './time.js';
 
 $(document).ready(function() {
   fetch('v2/events')
@@ -19,7 +21,7 @@ $(document).ready(function() {
             var date = getDate(held_on);
             // TODO: change column held_on to timestamp? or check if the time of the event can be explicitly stated this way
             listItem.innerHTML =
-                `<div class="card mb-4">
+              `<div class="card mb-4">
                     <div class="card-footer">
                         <div class="row text-center">
                             <div class="col-xs-6">

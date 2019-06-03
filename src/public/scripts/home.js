@@ -13,7 +13,14 @@ function getBooks() {
             let listItem = document.createElement("div");
             listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
 
-            let { id, title, cover, author, genre, price } = json[i];
+            let {
+              id,
+              title,
+              cover,
+              author,
+              genre,
+              price
+            } = json[i];
             listItem.innerHTML =
               `<div class="card mb-4">
                   <div style = "width: 50em; height: 20em; " >
@@ -75,13 +82,14 @@ function getUser() {
             $('#loggedIn').empty();
             $('#loggedIn').append('<a class="btn btn-default btn-sm ml-3" id="loggedIn">' + user.name + '</a>');
             $('#logout').append('<a class="btn btn-default btn-sm ml-3" id="logout"><i class="fa fa-sign-in"></i> Sign out</a>');
-          } else{
+          } else {
             $('#logout').empty();
           }
         });
     });
 
 }
-function getLoggedInUser(){
+
+function getLoggedInUser() {
   return currentUser;
 }

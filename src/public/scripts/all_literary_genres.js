@@ -59,7 +59,7 @@ $(document).ready(function() {
                       </div>`;
 
               $("#all_literary_genres").append(listItem);
-            }else if (genre == "Fantasy") {
+            } else if (genre == "Fantasy") {
               listItem.innerHTML =
                 `<div class="card m-3">
                           <!--Card image-->

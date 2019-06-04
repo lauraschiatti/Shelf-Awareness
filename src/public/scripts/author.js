@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  $.urlParam = function(name){
-      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-      return results[1] || 0;
+  $.urlParam = function(name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
   }
   var id = $.urlParam('id');
 
@@ -14,8 +14,8 @@ $(document).ready(function() {
       picture
     } = json[0];
 
-      $("#author").append(
-          `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
+    $("#author").append(
+      `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
             <div class="row">
                 <div class="card-body pb-5">
                     <div class="row pb-4">
@@ -37,7 +37,7 @@ $(document).ready(function() {
             </div>
         </div>`);
 
-      $("#related_info").append(`<h5>Related info</h5>
+    $("#related_info").append(`<h5>Related info</h5>
         <ol class="list-unstyled mb-1">
           <li><a href="pages/books_by_author.html?id=${id}"> <i class="fa fa-book"></i> Books by ${name}</a></li>
         </ol>`);

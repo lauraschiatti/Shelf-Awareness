@@ -5,11 +5,11 @@ import {
 $(document).ready(function() {
   fetch('v2/events')
     .then(function(response) {
-        response.json()
-    .then(function(json) {
-        for (let i = 0; i < json.length; i++) {
+      response.json()
+        .then(function(json) {
+          for (let i = 0; i < json.length; i++) {
 
-        let listItem = document.createElement("div");
+            let listItem = document.createElement("div");
             listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
             let {
               location,
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
             // TODO: change column held_on to timestamp? or check if the time of the event can be explicitly stated this way
             listItem.innerHTML =
-                `<div class="card mb-3">
+              `<div class="card mb-3">
                   <!--Card image-->
                   <div class="view">
                     <a href="pages/event.html?id=${id}">

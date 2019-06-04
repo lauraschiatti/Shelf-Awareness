@@ -1,18 +1,18 @@
 $(document).ready(function() {
-    fetch('v2/authors')
-        .then(function(response) {
-            response.json()
-                .then(function(json) {
-                    for (let i = 0; i < json.length; i++) {
-                        let listItem = document.createElement("div");
-                        listItem.setAttribute('class', 'col-lg-4 col-md-6 col-sm-6 col-xs-6');
-                        let {
-                            name,
-                            id,
-                            picture
-                        } = json[i];
-                        listItem.innerHTML =
-                            `<div class="card mb-3">
+  fetch('v2/authors')
+    .then(function(response) {
+      response.json()
+        .then(function(json) {
+          for (let i = 0; i < json.length; i++) {
+            let listItem = document.createElement("div");
+            listItem.setAttribute('class', 'col-lg-4 col-md-6 col-sm-6 col-xs-6');
+            let {
+              name,
+              id,
+              picture
+            } = json[i];
+            listItem.innerHTML =
+              `<div class="card mb-3">
 
                               <!--Card image-->
                               <div class="view">
@@ -29,8 +29,8 @@ $(document).ready(function() {
                               </div>
 
                             </div>`;
-                        $("#authors-list").append(listItem);
-                    }
-                });
+            $("#authors-list").append(listItem);
+          }
         });
+    });
 });

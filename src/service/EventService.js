@@ -12,20 +12,20 @@
 // DB configuration
 var knex = require('../knex/knex');
 
-exports.eventsGET = function (offset, limit) {
-    return knex('books')
-        .join('authors', 'authors.id', '=', 'books.author_id')
-        .join('events', 'books.id', '=', 'events.book_id')
-        .select()
-        .offset(offset)
-        .limit(limit)
-        .orderBy('held_on', 'asc')
-        .then((event) => {
-            return event.map(e => {
-                return formatEvent(e);
-            });
-        })
-        .catch((err) => console.log(err));
+exports.eventsGET = function(offset, limit) {
+  return knex('books')
+    .join('authors', 'authors.id', '=', 'books.author_id')
+    .join('events', 'books.id', '=', 'events.book_id')
+    .select()
+    .offset(offset)
+    .limit(limit)
+    .orderBy('held_on', 'asc')
+    .then((event) => {
+      return event.map(e => {
+        return formatEvent(e);
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 
@@ -37,39 +37,52 @@ exports.eventsGET = function (offset, limit) {
  * returns Event
  **/
 exports.getEventById = function(eventId) {
-    return knex('events')
-        .where('events.id', eventId)
-        .join('books', 'books.id', '=', 'events.book_id')
-        .join('authors', 'authors.id', '=', 'books.author_id')
-        .first()
-        .then((e) => {
-            return formatEvent(e);
-        })
-        .catch((err) => console.log(err));
+  return knex('events')
+    .where('events.id', eventId)
+    .join('books', 'books.id', '=', 'events.book_id')
+    .join('authors', 'authors.id', '=', 'books.author_id')
+    .first()
+    .then((e) => {
+      return formatEvent(e);
+    })
+    .catch((err) => console.log(err));
 };
 
-function formatEvent(event){
-    event.book = { id: event.book_id, title: event.title, cover: event.cover, abstract: event.abstract,
-       genre: event.genre, currency: event.currency, value: event.value,
-       status: event.status, interview: event.interview };
-    event.author = { id: event.author_id, name: event.name, picture: event.picture, bio: event.bio };
+function formatEvent(event) {
+  event.book = {
+    id: event.book_id,
+    title: event.title,
+    cover: event.cover,
+    abstract: event.abstract,
+    genre: event.genre,
+    currency: event.currency,
+    value: event.value,
+    status: event.status,
+    interview: event.interview
+  };
+  event.author = {
+    id: event.author_id,
+    name: event.name,
+    picture: event.picture,
+    bio: event.bio
+  };
 
-    delete event.book_id;
-    delete event.title;
-    delete event.cover;
-    delete event.abstract;
-    delete event.genre;
-    delete event.currency;
-    delete event.value;
-    delete event.status;
-    delete event.interview;
-    delete event.created_at;
-    delete event.updated_at;
+  delete event.book_id;
+  delete event.title;
+  delete event.cover;
+  delete event.abstract;
+  delete event.genre;
+  delete event.currency;
+  delete event.value;
+  delete event.status;
+  delete event.interview;
+  delete event.created_at;
+  delete event.updated_at;
 
-    delete event.author_id;
-    delete event.name;
-    delete event.picture;
-    delete event.bio;
+  delete event.author_id;
+  delete event.name;
+  delete event.picture;
+  delete event.bio;
 
-    return event;
+  return event;
 }

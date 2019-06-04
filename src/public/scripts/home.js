@@ -1,28 +1,28 @@
-var currentUser = {};
+var currentUser ;
 $(document).ready(function() {
-    getUser();
-    getBooks();
+  getUser();
+  getBooks();
 });
 
 function getBooks() {
-    fetch('v2/books')
-        .then(function(response) {
-            response.json()
+  fetch('v2/books')
+    .then(function(response) {
+      response.json()
         .then(function(json) {
-            for (let i = 0; i < json.length; i++) {
-                let listItem = document.createElement("div");
-                listItem.setAttribute('class', 'col-lg-3 col-md-4 col-sm-6 col-xs-6');
+          for (let i = 0; i < json.length; i++) {
+            let listItem = document.createElement("div");
+            listItem.setAttribute('class', 'col-lg-3 col-md-4 col-sm-6 col-xs-6');
 
-                let {
-                    id,
-                    title,
-                    cover,
-                    author
-                } = json[i];
+            let {
+              id,
+              title,
+              cover,
+              author
+            } = json[i];
 
-                if(id <= 4){
-                    listItem.innerHTML =
-                        `<div class="card mb-3">
+            if (id <= 4) {
+              listItem.innerHTML =
+                `<div class="card mb-3">
                       <!--Card image-->
                       <div class="view">
                         <a href="pages/book.html?id=${id}">
@@ -32,27 +32,27 @@ function getBooks() {
 
                     </div>`;
 
-                    $("#books-list").append(listItem);
-                }
-
-
+              $("#books-list").append(listItem);
             }
+
+
+          }
         });
     });
 }
 
 $(document).on("click", "#logout", function(e) {
-    e.preventDefault();
-    fetch('v2/users/logoutUser')
-        .then(function(response) {
-            response.json()
-                .then(function(data) {
-                    var user = data;
-                    if (user.loggedin == false) {
-                        window.location = "/index.html";
-                    }
-                });
+  e.preventDefault();
+  fetch('v2/users/logoutUser')
+    .then(function(response) {
+      response.json()
+        .then(function(data) {
+          var user = data;
+          if (user.loggedin == false) {
+            window.location = "/index.html";
+          }
         });
+    });
 });
 
 function getUser() {
@@ -60,8 +60,13 @@ function getUser() {
     .then(function(response) {
       // if(response.status=)
       response.json()
+
         .then(function(data) {
-          var user = data[0];
+          // alert(data.status);
+          if(data.error=="no active user"){
+            // toastr.warning("You are not logged in");
+          } else{
+            var user = data[0];
           currentUser = user;
           if (user != undefined) {
             $('#login').empty();
@@ -71,11 +76,20 @@ function getUser() {
           } else {
             $('#logout').empty();
           }
+
+          }
+
+        })
+        .catch(err => {
+          toastr.error("You are not logged in");
         });
 
-});
+    }).catch(err => {
+      toastr.error("You are not logged in");
+    });
 }
 
 function getLoggedInUser() {
+
   return currentUser;
 }

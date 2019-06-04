@@ -12,16 +12,16 @@ var knex = require('../knex/knex');
  * limit Integer Maximum number of items per page. Default is 20 and cannot exceed 500. (optional)
  * returns List
  **/
-exports.authorsGET = function (offset, limit) {
-    return knex('authors')
-        .select()
-        .orderBy('name', 'asc')
-        .then((author) => {
-            return author.map(e => {
-                return formatAuthor(e);
-            });
-        })
-        .catch((err) => console.log(err));
+exports.authorsGET = function(offset, limit) {
+  return knex('authors')
+    .select()
+    .orderBy('name', 'asc')
+    .then((author) => {
+      return author.map(e => {
+        return formatAuthor(e);
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 
@@ -33,17 +33,17 @@ exports.authorsGET = function (offset, limit) {
  * returns Author
  **/
 exports.getAuthorById = function(authorId) {
-    return knex('authors')
-        .select()
-        .where('authors.id', authorId)
-        .then((author) => {
-        // console.log("\nauthor name is " + author.name);
-            return formatAuthor(author);
-        })
-        .catch((err) => console.log(err));
+  return knex('authors')
+    .select()
+    .where('authors.id', authorId)
+    .then((author) => {
+      // console.log("\nauthor name is " + author.name);
+      return formatAuthor(author);
+    })
+    .catch((err) => console.log(err));
 };
 
-function formatAuthor(author){
+function formatAuthor(author) {
 
-    return author;
+  return author;
 }

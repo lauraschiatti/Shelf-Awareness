@@ -63,7 +63,7 @@ exports.getReviewsByBook = function(bookId) {
 
 
 exports.createReview = function(user, bookId, comment) {
- return knex('reviews').insert({
+  return knex('reviews').insert({
       comment: "" + comment + "",
       user_id: "" + user + "",
       book_id: "" + bookId + ""

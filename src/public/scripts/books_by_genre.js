@@ -1,39 +1,40 @@
 $(document).ready(function() {
-    // $.urlParam = function(name){
-    //     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    //     return results[1] || 0;
-    // }
-    var allParams = window.location.href.split("?")[1];
-    var bookParam = allParams.split("&")[1];
-    var genreParam =allParams.split("&")[0];
-    var titleParam =allParams.split("&")[2];
-    var id =bookParam.split("=")[1];
-    var genre =genreParam.split("=")[1];
-    var title =titleParam.split("=")[1];
+  // $.urlParam = function(name){
+  //     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  //     return results[1] || 0;
+  // }
+  var allParams = window.location.href.split("?")[1];
+  var bookParam = allParams.split("&")[1];
+  var genreParam = allParams.split("&")[0];
+  var titleParam = allParams.split("&")[2];
+  var id = bookParam.split("=")[1];
+  var genre = genreParam.split("=")[1];
+  var title = titleParam.split("=")[1];
 
-    fetch('v2/books/byGenre/' + genre)
-        .then(function(response) {
-            response.json()
+  fetch('v2/books/byGenre/' + genre)
+    .then(function(response) {
+      response.json()
         .then(function(json) {
-            $("#books_by_genre_header").append(`<div class="row pb-4">
+          $("#books_by_genre_header").append(`<div class="row pb-4">
                 <div class="col-sm-8">
                     <h4 class="text-primary mb-0"><strong>Genre </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${json[0].genre} <i class="fa fa-angle-double-right"></i></h4>
                 </div>
             </div>`);
 
-            for (let i = 0; i < json.length; i++) {
-                let listItem = document.createElement("div");
-                listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
+          for (let i = 0; i < json.length; i++) {
+            let listItem = document.createElement("div");
+            listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
 
-                let { id,
-                    title,
-                    cover,
-                    author,
-                    genre
-                } = json[i];
+            let {
+              id,
+              title,
+              cover,
+              author,
+              genre
+            } = json[i];
 
-                listItem.innerHTML =
-                    `<div class="card m-3">
+            listItem.innerHTML =
+              `<div class="card m-3">
                         <!--Card image-->
                         <div class="view">
                             <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px">
@@ -47,10 +48,10 @@ $(document).ready(function() {
                         </div>
                     </div>`;
 
-                $("#books-by-genre-list").append(listItem);
-            }
+            $("#books-by-genre-list").append(listItem);
+          }
 
-            $("#related_info_genre").append(`<ol class="list-unstyled">
+          $("#related_info_genre").append(`<ol class="list-unstyled">
               <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline"> ${title}</span></a></li>
             </ol>`);
 

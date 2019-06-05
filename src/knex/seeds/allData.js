@@ -4,16 +4,12 @@ const authorsData = require('../../data/authors');
 const booksData = require('../../data/books');
 const similarBooksData = require('../../data/similar_books');
 const eventsData = require('../../data/events');
-const cartsData = require('../../data/carts');
 const booksInCartData = require('../../data/books_in_cart');
 
 exports.seed = function(knex, Promise) {
   return knex('reviews').del()
     .then(() => {
       return knex('books_in_cart').del();
-    })
-    .then(() => {
-      return knex('carts').del();
     })
     .then(() => {
       return knex('users').del();
@@ -32,15 +28,6 @@ exports.seed = function(knex, Promise) {
     })
     .then(() => {
       return knex('users').insert(usersData);
-    })
-    .then(() => {
-      let cartPromises = [];
-      cartsData.forEach((cart) => {
-        let user = cart.user;
-        cartPromises.push(createCart(knex, cart, user));
-      });
-
-      return Promise.all(cartPromises);
     })
     .then(() => {
       return knex('authors').insert(authorsData);
@@ -95,18 +82,6 @@ exports.seed = function(knex, Promise) {
     });
 };
 
-const createCart = (knex, cart, user) => {
-  console.log('storing cart seeds ...');
-  return knex('users').where('email', user).first()
-    .then((userRecord) => {
-      return knex('carts').insert({
-        id: userRecord.id,
-        currency: cart.currency,
-        value: cart.value
-      });
-    });
-};
-
 const createBook = (knex, book, author) => {
   console.log('storing book seeds ...');
   return knex('authors').where('name', author).first()
@@ -138,7 +113,7 @@ const createSimilarBooks = (knex, book_1, book_2) => {
     });
 };
 
-createBookInCart = (knex, bookInCart, user, book) => {
+const createBookInCart = (knex, bookInCart, user, book) => {
   console.log('storing books in cart seeds ...');
   return knex('users').where('email', user).first()
     .then((userRecord) => {
@@ -146,7 +121,7 @@ createBookInCart = (knex, bookInCart, user, book) => {
         .then((bookRecord) => {
           return knex('books_in_cart').insert({
             book_id: bookRecord.id,
-            cart_id: userRecord.id,
+            user_id: userRecord.id,
             status: bookInCart.status
           });
         });

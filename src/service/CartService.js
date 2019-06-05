@@ -23,7 +23,7 @@ exports.getBookIDs = function(cartId) {
     .join('books', 'books.id', '=', 'books_in_cart.book_id')
     .join('authors', 'authors.id', '=', 'books.author_id')
     .select()
-    .where('books_in_cart.cart_id', cartId)
+    .where('books_in_cart.user_id', cartId)
     .then((books) => {
       return books.map(e => {
         // console.log("\nid " + e.book_id);

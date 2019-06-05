@@ -18,18 +18,51 @@ exports.getBooks = function(cartId) {
     .catch((err) => console.log(err));
 };
 
-exports.addBook = function(userId, bookId) {
-    // TODO: if we have amount column then check if the combination <user, book> already exists
-    return knex('books_in_cart').insert({
-        book_id: bookId,
-        status: "added",
-        user_id: userId
+exports.addBook = function(userId, bookId, quantity) {
+    var record;
+    knex('books_in_cart')
+      .first()
+      .where({
+        'book_id': bookId,
+        'user_id': userId
       })
-      .then(function(result) {
-          return new Promise(function(resolve, reject) {
-              resolve("OK");
-          });
-      });
+      .then((result) => {
+        record = result;
+        if (record == undefined) {
+            knex('books_in_cart').insert({
+                book_id: bookId,
+                status: "added",
+                user_id: userId,
+                quantity: quantity
+              })
+              .then(function(result) {
+                  return new Promise(function(resolve, reject) {
+                      resolve("OK");
+                  });
+              });
+        } else {
+            var newQty = record.quantity + quantity;
+            knex('books_in_cart')
+              .where({
+                'book_id': bookId,
+                'user_id': userId
+              })
+              .update({
+                quantity: newQty
+              })
+              .then(function(result) {
+                return new Promise(function(resolve, reject) {
+                  resolve("OK");
+                });
+            });
+        }
+      })
+      .catch((err) => new Promise(function(resolve, reject) {
+        reject("NOK");
+      }));
+    return new Promise(function(resolve, reject) {
+        resolve("OK");
+    });
 }
 
 
@@ -48,9 +81,11 @@ function formatBook(bic) {
   delete bic.picture;
   delete bic.bio;
 
+  var total = bic.value * bic.quantity;
   bic.price = {
     value: bic.value,
-    currency: bic.currency
+    currency: bic.currency,
+    total: total.toFixed(2)
   };
   delete bic.currency;
   delete bic.value;

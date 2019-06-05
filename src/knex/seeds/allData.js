@@ -122,7 +122,8 @@ const createBookInCart = (knex, bookInCart, user, book) => {
           return knex('books_in_cart').insert({
             book_id: bookRecord.id,
             user_id: userRecord.id,
-            status: bookInCart.status
+            status: bookInCart.status,
+            quantity: bookInCart.quantity
           });
         });
     });

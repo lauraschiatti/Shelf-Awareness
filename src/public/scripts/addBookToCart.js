@@ -1,20 +1,12 @@
 $(document).on("click", "#addToCart", function(e) {
   e.preventDefault();
-  var bookId = document.getElementById("bookId").value;
-  console.log(typeof bookId);
-  bookId = parseInt(bookId);
-  console.log(typeof bookId);
+  var bookId = parseInt(document.getElementById("bookId").value);
+  var quantity = parseInt(document.getElementById("quantity").value);
 
   $.post('v2/cart/addBook', {
-    bookId: bookId
+    bookId: bookId,
+    quantity: quantity
   }, function(data, status) {
-    // var user = data[0];
-    // if (user == undefined) {
-    //   $("#loginMessage").empty();
-    //   $("#loginMessage").append('<p>User with email and password not found</p>');
-    // } else {
-    //   window.location = "/index.html";
-    // }
-
+    
   })
 });

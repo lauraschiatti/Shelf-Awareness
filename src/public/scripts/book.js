@@ -57,10 +57,10 @@
                                 <dl>
                                     <dt>Quantity: </dt>
                                     <dd>
-                                        <select class="form-control form-control-sm" style="width:70px;">
-                                            <option> 1 </option>
-                                            <option> 2 </option>
-                                            <option> 3 </option>
+                                        <select class="form-control form-control-sm" id="quantity" style="width:70px;">
+                                            <option value="1"> 1 </option>
+                                            <option value="2"> 2 </option>
+                                            <option value="3"> 3 </option>
                                         </select>
                                     </dd>
                                 </dl>

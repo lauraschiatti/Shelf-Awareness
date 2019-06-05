@@ -26,15 +26,14 @@ module.exports.cartCartIdGET = function cartCartIdGET(req, res, next) {
 module.exports.addBookPOST = function addBookPOST(req, res, next) {
   var bookId = req.swagger.params["bookId"].value;
   var userId = req.session.id;
+  var quantity = req.swagger.params["quantity"].value;
   if (!req.session || !req.session.loggedin) {
     utils.writeJson(res, {
       error: "sorry, you must be authorized"
     }, 404);
   } else {
-      CartService.addBook(userId, bookId)
+      CartService.addBook(userId, bookId, quantity)
         .then(function(response) {
-            // TODO: send a popup type notification with confirmation?
-            console.log('Added book to cart!');
             utils.writeJson(res, result);
         })
         .catch(function(response) {
@@ -48,7 +47,7 @@ const calcTotalOfCart = function(books) {
     var total = { 'currency': 'eur', 'value' : 0};
     var sum = 0.0;
     books.forEach(book => {
-        sum += parseFloat(book.price.value);
+        sum += parseFloat(book.price.value) * parseInt(book.quantity);
     });
     total.value = sum.toFixed(2);
     return total;

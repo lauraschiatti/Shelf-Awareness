@@ -64,7 +64,7 @@ function getUser() {
         .then(function(data) {
           // alert(data.status);
           if(data.error=="no active user"){
-            // toastr.warning("You are not logged in");
+            toastr.warning("You are not logged in");
           } else{
             var user = data[0];
           currentUser = user;

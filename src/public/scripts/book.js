@@ -52,21 +52,24 @@
                     <hr>
 
                     <div class="row">
-                        <div class="col-sm-5">
-                            <dl>
-                                <dt>Quantity: </dt>
-                                <dd>
-                                    <select class="form-control form-control-sm" style="width:70px;">
-                                        <option> 1 </option>
-                                        <option> 2 </option>
-                                        <option> 3 </option>
-                                    </select>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="col-sm-7">
-                            <a href="#" class="btn btn-outline-danger"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
-                        </div>
+                        <form id="addToCartForm">
+                            <div class="col-sm-5">
+                                <dl>
+                                    <dt>Quantity: </dt>
+                                    <dd>
+                                        <select class="form-control form-control-sm" style="width:70px;">
+                                            <option> 1 </option>
+                                            <option> 2 </option>
+                                            <option> 3 </option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-sm-7">
+                                <button id="bookId" value="${id}" hidden></button>
+                                <button class="btn btn-outline-danger" id="addToCart" type="submit"><i class="fa fa-shopping-cart"></i> Add to cart </button>
+                            </div>
+                        </form>
                     </div>
 
                     <hr>

@@ -57,7 +57,7 @@ exports.userRegisterPOST = function(email, password, name, address, creditcard) 
         var id = result[0];
         console.log("Result of insert a row in user: ");
         console.log(id);
-        knex('carts').insert({
+        /*knex('carts').insert({
             id: id,
             currency: "eur",
             value: 0
@@ -66,7 +66,7 @@ exports.userRegisterPOST = function(email, password, name, address, creditcard) 
             return new Promise(function(resolve, reject) {
               resolve("OK");
             });
-          });
+        });*/
         return new Promise(function(resolve, reject) {
           resolve("OK");
         });

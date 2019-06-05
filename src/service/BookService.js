@@ -68,8 +68,8 @@ exports.booksByGenreGET = function(genre) {
  * returns Book
  **/
 exports.getBookById = function(bookId) {
-  return knex('books')
-    .join('authors', 'authors.id', '=', 'books.author_id')
+  return knex('authors')
+    .join('books', 'books.author_id', '=', 'authors.id')
     .first()
     .where('books.id', bookId)
     .then((book) => {

@@ -2,23 +2,8 @@
 
 // DB configuration
 var knex = require('../knex/knex');
-/**
- * View the content of the cart
- *
- * cartId Long
- * returns Cart
- **/
-exports.getCartById = function(cartId) {
-  return knex('carts')
-    .select()
-    .where('carts.id', cartId)
-    .then((cart) => {
-      return cart;
-    })
-    .catch((err) => console.log(err));
-};
 
-exports.getBookIDs = function(cartId) {
+exports.getBooks = function(cartId) {
   return knex('books_in_cart')
     .join('books', 'books.id', '=', 'books_in_cart.book_id')
     .join('authors', 'authors.id', '=', 'books.author_id')
@@ -32,6 +17,21 @@ exports.getBookIDs = function(cartId) {
     })
     .catch((err) => console.log(err));
 };
+
+exports.addBook = function(userId, bookId) {
+    // TODO: if we have amount column then check if the combination <user, book> already exists
+    return knex('books_in_cart').insert({
+        book_id: bookId,
+        status: "added",
+        user_id: userId
+      })
+      .then(function(result) {
+          return new Promise(function(resolve, reject) {
+              resolve("OK");
+          });
+      });
+}
+
 
 function formatBook(bic) {
   // bic = book in cart

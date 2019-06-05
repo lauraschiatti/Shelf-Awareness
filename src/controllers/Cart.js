@@ -10,7 +10,7 @@ module.exports.cartCartIdGET = function cartCartIdGET(req, res, next) {
       error: "sorry, you must be authorized"
     }, 404);
   } else {
-      CartService.getBookIDs(cartId)
+      CartService.getBooks(cartId)
         .then(function(response) {
           var result = {};
           result["total"] = calcTotalOfCart(response);
@@ -31,11 +31,20 @@ module.exports.addBookPOST = function addBookPOST(req, res, next) {
       error: "sorry, you must be authorized"
     }, 404);
   } else {
-
+      CartService.addBook(userId, bookId)
+        .then(function(response) {
+            // TODO: send a popup type notification with confirmation?
+            console.log('Added book to cart!');
+            utils.writeJson(res, result);
+        })
+        .catch(function(response) {
+          utils.writeJson(res, response);
+        });
   }
 }
 
 const calcTotalOfCart = function(books) {
+    // TODO: figure out the currency of the total from books
     var total = { 'currency': 'eur', 'value' : 0};
     var sum = 0.0;
     books.forEach(book => {

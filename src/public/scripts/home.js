@@ -67,16 +67,15 @@ function getUser() {
             toastr.warning("You are not logged in");
           } else{
             var user = data[0];
-          currentUser = user;
-          if (user != undefined) {
-            $('#login').empty();
-            $('#loggedIn').empty();
-            $('#loggedIn').append('<a class="btn btn-default btn-sm ml-3" id="loggedIn">' + user.name + '</a>');
-            $('#logout').append('<a class="btn btn-default btn-sm ml-3" id="logout"><i class="fa fa-sign-in"></i> Sign out</a>');
-          } else {
-            $('#logout').empty();
-          }
-
+            currentUser = user;
+            if (user != undefined) {
+              $('#login').empty();
+              $('#loggedIn').empty();
+              $('#loggedIn').append('<a class="btn btn-default btn-sm ml-3" id="loggedIn">' + user.name + '</a>');
+              $('#logout').append('<a class="btn btn-default btn-sm ml-3" id="logout"><i class="fa fa-sign-in"></i> Sign out</a>');
+            } else {
+              $('#logout').empty();
+            }
           }
 
         })

@@ -549,20 +549,14 @@ paths:
         404:
           description: "unauthorized"
       x-swagger-router-controller: "Review"
-  /cart/{cartId}:
+  /cart:
     get:
       tags:
       - "cart"
       summary: "View the content of the cart"
-      operationId: "cartCartIdGET"
+      operationId: "cartGET"
       produces:
       - "application/json"
-      parameters:
-      - name: "cartId"
-        in: "path"
-        required: true
-        type: "integer"
-        format: "int64"
       responses:
         200:
           description: "succesful operartion"

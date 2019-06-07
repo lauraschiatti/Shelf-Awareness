@@ -3,13 +3,13 @@
 var utils = require("../utils/writer.js");
 var CartService = require("../service/CartService");
 
-module.exports.cartCartIdGET = function cartCartIdGET(req, res, next) {
-  var cartId = req.swagger.params["cartId"].value;
+module.exports.cartGET = function cartGET(req, res, next) {
   if (!req.session || !req.session.loggedin) {
     utils.writeJson(res, {
       error: "sorry, you must be authorized"
     }, 404);
   } else {
+      var cartId = req.session.id;
       CartService.getBooks(cartId)
         .then(function(response) {
           var result = {};
@@ -44,11 +44,15 @@ module.exports.addBookPOST = function addBookPOST(req, res, next) {
 
 const calcTotalOfCart = function(books) {
     // TODO: figure out the currency of the total from books
-    var total = { 'currency': 'eur', 'value' : 0};
+    var total = { 'currency': 'eur', 'value' : 0, 'items': 0};
     var sum = 0.0;
+    var items = 0;
     books.forEach(book => {
-        sum += parseFloat(book.price.value) * parseInt(book.quantity);
+        var quantity = parseInt(book.quantity)
+        sum += parseFloat(book.price.value) * quantity;
+        items += quantity;
     });
     total.value = sum.toFixed(2);
+    total.items = items;
     return total;
 }

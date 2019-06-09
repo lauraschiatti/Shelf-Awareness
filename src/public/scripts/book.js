@@ -113,7 +113,7 @@
              <button class="btn btn-lg btn-primary btn-block" style = "width: 50%;" id="reviewSubmit" type="button">Submit</button>
            </form>`);
     } else {
-       toastr.warning("You are not logged in");
+       window.location= "/pages/login.html";
     }
 
    return false;
@@ -160,7 +160,7 @@
            }
        });
    } else {
-     toastr.warning("You are not logged in");
+    window.location= "/pages/login.html";
    }
 
  }

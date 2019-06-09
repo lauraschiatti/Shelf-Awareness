@@ -16,14 +16,13 @@
   <!-- Font Awesome Icon -->
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <!-- Custom styles for this template -->
-  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" id="toastr-css">
   <link href="assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="assets/js/jquery-3.2.1.min.js"></script>
   <script src="scripts/login.js"></script>
   <script src="scripts/home.js"></script>
   <script src="scripts/all_books.js"></script>
   <script src="assets/js/toastr.min.js"></script>
-
 </head>
 
 <body>
@@ -50,20 +49,19 @@
               <i class="fa fa-user-plus"></i> Sign up
             </a>
           </div>
-          <a class="btn btn-primary btn-sm ml-3" href="pages/cart.html">
+          <a class="btn btn-primary btn-sm ml-3" href="pages/book_reservation.html">
             <i class="fa fa-shopping-cart"></i> Cart
           </a>
         </div>
       </div>
     </header>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-1 mb-2 justify-content-end">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
           </li>
           <!-- Dropdown -->
@@ -74,7 +72,6 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="pages/all_literary_genres.html"><i class="fa fa-pencil"></i> Literary genres</a>
               <a class="dropdown-item" href="pages/all_authors.html"><i class="fa fa-user"></i> Authors</a>
-              <a class="dropdown-item" href="pages/books.html"><i class="fa fa-user"></i> Books</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -106,82 +103,19 @@
         </ul>
       </div>
     </nav>
-
   </div>
 
   <main class="container p-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-xs-12 col-md-10 main" id="books_header"></div>
+    </div><!-- /.row -->
 
     <div class="row d-flex justify-content-center">
       <div class="col-xs-12 col-md-10 main">
-        <div class="card-group" id="books-list"></div>
+        <div class="card-group" id="books"></div>
+        <div id="related_info_books" class="m-4"></div>
       </div>
-    </div><!-- /.row -->
-
-    <blockquote class="text-center text-muted font-italic">“If you don’t like to read, you haven’t found the right book.” – J.K. Rowling</blockquote>
-
-    <section id="what-we-do">
-      <div class="container-fluid">
-        <h3 class="mb-4"> More </h3>
-        <div class="row mt-2">
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <div class="card">
-              <div class="card-block block-1">
-                <h3 class="card-title">Special title</h3>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="javascript:void();" title="Read more" class="read-more">Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <div class="card">
-              <div class="card-block block-2">
-                <h3 class="card-title">Special title</h3>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="javascript:void();" title="Read more" class="read-more">Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <div class="card">
-              <div class="card-block block-3">
-                <h3 class="card-title">Special title</h3>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="javascript:void();" title="Read more" class="read-more">Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <div class="card">
-              <div class="card-block block-4">
-                <h3 class="card-title">Special title</h3>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="javascript:void();" title="Read more" class="read-more">Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <div class="card">
-              <div class="card-block block-5">
-                <h3 class="card-title">Special title</h3>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="javascript:void();" title="Read more" class="read-more">Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <div class="card">
-              <div class="card-block block-6">
-                <h3 class="card-title">Special title</h3>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="javascript:void();" title="Read more" class="read-more">Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </main><!-- /.main -->
 
   <footer class="footer">
@@ -199,9 +133,9 @@
           <h5 class="text-primary">Help</h5>
           <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
           <ul class="list-unstyled">
-            <li><a href="pages/ordering-shipping.html">Ordering & Shipping</a></li>
-            <li><a href="#">Payment Options</a></li>
-            <li><a href="pages/contact-us.html">Contact Us</a></li>
+            <li><a href="pages/ordering_shipping.html">Ordering & Shipping</a></li>
+            <li><a href="javascript:void(0)">Payment Options</a></li>
+            <li><a href="pages/contact_us.html">Contact Us</a></li>
           </ul>
         </div>
 
@@ -209,9 +143,9 @@
           <h5 class="text-primary">More Info</h5>
           <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
           <ul class="list-unstyled">
-            <li><a href="#">Terms of use</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="javascript:void(0)">Terms of use</a></li>
+            <li><a href="javascript:void(0)">Privacy</a></li>
+            <li><a href="javascript:void(0)">FAQ</a></li>
           </ul>
         </div>
 
@@ -226,14 +160,14 @@
         </div>
 
         <div class="col-12 copyright mt-3 text-center p-2">
-          <small> &copy; 2019. Shelf Awareness, Inc. <a class="text-primary" href="#">Back to top</a></small>
+          <small> &copy; 2019. Shelf Awareness, Inc.</small>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="assets/js/toastr.min.js"></script>
   <!-- Bootstrap core JavaScript -->
-  <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
 

@@ -17,10 +17,11 @@
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <!-- Custom styles for this template -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="assets/js/jquery-3.2.1.min.js"></script>
   <script src="scripts/login.js"></script>
   <script src="scripts/home.js"></script>
+  <script src="scripts/all_books.js"></script>
+  <script src="assets/js/toastr.min.js"></script>
 </head>
 
 <body>
@@ -102,10 +103,8 @@
 <main class="container p-5">
   <div class="row d-flex justify-content-center">
     <div class="col-xs-12 col-md-10 main">
-      <h3 class="text-danger h3-header pb-3"><i class="fa fa-bookmark"></i> Our favorite readings </h3>
-
-      <div class="card-group" id="favorite_readings"></div>
-
+      <h3 class="text-danger h3-header pb-3"><i class="fa fa-book"></i> Books </h3>
+      <div class="card-group" id="books"></div>
     </div>
   </div><!-- /.row -->
 </main><!-- /.main -->
@@ -161,7 +160,6 @@
 <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

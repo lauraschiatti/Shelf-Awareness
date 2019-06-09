@@ -17,7 +17,7 @@ $(document).ready(function() {
         .then(function(json) {
           $("#books_by_genre_header").append(`<div class="row pb-4">
                 <div class="col-sm-8">
-                    <h4 class="text-primary mb-0"><strong>Genre </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${json[0].genre} <i class="fa fa-angle-double-right"></i></h4>
+                    <h4 class="text-primary mb-0">Genre <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${json[0].genre} <i class="fa fa-angle-double-right"></i></h4>
                 </div>
             </div>`);
 
@@ -52,7 +52,7 @@ $(document).ready(function() {
           }
 
           $("#related_info_genre").append(`<ol class="list-unstyled">
-              <li><a href="pages/all_literary_genres.html"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline"> all genres</span></a></li>
+              <li><a href="pages/all_literary_genres.html"> <i class="fa fa-angle-double-left"></i> Return to all genres</a></li>
             </ol>`);
 
         });

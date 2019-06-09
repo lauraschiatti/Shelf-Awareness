@@ -53,7 +53,7 @@ ul, ol {
 
 .navbar-light .navbar-nav .nav-link {
   color: #343a40;
-  font-size: 80%;
+  font-size: 90%;
 }
 
 /* Header
@@ -137,6 +137,10 @@ ul, ol {
   .card {
     width: 70%;
     margin-left: 60px
+  }
+
+  .title{
+    display: none;
   }
 }
 
@@ -243,6 +247,15 @@ ul, ol {
   border: none;
   background: #888;
 }
+
+
+
+
+
+
+
+
+
 
 /* Home Cards
 -------------------------------------------------- */

@@ -593,6 +593,21 @@ paths:
         404:
           description: "unauthorized"
       x-swagger-router-controller: "Cart"
+  /cart/purchaseBooks:
+    post:
+      tags:
+      - "cart"
+      summary: "Purchase books in user's cart"
+      description: "Purchase books in user's cart"
+      operationId: "purchaseBooksPOST"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "succesfull purchase"
+        404:
+          description: "unauthorized"
+      x-swagger-router-controller: "Cart"
 definitions:
   User:
     type: "object"

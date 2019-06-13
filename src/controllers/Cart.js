@@ -42,6 +42,23 @@ module.exports.addBookPOST = function addBookPOST(req, res, next) {
   }
 }
 
+module.exports.purchaseBooksPOST = function purchaseBooksPOST(req, res, next) {
+    var userId = req.session.id;
+    if (!req.session || !req.session.loggedin) {
+      utils.writeJson(res, {
+        error: "sorry, you must be authorized"
+      }, 404);
+    } else {
+        CartService.purchaseBooks(userId)
+          .then(function(response) {
+              utils.writeJson(res, result);
+          })
+          .catch(function(response) {
+            utils.writeJson(res, response);
+          });
+    }
+}
+
 const calcTotalOfCart = function(books) {
     // TODO: figure out the currency of the total from books
     var total = { 'currency': 'eur', 'value' : 0, 'items': 0};

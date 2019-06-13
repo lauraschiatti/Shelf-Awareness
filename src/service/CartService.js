@@ -8,7 +8,10 @@ exports.getBooks = function(cartId) {
     .join('books', 'books.id', '=', 'books_in_cart.book_id')
     .join('authors', 'authors.id', '=', 'books.author_id')
     .select()
-    .where('books_in_cart.user_id', cartId)
+    .where({
+      'books_in_cart.user_id': cartId,
+      'books_in_cart.status': "added"
+    })
     .then((books) => {
       return books.map(e => {
         // console.log("\nid " + e.book_id);
@@ -24,7 +27,8 @@ exports.addBook = function(userId, bookId, quantity) {
       .first()
       .where({
         'book_id': bookId,
-        'user_id': userId
+        'user_id': userId,
+        'status': "added"
       })
       .then((result) => {
         record = result;
@@ -45,7 +49,8 @@ exports.addBook = function(userId, bookId, quantity) {
             knex('books_in_cart')
               .where({
                 'book_id': bookId,
-                'user_id': userId
+                'user_id': userId,
+                'status': "added"
               })
               .update({
                 quantity: newQty
@@ -65,6 +70,22 @@ exports.addBook = function(userId, bookId, quantity) {
     });
 }
 
+exports.purchaseBooks = function(userId) {
+    return knex('books_in_cart')
+      .where({
+        'user_id': userId,
+        'status': "added"
+      })
+      .update({
+        status: "purchased"
+      })
+      .then(function(result) {
+        return new Promise(function(resolve, reject) {
+          resolve("OK");
+        })
+      })
+      .catch((err) => console.log(err));
+}
 
 function formatBook(bic) {
   // bic = book in cart

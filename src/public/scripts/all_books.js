@@ -25,12 +25,12 @@ $(document).ready(function() {
               `<div class="card m-3">
                         <!--Card image-->
                         <div class="view">
-                            <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px">
+                            <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px; width: 140px">
                         </div>
 
                         <!--Card content-->
                         <div class="card-body">
-                            <small class="text-primary"> Genre</small>
+                            <small class="text-primary"> ${genre}</small>
                             <small class="card-title"><a class="text-dark" href="pages/book.html?id=${id}">${title}</a></small>
                             <p class="card-subtitle"><small class="font-italic">${author.name}</small></p>
                         </div>

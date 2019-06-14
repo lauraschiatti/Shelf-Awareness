@@ -5,11 +5,19 @@ const booksData = require('../../data/books');
 const similarBooksData = require('../../data/similar_books');
 const eventsData = require('../../data/events');
 const booksInCartData = require('../../data/books_in_cart');
+const themesData = require('../../data/themes');
+const themesInBookData = require('../../data/themes_in_book');
 
 exports.seed = function(knex, Promise) {
   return knex('reviews').del()
     .then(() => {
       return knex('books_in_cart').del();
+    })
+    .then(() => {
+      return knex('themes_in_book').del();
+    })
+    .then(() => {
+      return knex('themes').del();
     })
     .then(() => {
       return knex('users').del();
@@ -33,6 +41,9 @@ exports.seed = function(knex, Promise) {
       return knex('authors').insert(authorsData);
     })
     .then(() => {
+      return knex('themes').insert(themesData);
+    })
+    .then(() => {
       let bookPromises = [];
       booksData.forEach((book) => {
         let author = book.author;
@@ -40,6 +51,16 @@ exports.seed = function(knex, Promise) {
       });
 
       return Promise.all(bookPromises);
+    })
+    .then(() => {
+      let themesInBookPromises = [];
+      themesInBookData.forEach((themeInBook) => {
+        let theme = themeInBook.theme;
+        let book = themeInBook.book;
+        themesInBookPromises.push(createThemeInBook(knex, themeInBook, theme, book));
+      });
+
+      return Promise.all(themesInBookPromises);
     })
     .then(() => {
       let similarBooksPromises = [];
@@ -96,6 +117,20 @@ const createBook = (knex, book, author) => {
         value: book.value,
         interview: book.interview
       });
+    });
+};
+
+const createThemeInBook = (knex, themeInBook, theme, book) => {
+  console.log('storing themes in book seeds ...');
+  return knex('themes').where('theme', theme).first()
+    .then((themeRecord) => {
+      return knex('books').where('title', book).first()
+        .then((bookRecord) => {
+          return knex('themes_in_book').insert({
+            book_id: bookRecord.id,
+            theme_id: themeRecord.id
+          });
+        });
     });
 };
 

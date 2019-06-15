@@ -44,7 +44,6 @@ exports.booksByAuthorGET = function(authorId) {
     .catch((err) => console.log(err));
 };
 
-
 exports.booksByGenreGET = function(genre) {
   return knex('authors')
     .join('books', 'books.author_id', '=', 'authors.id')
@@ -60,6 +59,22 @@ exports.booksByGenreGET = function(genre) {
     })
     .catch((err) => console.log(err));
 };
+
+exports.booksByThemeGET = function(theme) {
+  return knex('authors')
+    .join('books', 'books.author_id', '=', 'authors.id')
+    .join('themes_in_book', 'themes_in_book.book_id', '=', 'books.id')
+    .select()
+    .where('themes_in_book.theme_id', '=', theme)
+    .orderBy('title', 'asc')
+    .then((book) => {
+      return book.map(e => {
+        return formatBook(e);
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
 /**
  * Find book by ID
  * Returns a book

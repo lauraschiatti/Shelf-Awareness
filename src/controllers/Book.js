@@ -52,6 +52,18 @@ module.exports.booksByGenreGET = function booksByGenreGET (req, res, next) {
     });
 };
 
+module.exports.booksByThemeGET = function booksByThemeGET (req, res, next) {
+  var theme = req.swagger.params['theme'].value;
+
+  BookService.booksByThemeGET(theme)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
 
 // module.exports.getBookByGenre = function getBookByGenre (req, res, next) {
 //   var genre = req.swagger.params['genre'].value;

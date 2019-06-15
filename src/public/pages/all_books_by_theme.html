@@ -9,11 +9,6 @@
   <base href="/">
   <!-- favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/x-icon" href="assets/img/fiction.png">
-  <link rel="icon" type="image/x-icon" href="assets/img/adventure.png">
-  <link rel="icon" type="image/x-icon" href="assets/img/fantasy.png">
-  <link rel="icon" type="image/x-icon" href="assets/img/horror.png">
-  <link rel="icon" type="image/x-icon" href="assets/img/genres.png">
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
   <!-- Bootstrap core CSS-->
@@ -21,18 +16,17 @@
   <!-- Font Awesome Icon -->
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <!-- Custom styles for this template -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" id="toastr-css">
   <link href="assets/css/style.css" rel="stylesheet">
   <script src="assets/js/jquery-3.2.1.min.js"></script>
-  <script src="scripts/login.js"></script>
+  <script src="scripts/books_by_theme.js"></script>
   <script src="scripts/home.js"></script>
-  <script src="scripts/themes.js"></script>
   <script src="assets/js/toastr.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
   <header class="header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-8">
@@ -107,63 +101,67 @@
 
 </div>
 
-  <main class="container p-5">
-    <div class="row d-flex justify-content-center">
-      <div class="col-xs-12 col-md-10 main">
-        <h3 class="text-danger h3-header pb-3"><i class="fa fa-pencil"></i> Themes </h3>
+<main class="container p-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12 col-md-10 main">
+      <div class="col-xs-12 col-md-10 main" id="books_by_theme_header"></div>
 
-        <div class="card-group" id="all_themes"></div>
+      <div class="card-group" id="books-by-theme-list"></div>
+      <div id="related_info_theme" class="m-4"></div>
+    </div>
+  </div><!-- /.row -->
+</main><!-- /.main -->
 
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3 pb-3">
+        <h5 class="text-primary">About Us</h5>
+        <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
+        <p class="mb-0">
+          Welcome to Shelf Awareness, an online bookstore commited to make paper-based and digital books accessible for everyone.
+        </p>
       </div>
-    </div><!-- /.row -->
-  </main><!-- /.main -->
 
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3 pb-3">
-          <h5 class="text-primary">About Us</h5>
-          <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
-          <p class="mb-0">
-            Welcome to Shelf Awareness, an online bookstore commited to make paper-based and digital books accessible for everyone.
-          </p>
-        </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 pb-3">
+        <h5 class="text-primary">Help</h5>
+        <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
+        <ul class="list-unstyled">
+          <li><a href="pages/ordering_shipping.html">Ordering & Shipping</a></li>
+          <li><a href="pages/contact_us.html">Contact Us</a></li>
+          <li><a href="javascript:void(0)" class="disabled">FAQ</a></li>
+        </ul>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-3 pb-3">
-          <h5 class="text-primary">Help</h5>
-          <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
-          <ul class="list-unstyled">
-            <li><a href="pages/ordering_shipping.html">Ordering & Shipping</a></li>
-            <li><a href="pages/contact_us.html">Contact Us</a></li>
-            <li><a href="javascript:void(0)" class="disabled">FAQ</a></li>
-          </ul>
-        </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 pb-3">
+        <h5 class="text-primary">More Info</h5>
+        <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
+        <ul class="list-unstyled">
+          <li><a href="javascript:void(0)">Payment Options</a></li>
+          <li><a href="javascript:void(0)">Terms of use</a></li>
+          <li><a href="javascript:void(0)">Privacy</a></li>
+        </ul>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-3 pb-3">
-          <h5 class="text-primary">More Info</h5>
-          <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
-          <ul class="list-unstyled">
-            <li><a href="javascript:void(0)">Payment Options</a></li>
-            <li><a href="javascript:void(0)">Terms of use</a></li>
-            <li><a href="javascript:void(0)">Privacy</a></li>
-          </ul>
-        </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 pb-3">
+        <h5 class="text-primary">Additional Info</h5>
+        <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
+        <ul class="list-unstyled">
+          <li><a href="javascript:void(0)"> Latest products</a></li>
+          <li><a href="javascript:void(0)"> Gift cards</a></li>
+        </ul>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-3 pb-3">
-          <h5 class="text-primary">Additional Info</h5>
-          <hr class="bg-danger mb-2 mt-0 d-inline-block mx-auto w-25">
-          <ul class="list-unstyled">
-            <li><a href="javascript:void(0)"> Latest products</a></li>
-            <li><a href="javascript:void(0)"> Gift cards</a></li>
-          </ul>
-        </div>
-
-        <div class="col-12 copyright mt-3 text-center p-2">
-          <small> &copy; 2019. Shelf Awareness, Inc. </small>
-        </div>
+      <div class="col-12 copyright mt-3 text-center p-2">
+        <small> &copy; 2019. Shelf Awareness, Inc. </small>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 
 </body>
 

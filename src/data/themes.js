@@ -1,43 +1,43 @@
 module.exports = [{
-    theme: 'love'
+    theme: 'Love'
   },
   {
-    theme: 'war'
+    theme: 'War'
   },
   {
-    theme: 'revenge'
+    theme: 'Revenge'
   },
   {
-    theme: 'betrayal'
+    theme: 'Betrayal'
   },
   {
-    theme: 'survival'
+    theme: 'Survival'
   },
   {
-    theme: 'grace'
+    theme: 'Grace'
   },
   {
-    theme: 'isolation'
+    theme: 'Isolation'
   },
   {
-    theme: 'childhood'
+    theme: 'Childhood'
   },
   {
-    theme: 'forgiveness'
+    theme: 'Forgiveness'
   },
   {
-    theme: 'treachery'
+    theme: 'Treachery'
   },
   {
-    theme: 'peace'
+    theme: 'Peace'
   },
   {
-    theme: 'magic'
+    theme: 'Magic'
   },
   {
-    theme: 'mythology'
+    theme: 'Mythology'
   },
   {
-    theme: 'sacrifice'
+    theme: 'Sacrifice'
   }
 ];

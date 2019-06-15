@@ -25,18 +25,26 @@
       <tr>
         <td>1</td>
         <td>administrator</td>
-        <td>Foo</td>
-        <td>FooL</td>
+        <td>Laura</td>
+        <td>Schiatti Siso</td>
         <td>123456</td>
         <td><a href="mailto:foo@example.com">foo@example.com</a></td>
       </tr>
       <tr>
-        <td>1</td>
+        <td>2</td>
         <td>member</td>
-        <td>Foo</td>
-        <td>BarL</td>
-        <td>78982</td>
-        <td><a href="mailto:bar@example.com">bar@example.com</a></td>
+        <td>Jefimija</td>
+        <td>Zivkovic</td>
+        <td>916921</td>
+        <td><a href="mailto:jefimija.zivkovic@mail.polimi.it">jefimija.zivkovic@mail.polimi.it</a></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>member</td>
+        <td>Ana</td>
+        <td>Pesko</td>
+        <td>904193</td>
+        <td><a href="mailto:ana.pesko@mail.polimi.it">ana.pesko@mail.polimi.it</a></td>
       </tr>
     </tbody>
   </table>
@@ -57,9 +65,39 @@
   </ul>
   <h2><a id="Specification_23"></a>Specification</h2>
   <h3><a id="Web_Architecture_24"></a>Web Architecture</h3>
-  <p>Describe here, with a diagram, the components of your web application and how they interact. Highlight which parts
-    belong to the application layer, data layer<br>
-    or presentation layer. How did you ensure that HTML is not rendered server side?</p>
+  <p>The application has 3 main components:
+    <ul>
+      <li>Presentation layer</li>
+      <li>Application layer</li>
+      <li>Data layer</li>
+    </ul>
+  The Presentation layer represents the front end layer of the application and consists of the user interface.
+  The user interface is accessible through the web browser and displays content and information useful to the user.
+  In our application, the content concerning the presentation layer can be found in /src/public directory.
+  The directory consists of sub-directories which correspond to the components required to build the presentation layer.
+  The components are:
+  <ul>
+    <li>JavaScript, which can be found in the src\public\scripts directory </li>
+    <li>HTML, which can be found in the src\public\pages directory</li>
+    <li>CSS, which can be found in the src\public\assets\css directory </li>
+  </ul>
+  The application layer is the middle layer of the three tier architecture, it contains most of the application logic .
+  It communicates with both the presentation layer and the data layer.
+  The structure of the application layer depends on the design pattern chosen for the system.
+  Here we have two main parts: controller and service.
+  The communication between the presentation layer and the application layer is done through the HTTP protocol, using REST services.
+  The main HTTP methods used are GET and POST methods.
+
+  Controller represents the receiving end of the requests sent from the presentation layer.
+  It processes all the requests and the data that comes from the presentation level and calls the needed service.
+  The service then further processes the data sent from the controller and, depending on the type of the request,communicates with the database
+  in order to fullfil the user request.After the request is fulfilled the controller sends the response to the presentation layer.
+
+  The data layer contains all the data of the application, stored in the database.
+  The main components concerning the persistence of the application can be found in the src\data and src\knex directories.
+  It is responsible for the persistence and the maintenance of the data in the system.
+  The communication between this layer and the application layer is made possible through the persistence API and database connectors.
+  </p>
   <h3><a id="API_28"></a>API</h3>
   <h4><a id="REST_compliance_29"></a>REST compliance</h4>
   <p>Describe here to what extent did you follow REST principles and what are the<br>

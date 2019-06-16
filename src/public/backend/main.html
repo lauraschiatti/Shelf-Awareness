@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Book store</title>
+  <title>Shelf-awareness book store</title>
 </head>
 
 <body>
@@ -65,6 +65,7 @@
   </ul>
   <h2><a id="Specification_23"></a>Specification</h2>
   <h3><a id="Web_Architecture_24"></a>Web Architecture</h3>
+  <img src="../assets/img/application.png" alt="logo" class="rounded mx-auto d-block img-fluid"  />
   <p>The application has 3 main components:
     <ul>
       <li>Presentation layer</li>
@@ -81,7 +82,7 @@
     <li>HTML, which can be found in the src\public\pages directory</li>
     <li>CSS, which can be found in the src\public\assets\css directory </li>
   </ul>
-  The application layer is the middle layer of the three tier architecture, it contains most of the application logic .
+  The Application layer is the middle layer of the three tier architecture, it contains most of the application logic .
   It communicates with both the presentation layer and the data layer.
   The structure of the application layer depends on the design pattern chosen for the system.
   Here we have two main parts: controller and service.
@@ -93,16 +94,28 @@
   The service then further processes the data sent from the controller and, depending on the type of the request,communicates with the database
   in order to fullfil the user request.After the request is fulfilled the controller sends the response to the presentation layer.
 
-  The data layer contains all the data of the application, stored in the database.
+  The Data layer contains all the data of the application, stored in the database.
   The main components concerning the persistence of the application can be found in the src\data and src\knex directories.
   It is responsible for the persistence and the maintenance of the data in the system.
   The communication between this layer and the application layer is made possible through the persistence API and database connectors.
+  <br>
+  We ensured that the HTML pages are not rendered on the server side by only allowing the application/json and application/x-www-form-urlencoded
+  format for the communication between the client and the server side.
+  Typically, if the user were to request to see the page of a book,the client would send the request with required parameters to
+  the server side. The request would be accepted by the appropriate controller which would call the suitable service in order to
+  satisfy the request. Upon receiving a response from the service the controller then sends the response to the client side which
+  then , possibly, redirects the user and renders the required page.
   </p>
   <h3><a id="API_28"></a>API</h3>
   <h4><a id="REST_compliance_29"></a>REST compliance</h4>
-  <p>Describe here to what extent did you follow REST principles and what are the<br>
-    reasons for which you might have decided to diverge. Note, you must not describe<br>
-    the whole API here, just the design decisions.</p>
+  <p>In our application we followed  REST principles in the sense that the communication between the client and the server
+  is <i>stateless</i> as the client side keeps the needed information for authentication of the request. Moreover,
+the application represents a <i>client-server</i> architecture because they both have different sets of responsibilities.
+Furthermore, we have a <i>uniform interface</i> separating the client side and the server side. Finally, the application
+is a <i>layered system</i> as all the components are separated and the only way they communicate is through a proxy.
+Concerning the communication between the client side and server side, the requirements are clearly set, messages are self descriptive,
+meaning the data format of a representation comes with its media type. Formats used for the communitaion are
+<b>application/json</b> and <b>application/x-www-form-urlencoded</b></p>
   <h4><a id="OpenAPI_Resource_models_33"></a>OpenAPI Resource models</h4>
   <p>Describe here synthetically, which models you have introduced for resources.</p>
   <h3><a id="Data_model_35"></a>Data model</h3>
@@ -110,7 +123,7 @@
     application. How these map to the OpenAPI data model?</p>
   <h2><a id="Implementation_39"></a>Implementation</h2>
   <h3><a id="Tools_used_40"></a>Tools used</h3>
-  <p>Describe here which tools, languages and frameworks did you use for the backend<br>
+  <p>To implement the web application, the following tools were usDescribe here which tools, languages and frameworks did you use for the backend<br>
     of the application.</p>
   <h3><a id="Discussion_43"></a>Discussion</h3>
   <p>Describe here:</p>

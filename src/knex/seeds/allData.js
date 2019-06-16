@@ -64,12 +64,13 @@ exports.seed = function(knex, Promise) {
     })
     .then(() => {
       let similarBooksPromises = [];
+      console.log('start storing similar books seeds');
       similarBooksData.forEach((row) => {
         let book_1 = row.book_1;
         let book_2 = row.book_2;
         similarBooksPromises.push(createSimilarBooks(knex, book_1, book_2));
       });
-
+      console.log('finish storing similar books seeds');
       return Promise.all(similarBooksPromises);
     })
     .then(() => {
@@ -121,7 +122,7 @@ const createBook = (knex, book, author) => {
 };
 
 const createThemeInBook = (knex, themeInBook, theme, book) => {
-  console.log('storing themes in book seeds ...');
+  console.log('storing themes in book seeds ... theme=' + theme + '; book=' + book);
   return knex('themes').where('theme', theme).first()
     .then((themeRecord) => {
       return knex('books').where('title', book).first()

@@ -123,19 +123,38 @@ meaning the data format of a representation comes with its media type. Formats u
     application. How these map to the OpenAPI data model?</p>
   <h2><a id="Implementation_39"></a>Implementation</h2>
   <h3><a id="Tools_used_40"></a>Tools used</h3>
-  <p>To implement the web application, the following tools were usDescribe here which tools, languages and frameworks did you use for the backend<br>
-    of the application.</p>
+  <p>To implement the web application, the following tools were used:
+  <ul>
+    <li><b>Node.js</b> environment used to write and execute the code for our application</li>
+    <li><b>HTML</b> for the structure of pages</li>
+    <li><b>JavaScript</b> for the logic of the frontend, sending the requests, receiving the responses and
+    the interaction with the user. Here we used <b>AJAX</b> for the data exchange with the server, sending
+    the requests in the right format and modifying the content of a page without having to reload it. Library
+    used to help with HTML elements manipulation is <b>jQuery</b> </li>
+    <li><b>CSS</b> for description of the way html elements should be displayed.
+    <b>Bootstrap</b> framework used to design responsive pages</li>
+    <li><b>Swagger</b> framework used to consume RESTful web services. Every endpoint was specified in the
+      swagger.yaml document and controller methods were created accordingly.</li>
+    <li><b>Postgre</b> database used for the data persistence</li>
+    <li><b>Knex</b> tool used to help write queries in order to save, update and delete data from the database.</li>
+  </ul></p>
   <h3><a id="Discussion_43"></a>Discussion</h3>
   <p>Describe here:</p>
   <ul>
-    <li>How did you make sure your web application adheres to the provided OpenAPI<br>
-      specification?</li>
-    <li>Why do you think your web application adheres to common practices to partition<br>
-      the web application (static assets vs. application data)</li>
-    <li>Describe synthetically why and how did you manage session state, what are the<br>
-      state change triggering actions (e.g., POST to login etc…).</li>
-    <li>Which technology did you use (relational or a no-SQL database) for managing<br>
-      the data model?</li>
+    <li>In order to make sure our application adheres to the OpenAPI, we specified every endpoint in the
+      swagger.yaml document and created controllers, methods, accordingly. Only endopoints specified in this
+      document were accessible to the presentation layer. </li>
+    <li>We designed the presentation layer of our application in a way that every page has a static skeleton structure
+    with JavaScript scripts that display dynamically loaded data as well as required page rendering modifications.
+  This way we believe we followed the common practises to partition the web application. </li>
+    <li>In order to store the session state, upon the POST request to login the user, in the User controller,
+      userLoginPOST method we set the session id as well as the loggedin boolean field in the request.
+      Then, on GET request to log out the user, in the User controller,logoutUserGET method we set the session
+      id value in the request as well as the loggedin value.
+      These two methods, userLoginPOST and logoutUserGET, are the only methods changing the session state.
+    </li>
+    <li>For the data persistence we used PostgreSQL relational database for managing the data model.
+      There was no need for No-SQL databases because the parameters of every entity were clearly defined.</li>
   </ul>
   <h2><a id="Other_information_54"></a>Other information</h2>
   <h3><a id="Task_assignment_55"></a>Task assignment</h3>

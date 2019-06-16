@@ -35,6 +35,66 @@ module.exports = [{
     interview: ' '
   },
   {
+    title: 'Harry Potter and the Chamber of Secrets',
+    author: 'J. K. Rowling',
+    cover: 'https://cdn.waterstones.com/bookjackets/large/9781/4088/9781408855669.jpg',
+    abstract: 'The plot follows Harry\'s second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the school\'s corridors warn that the "Chamber of Secrets" has been opened and that the "heir of Slytherin" would kill all pupils who do not come from all-magical families. These threats are found after attacks which leave residents of the school petrified. Throughout the year, Harry and his friends Ron and Hermione investigate the attacks. What is the mysterious legend of the Chamber of Secrets? Who is heir to Slytherin? And will Harry and his friends be able to survive long enough to uncover the truth?',
+    genre: 'Fantasy',
+    currency: 'eur',
+    value: 10.60,
+    interview: ' '
+  },
+  {
+    title: 'Harry Potter and the Prisoner of Azkaban',
+    author: 'J. K. Rowling',
+    cover: 'https://cdn.waterstones.com/bookjackets/large/9781/4088/9781408855676.jpg',
+    abstract: 'The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban who they believe is one of Lord Voldemort\'s old allies. But nothing is certain in a world where even time itself may not be what it seems.',
+    genre: 'Fantasy',
+    currency: 'eur',
+    value: 10.60,
+    interview: ' '
+  },
+  {
+    title: 'Harry Potter and the Goblet of Fire',
+    author: 'J. K. Rowling',
+    cover: 'https://cdn.waterstones.com/bookjackets/large/9781/4088/9781408855683.jpg',
+    abstract: 'Harry Potter’s fourteenth year is proving to be a memorable one, not only is it the four hundred and twenty-second Quidditch World Cup but Hogwarts is playing host to its own unique wizarding competition, the Triwizard Tournament. The school finds itself playing host to two visiting magical schools – the enchanting Beauxbatons Academy and the formidable Durmstrang Institute. The map of the wizarding world unfolds in this gripping fourth novel in the award-winning Harry Potter series.',
+    genre: 'Fantasy',
+    currency: 'eur',
+    value: 10.60,
+    interview: ' '
+  },
+  {
+    title: 'Harry Potter and the Order of the Phoenix',
+    author: 'J. K. Rowling',
+    cover: 'https://cdn.waterstones.com/bookjackets/large/9781/4088/9781408855690.jpg',
+    abstract: 'The wizarding world is divided; Lord Voldemort has returned in secret and not everyone believes Harry’s account of what happened to him in the final moments of the Triwizard Tournament. More alone than ever, Harry finds himself an enemy of The Ministry of Magic as it seeks to have an ever-more sinister control over Hogwarts. For the school is now under the governance of the ruthless, sugar-pink-clad, Dolores Umbridge who is intent on bringing her own brand of order to the school, using increasingly brutal methods.',
+    genre: 'Fantasy',
+    currency: 'eur',
+    value: 10.60,
+    interview: ' '
+  },
+  {
+    title: 'Harry Potter and the Half-Blood Prince',
+    author: 'J. K. Rowling',
+    cover: 'https://cdn.waterstones.com/bookjackets/large/9781/4088/9781408855706.jpg',
+    abstract: 'All is not well in the wizarding world; Voldemort has returned and The Order of the Phoenix is in disarray. At Hogwarts, things are changing, Professor Snape has finally taken the position of Defence Against the Dark Arts Master and in his place a new Potions Master has been appointed, the avuncular Professor Slughorn, who has some secrets of his own. There are questions to be answered too: what is the secret mission Dumbledore has in store for Harry? What is the mystery behind his newly blackened, shrivelled hand? What unspeakable pact has Draco Malfoy made? The storm-clouds gather and suspicions grow around a traitor at the heart of Hogwarts itself, Harry and his friends are faced with the most bitter of betrayals.',
+    genre: 'Fantasy',
+    currency: 'eur',
+    value: 10.60,
+    interview: ' '
+  },
+  {
+    title: 'Harry Potter and the Deathly Hallows',
+    author: 'J. K. Rowling',
+    cover: 'https://cdn.waterstones.com/bookjackets/large/9781/4088/9781408855713.jpg',
+    abstract: 'Harry Potter’s days at number four Privet Drive are coming to a close, as his seventeenth birthday approaches, Harry will no longer be protected from Lord Voldemort’s discovery by his mother’s charm. The time for hiding is past. Harry, Ron and Hermione face a near-impossible mission set by Albus Dumbledore, they must hunt down and destroy the remaining Horcruxes but they have little to go on and in the face of hardship and loss, even the strongest friendships will be tested to their limit. There are riddles to be solved: What is the truth behind the fabled Deathly Hallows? How can a Dilluminator, a book of fairy tales and an old snitch be any use? And what is the meaning behind the prophecy that binds Voldemort and Harry together?',
+    genre: 'Fantasy',
+    currency: 'eur',
+    value: 10.60,
+    interview: ' '
+  },
+  {
     title: 'In Dessert and Wilderness',
     author: 'Henryk Sienkiewicz',
     cover: 'https://upload.wikimedia.org/wikipedia/en/7/70/InDesertandWildernessBookCover.jpg',
@@ -48,7 +108,27 @@ module.exports = [{
     title: 'Wizard\'s First Rule',
     author: 'Terry Goodkind',
     cover: 'https://upload.wikimedia.org/wikipedia/en/7/7b/Wizard%27s_First_Rule.jpg',
-    abstract: 'In the aftermath of the brutal murder of his father, a mysterious woman, Kahlan Amnell, appears in Richard Cypher\'s forest sanctuary seeking help . . . and more. His world, his very beliefs, are shattered when ancient debts come due with thundering violence. In a dark age it takes courage to live, and more than mere courage to challenge those who hold dominion, Richard and Kahlan must take up that challenge or become the next victims.',
+    abstract: 'One man, Richard Cypher, holds the key to the fate of three nations and of humanity. But until he learns the Wizard\'s First Rule his chances of succeeding in his task are slim. And his biggest problem is admitting that magic exists at all... A novel of incomparable scope and brimming with atmospheric detail: in a world where heart hounds stalk the boundaries for unwary human prey, blood-sucking flies hunt on behalf of their underworld masters, and where artists can draw more than your likeness, there is no place to hide, nowhere safe. Here magic makes love twice as sweet, betrayal and loss twice as bitter.',
+    genre: 'Fantasy',
+    currency: 'eur',
+    value: 10.60,
+    interview: ' '
+  },
+  {
+    title: 'Phantom',
+    author: 'Terry Goodkind',
+    cover: 'https://cdn.waterstones.com/bookjackets/large/9780/0071/9780007145652.jpg',
+    abstract: 'From internationally bestselling author Terry Goodkind, comes this outstanding epic adventure set in the captivating world of his classic Sword of Truth novels. As her husband, Richard, desperately searches for his beloved, who only he remembers, he knows that if she doesn\'t soon discover who she really is, she will unwittingly become the instrument that will unleash annihilation. But Kahlan learns that if she ever were to unlock the truth of her lost identify, the evil itself would finally possess her, body and soul. If she is to survive in a murky world of deception and betrayal, where life is not cheap but fleeting, Kahlan must find out why she is such a central figure in the war-torn world swirling around her. What she uncovers are secrets darker than she could ever have imagined.',
+    genre: 'Fantasy',
+    currency: 'eur',
+    value: 10.60,
+    interview: ' '
+  },
+  {
+    title: 'Confessor',
+    author: 'Terry Goodkind',
+    cover: 'https://cdn.waterstones.com/bookjackets/large/9780/0072/9780007250837.jpg',
+    abstract: 'The final book in one of the greatest epic adventures of all time: The Sword of Truth, from bestselling fantasy author Terry Goodkind. Descending into darkness, about to be overwhelmed by evil, those people still free are powerless to stop the coming dawn of a savage new world, while Richard faces the guilt of knowing that he must let it happen. Alone, he must bear the weight of a sin he dare not confess to the one person he loves...and has lost. Join Richard and Kahlan in the concluding novel of one of the most remarkable and memorable journeys ever written. It started with one rule, and will end with the rule of all rules, the rule unwritten, the rule unspoken since the dawn of history.',
     genre: 'Fantasy',
     currency: 'eur',
     value: 10.60,

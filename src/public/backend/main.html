@@ -65,57 +65,57 @@
   </ul>
   <h2><a id="Specification_23"></a>Specification</h2>
   <h3><a id="Web_Architecture_24"></a>Web Architecture</h3>
-  <img src="../assets/img/application.png" alt="logo" class="rounded mx-auto d-block img-fluid"  />
+  <img src="../assets/img/application.png" alt="logo" class="rounded mx-auto d-block img-fluid" />
   <p>The application has 3 main components:
     <ul>
       <li>Presentation layer</li>
       <li>Application layer</li>
       <li>Data layer</li>
     </ul>
-  The Presentation layer represents the front end layer of the application and consists of the user interface.
-  The user interface is accessible through the web browser and displays content and information useful to the user.
-  In our application, the content concerning the presentation layer can be found in /src/public directory.
-  The directory consists of sub-directories which correspond to the components required to build the presentation layer.
-  The components are:
-  <ul>
-    <li>JavaScript, which can be found in the src\public\scripts directory </li>
-    <li>HTML, which can be found in the src\public\pages directory</li>
-    <li>CSS, which can be found in the src\public\assets\css directory </li>
-  </ul>
-  The Application layer is the middle layer of the three tier architecture, it contains most of the application logic .
-  It communicates with both the presentation layer and the data layer.
-  The structure of the application layer depends on the design pattern chosen for the system.
-  Here we have two main parts: controller and service.
-  The communication between the presentation layer and the application layer is done through the HTTP protocol, using REST services.
-  The main HTTP methods used are GET and POST methods.
+    The Presentation layer represents the front end layer of the application and consists of the user interface.
+    The user interface is accessible through the web browser and displays content and information useful to the user.
+    In our application, the content concerning the presentation layer can be found in /src/public directory.
+    The directory consists of sub-directories which correspond to the components required to build the presentation layer.
+    The components are:
+    <ul>
+      <li>JavaScript, which can be found in the src\public\scripts directory </li>
+      <li>HTML, which can be found in the src\public\pages directory</li>
+      <li>CSS, which can be found in the src\public\assets\css directory </li>
+    </ul>
+    The Application layer is the middle layer of the three tier architecture, it contains most of the application logic .
+    It communicates with both the presentation layer and the data layer.
+    The structure of the application layer depends on the design pattern chosen for the system.
+    Here we have two main parts: controller and service.
+    The communication between the presentation layer and the application layer is done through the HTTP protocol, using REST services.
+    The main HTTP methods used are GET and POST methods.
 
-  Controller represents the receiving end of the requests sent from the presentation layer.
-  It processes all the requests and the data that comes from the presentation level and calls the needed service.
-  The service then further processes the data sent from the controller and, depending on the type of the request,communicates with the database
-  in order to fullfil the user request.After the request is fulfilled the controller sends the response to the presentation layer.
+    Controller represents the receiving end of the requests sent from the presentation layer.
+    It processes all the requests and the data that comes from the presentation level and calls the needed service.
+    The service then further processes the data sent from the controller and, depending on the type of the request,communicates with the database
+    in order to fullfil the user request.After the request is fulfilled the controller sends the response to the presentation layer.
 
-  The Data layer contains all the data of the application, stored in the database.
-  The main components concerning the persistence of the application can be found in the src\data and src\knex directories.
-  It is responsible for the persistence and the maintenance of the data in the system.
-  The communication between this layer and the application layer is made possible through the persistence API and database connectors.
-  <br>
-  We ensured that the HTML pages are not rendered on the server side by only allowing the application/json and application/x-www-form-urlencoded
-  format for the communication between the client and the server side.
-  Typically, if the user were to request to see the page of a book,the client would send the request with required parameters to
-  the server side. The request would be accepted by the appropriate controller which would call the suitable service in order to
-  satisfy the request. Upon receiving a response from the service the controller then sends the response to the client side which
-  then , possibly, redirects the user and renders the required page.
+    The Data layer contains all the data of the application, stored in the database.
+    The main components concerning the persistence of the application can be found in the src\data and src\knex directories.
+    It is responsible for the persistence and the maintenance of the data in the system.
+    The communication between this layer and the application layer is made possible through the persistence API and database connectors.
+    <br>
+    We ensured that the HTML pages are not rendered on the server side by only allowing the application/json and application/x-www-form-urlencoded
+    format for the communication between the client and the server side.
+    Typically, if the user were to request to see the page of a book,the client would send the request with required parameters to
+    the server side. The request would be accepted by the appropriate controller which would call the suitable service in order to
+    satisfy the request. Upon receiving a response from the service the controller then sends the response to the client side which
+    then , possibly, redirects the user and renders the required page.
   </p>
   <h3><a id="API_28"></a>API</h3>
   <h4><a id="REST_compliance_29"></a>REST compliance</h4>
-  <p>In our application we followed  REST principles in the sense that the communication between the client and the server
-  is <i>stateless</i> as the client side keeps the needed information for authentication of the request. Moreover,
-the application represents a <i>client-server</i> architecture because they both have different sets of responsibilities.
-Furthermore, we have a <i>uniform interface</i> separating the client side and the server side. Finally, the application
-is a <i>layered system</i> as all the components are separated and the only way they communicate is through a proxy.
-Concerning the communication between the client side and server side, the requirements are clearly set, messages are self descriptive,
-meaning the data format of a representation comes with its media type. Formats used for the communitaion are
-<b>application/json</b> and <b>application/x-www-form-urlencoded</b></p>
+  <p>In our application we followed REST principles in the sense that the communication between the client and the server
+    is <i>stateless</i> as the client side keeps the needed information for authentication of the request. Moreover,
+    the application represents a <i>client-server</i> architecture because they both have different sets of responsibilities.
+    Furthermore, we have a <i>uniform interface</i> separating the client side and the server side. Finally, the application
+    is a <i>layered system</i> as all the components are separated and the only way they communicate is through a proxy.
+    Concerning the communication between the client side and server side, the requirements are clearly set, messages are self descriptive,
+    meaning the data format of a representation comes with its media type. Formats used for the communitaion are
+    <b>application/json</b> and <b>application/x-www-form-urlencoded</b></p>
   <h4><a id="OpenAPI_Resource_models_33"></a>OpenAPI Resource models</h4>
   <p>Describe here synthetically, which models you have introduced for resources.</p>
   <h3><a id="Data_model_35"></a>Data model</h3>
@@ -124,20 +124,21 @@ meaning the data format of a representation comes with its media type. Formats u
   <h2><a id="Implementation_39"></a>Implementation</h2>
   <h3><a id="Tools_used_40"></a>Tools used</h3>
   <p>To implement the web application, the following tools were used:
-  <ul>
-    <li><b>Node.js</b> environment used to write and execute the code for our application</li>
-    <li><b>HTML</b> for the structure of pages</li>
-    <li><b>JavaScript</b> for the logic of the frontend, sending the requests, receiving the responses and
-    the interaction with the user. Here we used <b>AJAX</b> for the data exchange with the server, sending
-    the requests in the right format and modifying the content of a page without having to reload it. Library
-    used to help with HTML elements manipulation is <b>jQuery</b> </li>
-    <li><b>CSS</b> for description of the way html elements should be displayed.
-    <b>Bootstrap</b> framework used to design responsive pages</li>
-    <li><b>Swagger</b> framework used to consume RESTful web services. Every endpoint was specified in the
-      swagger.yaml document and controller methods were created accordingly.</li>
-    <li><b>Postgre</b> database used for the data persistence</li>
-    <li><b>Knex</b> tool used to help write queries in order to save, update and delete data from the database.</li>
-  </ul></p>
+    <ul>
+      <li><b>Node.js</b> environment used to write and execute the code for our application</li>
+      <li><b>HTML</b> for the structure of pages</li>
+      <li><b>JavaScript</b> for the logic of the frontend, sending the requests, receiving the responses and
+        the interaction with the user. Here we used <b>AJAX</b> for the data exchange with the server, sending
+        the requests in the right format and modifying the content of a page without having to reload it. Library
+        used to help with HTML elements manipulation is <b>jQuery</b> </li>
+      <li><b>CSS</b> for description of the way html elements should be displayed.
+        <b>Bootstrap</b> framework used to design responsive pages</li>
+      <li><b>Swagger</b> framework used to consume RESTful web services. Every endpoint was specified in the
+        swagger.yaml document and controller methods were created accordingly.</li>
+      <li><b>Postgre</b> database used for the data persistence</li>
+      <li><b>Knex</b> tool used to help write queries in order to save, update and delete data from the database.</li>
+    </ul>
+  </p>
   <h3><a id="Discussion_43"></a>Discussion</h3>
   <p>Describe here:</p>
   <ul>
@@ -145,8 +146,8 @@ meaning the data format of a representation comes with its media type. Formats u
       swagger.yaml document and created controllers, methods, accordingly. Only endopoints specified in this
       document were accessible to the presentation layer. </li>
     <li>We designed the presentation layer of our application in a way that every page has a static skeleton structure
-    with JavaScript scripts that display dynamically loaded data as well as required page rendering modifications.
-  This way we believe we followed the common practises to partition the web application. </li>
+      with JavaScript scripts that display dynamically loaded data as well as required page rendering modifications.
+      This way we believe we followed the common practises to partition the web application. </li>
     <li>In order to store the session state, upon the POST request to login the user, in the User controller,
       userLoginPOST method we set the session id as well as the loggedin boolean field in the request.
       Then, on GET request to log out the user, in the User controller,logoutUserGET method we set the session

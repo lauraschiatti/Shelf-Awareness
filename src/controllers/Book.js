@@ -64,15 +64,24 @@ module.exports.booksByThemeGET = function booksByThemeGET (req, res, next) {
     });
 };
 
+module.exports.similarBooksGET = function similarBooksGET(req, res, next) {
+    var bookId = req.swagger.params['bookId'].value;
 
-// module.exports.getBookByGenre = function getBookByGenre (req, res, next) {
-//   var genre = req.swagger.params['genre'].value;
-//
-//   BookService.getBookByGenre(genre)
-//     .then(function (response) {
-//       utils.writeJson(res, response);
-//     })
-//     .catch(function (response) {
-//       utils.writeJson(res, response);
-//     });
-// };
+    BookService.similarBooksIdsGET(bookId)
+      .then(function (response) {
+        var bookIDs = [];
+        response.forEach(elem => {
+            bookIDs.push(elem.book_1 == bookId ? elem.book_2 : elem.book_1);
+        });
+        BookService.booksByIDsGET(bookIDs)
+          .then(function (result) {
+            utils.writeJson(res, result);
+          })
+          .catch(function (result) {
+            utils.writeJson(res, result);
+          });
+      })
+      .catch(function (response) {
+        utils.writeJson(res, response);
+    });
+}

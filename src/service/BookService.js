@@ -20,8 +20,6 @@ exports.booksGET = function(offset, limit) {
     .orderBy('title', 'asc')
     .then((book) => {
       return book.map(e => {
-        // console.log("\nid " + e.book_id);
-        // console.log("\nname " + e.title);
         return formatBook(e);
       });
     })
@@ -36,8 +34,6 @@ exports.booksByAuthorGET = function(authorId) {
     .orderBy('title', 'asc')
     .then((book) => {
       return book.map(e => {
-        // console.log("\nid " + e.book_id);
-        // console.log("\nname " + e.title);
         return formatBook(e);
       });
     })
@@ -52,8 +48,6 @@ exports.booksByGenreGET = function(genre) {
     .orderBy('title', 'asc')
     .then((book) => {
       return book.map(e => {
-        // console.log("\nid " + e.book_id);
-        // console.log("\nname " + e.title);
         return formatBook(e);
       });
     })
@@ -92,6 +86,27 @@ exports.getBookById = function(bookId) {
     })
     .catch((err) => console.log(err));
 };
+
+exports.booksByIDsGET = function(bookIDs) {
+    return knex('authors')
+      .join('books', 'books.author_id', '=', 'authors.id')
+      .select()
+      .whereIn('books.id', bookIDs)
+      .then((book) => {
+        return book.map(e => {
+          return formatBook(e);
+        });
+      })
+      .catch((err) => console.log(err));
+}
+
+exports.similarBooksIdsGET = function(bookId) {
+    return knex('similar_books')
+      .select()
+      .where('book_1', '=', bookId)
+      .orWhere('book_2', '=', bookId)
+      .catch((err) => console.log(err));
+}
 
 
 function formatBook(book) {

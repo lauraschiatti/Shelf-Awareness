@@ -78,9 +78,14 @@
     The directory consists of sub-directories which correspond to the components required to build the presentation layer.
     The components are:
     <ul>
-      <li>JavaScript, which can be found in the src\public\scripts directory </li>
-      <li>HTML, which can be found in the src\public\pages directory</li>
-      <li>CSS, which can be found in the src\public\assets\css directory </li>
+      <li>JavaScript, which can be found in the src\public\scripts directory. <b>JavaScript</b> was used for the
+        logic of the frontend, sending the requests, receiving the responses and the interaction with the user.
+        Here we used <b>AJAX</b> for the data exchange with the server, sending the requests in the right format
+        and modifying the content of a page without having to reload it. Library used to help with HTML elements
+        manipulation is <b>jQuery</b> </li>
+      <li>HTML, which can be found in the src\public\pages directory.<b>HTML</b> was used for the structure of pages</li>
+      <li>CSS, which can be found in the src\public\assets\css directory. <b>CSS</b> was used for description of
+        the way html elements should be displayed. <b>Bootstrap</b> framework used to design responsive pages </li>
     </ul>
     The Application layer is the middle layer of the three tier architecture, it contains most of the application logic .
     It communicates with both the presentation layer and the data layer.
@@ -108,16 +113,34 @@
   </p>
   <h3><a id="API_28"></a>API</h3>
   <h4><a id="REST_compliance_29"></a>REST compliance</h4>
-  <p>In our application we followed REST principles in the sense that the communication between the client and the server
-    is <i>stateless</i> as the client side keeps the needed information for authentication of the request. Moreover,
-    the application represents a <i>client-server</i> architecture because they both have different sets of responsibilities.
-    Furthermore, we have a <i>uniform interface</i> separating the client side and the server side. Finally, the application
+  <p>In our application we followed REST principles in the sense that the application represents a
+    <i>client-server</i> architecture because they both have different sets of responsibilities.Furthermore,
+    we have a <i>uniform interface</i> separating the client side and the server side. Finally, the application
     is a <i>layered system</i> as all the components are separated and the only way they communicate is through a proxy.
     Concerning the communication between the client side and server side, the requirements are clearly set, messages are self descriptive,
     meaning the data format of a representation comes with its media type. Formats used for the communitaion are
-    <b>application/json</b> and <b>application/x-www-form-urlencoded</b></p>
+    <b>application/json</b> and <b>application/x-www-form-urlencoded</b>. However, for our perposes the communication between the client and the server
+    could not be <i>stateless</i> as we needed to keep the session state server side.</p>
   <h4><a id="OpenAPI_Resource_models_33"></a>OpenAPI Resource models</h4>
-  <p>Describe here synthetically, which models you have introduced for resources.</p>
+  <p>
+    <ul>
+      <li><b>User</b> model represents users of the application.
+        They have personal information as well as the email and passoword for accessing the website.</li>
+      <li><b>Book</b> model represents books of the application. It has its description information, as well the
+        reference to its Author, the Events concerning it, Themes and Amount </li>
+      <li><b>Author</b> model represents authors of the application. They have personal information as well the
+        reference to their Books</li>
+      <li><b>Theme</b> model represents themes of the application. </li>
+      <li><b>Cart</b> model represents the cart of the current user in application. It has its description
+      information, as well the reference to all the Books in the cart</li>
+      <li><b>Amount</b> model represents the value of every Book of the application. </li>
+      <li><b>Currency</b> model represents currency options of the application. </li>
+      <li><b>Review</b> model represents reviews of the application. It has its description information, as well
+         the reference to its User and the Book.</li>
+      <li><b>Event</b> model represents events of the application. It has its description information, as well
+         the reference to the Book it is about.</li>
+    </ul>
+  </p>
   <h3><a id="Data_model_35"></a>Data model</h3>
   <p>The <i><b>shelfawareness</b></i> database has 11 tables, two of which (<i>knex_migrations</i> and <i>knex_migrations_lock</i>)
     keep track of the migrations -- changes to the database that were implemented during the development of the project. These are
@@ -134,13 +157,6 @@
   <p>To implement the web application, the following tools were used:
     <ul>
       <li><b>Node.js</b> environment used to write and execute the code for our application</li>
-      <!--<li><b>HTML</b> for the structure of pages</li>
-      <li><b>JavaScript</b> for the logic of the frontend, sending the requests, receiving the responses and
-        the interaction with the user. Here we used <b>AJAX</b> for the data exchange with the server, sending
-        the requests in the right format and modifying the content of a page without having to reload it. Library
-        used to help with HTML elements manipulation is <b>jQuery</b> </li>
-      <li><b>CSS</b> for description of the way html elements should be displayed.
-        <b>Bootstrap</b> framework used to design responsive pages</li>-->
       <li><b>Swagger</b> framework used to consume RESTful web services. Every endpoint was specified in the
         swagger.yaml document and controller methods were created accordingly.</li>
       <li><b>Postgre</b> database used for the data persistence</li>
@@ -167,25 +183,34 @@
   </ul>
   <h2><a id="Other_information_54"></a>Other information</h2>
   <h3><a id="Task_assignment_55"></a>Task assignment</h3>
-  <p>Describe here how development tasks have been subdivided among members of the<br>
-    group, e.g.:</p>
+  <p>The development tasks have been subdivided among members of the group accordingly:</p>
   <ul>
-    <li>Laura worked on front end (70%) and OpenAPI Spec (30% of the time)</li>
-    <li>Jefimija worked on front end (30%) and OpenAPI Spec (70% of the time)</li>
-    <li>Ana worked on front end (30%) and OpenAPI Spec (70% of the time)</li>
+    <li>Laura worked on front end (70%) and OpenAPI Spec and backend implementation (30% of the time)</li>
+    <li>Jefimija worked on front end (30%) and OpenAPI Spec and backend implementation (70% of the time)</li>
+    <li>Ana worked on front end (40%) and OpenAPI Spec and backend implementation (60% of the time)</li>
   </ul>
   <h3><a id="Analysis_of_existing_API_61"></a>Analysis of existing API</h3>
   <p>Describe here if you have found relevant APIs that have inspired the OpenAPI<br>
     specification and why (at least two).</p>
+  <p>We researched a few of the bookstore websites and the two we found most inspiring were:
+    <ul>
+      <li><a href="https://www.delfi.rs/knjige">Delfi</a></li>
+      <li><a href="https://www.waterstones.com/">Waterstones</a></li>
+    </ul>
+    The mentioned websites have taught us what are good practices when building our application. For example,
+    we how to organize our API, how to name our URIs and the organization of the website in general.
+  </p>
   <h3><a id="Learning_outcome_64"></a>Learning outcome</h3>
   <p>What was the most important thing all the members have learned while developing this part of the project, what
     questions remained unanswered, how you will use what you’ve learned in your everyday life?<br>
     Examples:</p>
   <ul>
-    <li>Foo learned to write SQL queries and Javascript but wanted to know more about caching, he’s probably going to
-      create his own startup with what she has learned</li>
-    <li>Bar learned how to deploy on a cloud platform, he would have liked to know<br>
-      more about promises for asynchronous code…</li>
+    <li>Jefimija had experience with writing backend and frontend code and with REST services, but she learned
+      how to organize the website well and would like to further explore promises in JavaScript </li>
+    <li>Ana had experience with SQL, but she learned to apply that knowledge in writing queries with knex
+      and Javascript code and she would further like to explore AJAX and jQuery options</li>
+    <li>Laura had experience with writing front end code, but learned how to deploy on a cloud platform,
+      she would have liked to know more about promises for asynchronous code</li>
   </ul>
 
 </body>

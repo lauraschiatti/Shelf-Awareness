@@ -98,3 +98,17 @@ module.exports.favoriteReadingsGET = function favoriteReadingsGET (req, res, nex
       utils.writeJson(res, response);
     });
 };
+
+module.exports.bestSellersGET = function bestSellersGET (req, res, next) {
+  var offset = req.swagger.params['offset'].value;
+  var limit = req.swagger.params['limit'].value;
+
+  BookService.bestSellersGET(offset,limit)
+    .then(function (response) {
+      
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};

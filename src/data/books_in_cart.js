@@ -1,14 +1,14 @@
 module.exports = [{
     user: 'laura.siso@mail.polimi.it',
     book: 'Il deserto dei tartari',
-    status: 'added',
-    quantity: 1
+    status: 'purchased',
+    quantity: 4
   },
   {
     user: 'jefimija.zivkovic@mail.polimi.it',
     book: 'Misery',
-    status: 'added',
-    quantity: 1
+    status: 'purchased',
+    quantity: 4
   },
   {
     user: 'ana.pesko@mail.polimi.it',

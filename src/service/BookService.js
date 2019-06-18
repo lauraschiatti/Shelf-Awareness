@@ -69,6 +69,24 @@ exports.booksByThemeGET = function(theme) {
     .catch((err) => console.log(err));
 };
 
+exports.favoriteReadingsGET = function(offset, limit) {
+  return knex('authors')
+    .join('books', 'books.author_id', '=', 'authors.id')
+    .select()
+    .offset(offset)
+    .limit(limit)
+    .where('books.title', '=', 'Misery')
+    .orWhere('books.title', '=', 'Phantom')
+    .orWhere('books.title', '=', 'Confessor')
+    .orderBy('title', 'asc')
+    .then((book) => {
+      return book.map(e => {
+        return formatBook(e);
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
 /**
  * Find book by ID
  * Returns a book

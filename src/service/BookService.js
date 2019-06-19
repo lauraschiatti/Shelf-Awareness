@@ -69,6 +69,40 @@ exports.booksByThemeGET = function(theme) {
     .catch((err) => console.log(err));
 };
 
+exports.favoriteReadingsGET = function(offset, limit) {
+  return knex('authors')
+    .join('books', 'books.author_id', '=', 'authors.id')
+    .select()
+    .offset(offset)
+    .limit(limit)
+    .where('books.title', '=', 'Misery')
+    .orWhere('books.title', '=', 'Phantom')
+    .orWhere('books.title', '=', 'Confessor')
+    .orderBy('title', 'asc')
+    .then((book) => {
+      return book.map(e => {
+        return formatBook(e);
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
+exports.bestSellersGET = function(offset, limit) {
+  return knex('books_in_cart')
+    .join('books', 'books.id', '=', 'books_in_cart.book_id')
+    .join('authors', 'authors.id', '=', 'books.author_id')
+    .select()
+    .where('books_in_cart.quantity', '>',' 3',)
+    .then((books) => {
+      return books.map(e => {
+        console.log("\nid " + e.book_id);
+
+        return formatBook(e);
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
 /**
  * Find book by ID
  * Returns a book
@@ -110,6 +144,7 @@ exports.similarBooksIdsGET = function(bookId) {
 
 
 function formatBook(book) {
+   // console.log("\nid " + book.book_id);
   book.author = {
     id: book.author_id,
     name: book.name,

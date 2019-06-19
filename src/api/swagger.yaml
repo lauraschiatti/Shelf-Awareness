@@ -50,6 +50,70 @@ paths:
         404:
           description: "Unexpected error"
       x-swagger-router-controller: "Book"
+  /books/favorite:
+    get:
+      tags:
+        - "book"
+      summary: "Favorite readings available in the inventory"
+      description: "List of favorite books available in the inventory"
+      operationId: "favoriteReadingsGET"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "offset"
+          in: "query"
+          description: "Pagination offset. Default is 0."
+          required: false
+          type: "integer"
+        - name: "limit"
+          in: "query"
+          description: "Maximum number of items per page. Default is 20 and cannot exceed\
+          \ 500."
+          required: false
+          type: "integer"
+          default: 20
+      responses:
+        200:
+          description: "A collection of Books"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Book"
+        404:
+          description: "Unexpected error"
+      x-swagger-router-controller: "Book"
+  /books/bestSellers:
+    get:
+      tags:
+        - "book"
+      summary: "Best sellers available in the inventory"
+      description: "List of Best seller books available in the inventory"
+      operationId: "bestSellersGET"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "offset"
+          in: "query"
+          description: "Pagination offset. Default is 0."
+          required: false
+          type: "integer"
+        - name: "limit"
+          in: "query"
+          description: "Maximum number of items per page. Default is 20 and cannot exceed\
+          \ 500."
+          required: false
+          type: "integer"
+          default: 20
+      responses:
+        200:
+          description: "A collection of Books"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Book"
+        404:
+          description: "Unexpected error"
+      x-swagger-router-controller: "Book"
   /books/{bookId}:
     get:
       tags:

@@ -18,3 +18,18 @@ exports.themesGET = function(offset, limit) {
     .limit(limit)
     .catch((err) => console.log(err));
 };
+
+exports.bookThemesGET = function(bookID) {
+    return knex('themes_in_book')
+      .join('themes', 'themes.id', '=', 'themes_in_book.theme_id')
+      .select('themes.theme')
+      .where('themes_in_book.book_id', '=', bookID)
+      .then(function(result) {
+        return result;
+      })
+      .catch((err) => console.log(err));
+}
+
+function formatTheme(theme) {
+    console.log(theme);
+}

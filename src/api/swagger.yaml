@@ -162,7 +162,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Book"
+              $ref: "#/definitions/Theme"
         404:
           description: "Unexpected error"
       x-swagger-router-controller: "Theme"
@@ -745,6 +745,10 @@ definitions:
         type: "string"
         description: "book genre"
         enum: ["Adventure", "comic", "Crime", "Erotic", "Fiction", "Fantasy", "Historical", "Horror", "Magic", "Realism", "Mystery", "Paranoid", "Philosophical", "Political", "Romance", "Saga", "Satire", "Science", "Thriller", "Urban", "Western"]
+      themes:
+        type: "array"
+        items:
+          $ref: "#/definitions/Theme"
       price:
         $ref: "#/definitions/Amount"
       status:
@@ -794,6 +798,22 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Book"
+
+  Theme:
+    type: "object"
+    required:
+      - "theme"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      theme:
+        type: "string"
+    title: "Theme"
+    description: "A theme"
+    example:
+      id: 0
+      theme: "Love"
 
   Cart:
     type: "object"

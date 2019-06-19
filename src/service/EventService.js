@@ -13,10 +13,13 @@
 var knex = require('../knex/knex');
 
 exports.eventsGET = function(offset, limit) {
+  var today = new Date();
+
   return knex('books')
     .join('authors', 'authors.id', '=', 'books.author_id')
     .join('events', 'books.id', '=', 'events.book_id')
     .select()
+    .where('events.held_on', '>=', today)
     .offset(offset)
     .limit(limit)
     .orderBy('held_on', 'asc')
@@ -27,6 +30,27 @@ exports.eventsGET = function(offset, limit) {
     })
     .catch((err) => console.log(err));
 };
+
+exports.eventsThisMonthGET = function(offset, limit) {
+    var today = new Date();
+    var endDate = getUpcomingEventsEndDate();
+    
+    return knex('books')
+      .join('authors', 'authors.id', '=', 'books.author_id')
+      .join('events', 'books.id', '=', 'events.book_id')
+      .select()
+      .where('events.held_on', '>=', today)
+      .where('events.held_on', '<', endDate)
+      .offset(offset)
+      .limit(limit)
+      .orderBy('held_on', 'asc')
+      .then((event) => {
+        return event.map(e => {
+          return formatEvent(e);
+        });
+      })
+      .catch((err) => console.log(err));
+}
 
 
 /**
@@ -47,6 +71,42 @@ exports.getEventById = function(eventId) {
     })
     .catch((err) => console.log(err));
 };
+
+exports.getBookEvents = function(bookId, offset, limit) {
+    return knex('books')
+      .join('authors', 'authors.id', '=', 'books.author_id')
+      .join('events', 'books.id', '=', 'events.book_id')
+      .select()
+      .where('books.id', '=', bookId)
+      .where('events.held_on', '>=', new Date())
+      .offset(offset)
+      .limit(limit)
+      .orderBy('held_on', 'asc')
+      .then((event) => {
+        return event.map(e => {
+          return formatEvent(e);
+        });
+      })
+      .catch((err) => console.log(err));
+}
+
+function getUpcomingEventsEndDate() {
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    if (day >= 28) {
+        month++;
+    }
+    date.setDate(1);
+    if (month == 12) {
+        date.setFullYear(year + 1);
+        date.setMonth(0);
+    } else {
+        date.setMonth(month);
+    }
+    return date;
+}
 
 function formatEvent(event) {
   event.book = {

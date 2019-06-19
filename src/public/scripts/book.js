@@ -87,7 +87,7 @@
      $("#related_info").append(`<h5>Related info</h5>
         <ol class="list-unstyled mb-1">
           <li><a href="pages/similar_books.html?id=${id}"> <i class="fa fa-check-square"></i> Similar books to ${title}</a></li>
-          <li><a href="pages/events_by_book.html?id=${id}"> <i class="fa fa-calendar-check-o"></i> Book signing events</a></li>
+          <li><a href="pages/events_by_book.html?id=${id}&title=${title}"> <i class="fa fa-calendar-check-o"></i> Book signing events</a></li>
         </ol>`);
      $("#booksByGenre").append(`<ol class="list-unstyled mb-1">
           <li><a href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}"> <i class="fa fa-book"></i> All books by genre ${genre}</a></li>

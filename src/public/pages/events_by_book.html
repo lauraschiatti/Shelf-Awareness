@@ -21,7 +21,7 @@
   <script src="assets/js/jquery-3.2.1.min.js"></script>
   <script src="scripts/login.js"></script>
   <script src="scripts/home.js"></script>
-  <!--<script src="scripts/events_by_book.js"></script>-->
+  <script type="module" src="scripts/events_by_book.js"></script>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
             <i class="fa fa-inbox"></i> What's on
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="pages/events_this_month.html.html"><i class="fa fa-calendar"></i> Events this month</a>
+            <a class="dropdown-item" href="pages/events_this_month.html"><i class="fa fa-calendar"></i> Events this month</a>
             <a class="dropdown-item" href="pages/best_sellers.html"><i class="fa fa-star"></i> Best sellers this month</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="pages/favorite_readings.html"><i class="fa fa-bookmark"></i> Our favorite readings</a>
@@ -105,11 +105,6 @@
   <div class="row d-flex justify-content-center">
     <!--<div class="col-xs-12 col-md-10 main" id="events_by_book_header"></div>-->
     <div class="col-xs-12 col-md-10 main" id="events_by_book_header">
-      <div class="row pb-4">
-        <div class="col-sm-8">
-          <h4 class="text-primary mb-0">Book signing events <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> book_name <i class="fa fa-angle-double-right"></i></h4>
-        </div>
-      </div>
     </div>
   </div><!-- /.row -->
 
@@ -117,9 +112,6 @@
     <div class="col-xs-12 col-md-10 main">
       <div class="card-group" id="events_by_book"></div>
       <div id="related_info" class="m-4">
-        <ol class="list-unstyled">
-          <li><a href="pages/book.html?id="> <i class="fa fa-angle-double-left"></i> Return to book name</a></li>
-        </ol>
       </div>
     </div>
   </div>

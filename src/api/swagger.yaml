@@ -575,6 +575,38 @@ paths:
         404:
           description: "Unexpected error"
       x-swagger-router-controller: "Event"
+  /events/thisMonth:
+    get:
+      tags:
+        - "event"
+      summary: "Events this month available in the inventory"
+      description: "List of events this month available in the inventory"
+      operationId: "eventsThisMonthGET"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "offset"
+          in: "query"
+          description: "Pagination offset. Default is 0."
+          required: false
+          type: "integer"
+        - name: "limit"
+          in: "query"
+          description: "Maximum number of items per page. Default is 20 and cannot exceed\
+          \ 500."
+          required: false
+          type: "integer"
+          default: 20
+      responses:
+        200:
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        404:
+          description: "Unexpected error"
+      x-swagger-router-controller: "Event"
   /events/{eventId}:
     get:
       tags:
@@ -600,6 +632,49 @@ paths:
           description: "Invalid ID supplied"
         404:
           description: "Review not found"
+      x-swagger-router-controller: "Event"
+  /events/byBook/{bookId}:
+    get:
+      tags:
+        - "event"
+      summary: "Events available for a particular book in the inventory"
+      description: "List of events available for a particular book in the inventory"
+      operationId: "getBookEvents"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "bookId"
+          in: "path"
+          description: "ID of event to return"
+          required: true
+          type: "integer"
+          format: "int64"
+        - name: "title"
+          in: "query"
+          description: "Title of the book"
+          required: false
+          type: "integer"
+        - name: "offset"
+          in: "query"
+          description: "Pagination offset. Default is 0."
+          required: false
+          type: "integer"
+        - name: "limit"
+          in: "query"
+          description: "Maximum number of items per page. Default is 20 and cannot exceed\
+          \ 500."
+          required: false
+          type: "integer"
+          default: 20
+      responses:
+        200:
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        404:
+          description: "Unexpected error"
       x-swagger-router-controller: "Event"
   /user/login:
     post:

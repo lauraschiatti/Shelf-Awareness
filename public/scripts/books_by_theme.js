@@ -11,14 +11,11 @@ $(document).ready(function() {
         .then(function(json) {
           $("#books_by_theme_header").append(`<div class="row pb-4">
                 <div class="col-sm-8">
-                    <h4 class="text-primary mb-0"><strong>Theme </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${theme} <i class="fa fa-angle-double-right"></i></h4>
+                    <h4 class="text-primary mb-0">Theme <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${theme} <i class="fa fa-angle-double-right"></i></h4>
                 </div>
             </div>`);
 
           for (let i = 0; i < json.length; i++) {
-            let listItem = document.createElement("div");
-            listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
-
             let {
               id,
               title,
@@ -27,26 +24,24 @@ $(document).ready(function() {
               genre
             } = json[i];
 
-            listItem.innerHTML =
-              `<div class="card m-3">
-                        <!--Card image-->
-                        <div class="view">
-                            <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px">
-                        </div>
 
-                        <!--Card content-->
-                        <div class="card-body">
-                            <small class="text-primary"> Genre</small>
-                            <small class="card-title"><a class="text-dark" href="pages/book.html?id=${id}">${title}</a></small>
-                            <p class="card-subtitle"><small class="font-italic">${author.name}</small></p>
-                        </div>
-                    </div>`;
+              $("#books-by-theme-list").append(`<li class="col-md-12 m-1 thumb-list">
+                <div class="col-md-3">
+                   <a class="pull-left mb-3">
+                      <img class="rounded" src="${cover}" alt="cover" style="width: 130px; height: 160px">
+                   </a>
+                </div>
+                <div class="col-md-9">
+                    <p><span class="badge badge-success"> ${genre}</span></p>
+                    <p class="font-weight-bold"><a class="text-dark" href="pages/book.html?id=${id}">${title}</a></p>
+                    <p class="card-subtitle"><a class="font-italic" href="pages/author.html?id=${author.id}">${author.name}</a></p>
+                </div>
+              </li>`);
 
-            $("#books-by-theme-list").append(listItem);
           }
 
-          $("#related_info_theme").append(`<ol class="list-unstyled">
-              <li><a href="pages/all_themes.html"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline"> All themes</span></a></li>
+            $("#related_info").append(`<ol class="list-unstyled">
+              <li><a href="pages/all_themes.html"> <i class="fa fa-angle-double-left"></i> Return to all themes</span></a></li>
             </ol>`);
 
         });

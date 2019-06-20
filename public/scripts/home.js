@@ -58,6 +58,11 @@ function getUser() {
               $('#register').empty();
               $('#loggedIn').append('<a class="btn btn-default btn-sm ml-3" id="loggedIn">' + user.name + '</a>');
               $('#logout').append('<a class="btn btn-default btn-sm ml-3" id="logout"><i class="fa fa-sign-in"></i> Sign out</a>');
+            $('#cartDiv').empty();
+            $('#cartDiv').append(`  <a class="btn btn-primary btn-sm ml-3" href="pages/cart.html">
+                  <i class="fa fa-shopping-cart"></i> Cart
+                </a>`);
+
             } else {
               $('#logout').empty();
             }

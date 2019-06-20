@@ -128,8 +128,22 @@ ul, ol {
 
 /* Responsive breakpoints
 -------------------------------------------------- */
+@media (max-width: 575px) {
+  body {
+    /*background-color: blue;*/
+  }
+
+  .cover-thumbnail{
+    display: none;
+  }
+}
+
+
 /*Small devices (landscape phones, 576px and up)*/
-@media (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 767px) {
+  body {
+    /*background-color: red;*/
+  }
   .container {
     max-width: 98%;
   }
@@ -142,10 +156,20 @@ ul, ol {
   .title{
     display: none;
   }
+
+  .cover-thumbnail{
+    width: 100px;
+    height: 150px;
+    margin-right: 10px;
+  }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991px) {
+  body {
+    /*background-color: orange;*/
+  }
+
   .container {
     max-width: 96%;
   }
@@ -153,16 +177,32 @@ ul, ol {
   .header-logo {
     font-size: 1.8rem;
   }
+
+  .cover-thumbnail{
+    width:120px;
+    height: 170px;
+    margin-right: 10px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  body {
+    /*background-color: yellow;*/
+  }
+
   .container {
     max-width: 90%;
   }
 
   .header-logo {
     font-size: 2rem;
+  }
+
+  .cover-thumbnail{
+    width:150px;
+    height: 220px;
+    margin-right: 10px;
   }
 }
 
@@ -246,86 +286,4 @@ ul, ol {
 .carousel-indicators li.active {
   border: none;
   background: #888;
-}
-
-
-
-
-
-
-
-
-
-
-/* Home Cards
--------------------------------------------------- */
-#what-we-do .card {
-  padding: 1rem !important;
-  border: none;
-  margin-bottom: 1rem;
-  -webkit-transition: .5s all ease;
-  -moz-transition: .5s all ease;
-  transition: .5s all ease;
-}
-
-#what-we-do .card .card-block {
-  padding-left: 50px;
-  position: relative;
-}
-
-#what-we-do .card .card-block a {
-  color: #D10024 !important;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-#what-we-do .card .card-block a i {
-  display: none;
-}
-
-#what-we-do .card:hover .card-block a i {
-  display: inline-block;
-  font-weight: 700;
-}
-
-#what-we-do .card .card-block:before {
-  font-family: FontAwesome;
-  position: absolute;
-  font-size: 39px;
-  color: #D10024;
-  left: 0;
-  -webkit-transition: -webkit-transform .2s ease-in-out;
-  transition: transform .2s ease-in-out;
-}
-
-#what-we-do .card .block-1:before {
-  content: "\f0e7";
-}
-
-#what-we-do .card .block-2:before {
-  content: "\f0eb";
-}
-
-#what-we-do .card .block-3:before {
-  content: "\f00c";
-}
-
-#what-we-do .card .block-4:before {
-  content: "\f209";
-}
-
-#what-we-do .card .block-5:before {
-  content: "\f0a1";
-}
-
-#what-we-do .card .block-6:before {
-  content: "\f218";
-}
-
-#what-we-do .card:hover .card-block:before {
-  -webkit-transform: rotate(360deg);
-  transform: rotate(360deg);
-  -webkit-transition: .5s all ease;
-  -moz-transition: .5s all ease;
-  transition: .5s all ease;
 }

@@ -10,31 +10,15 @@ function getBooks() {
       response.json()
         .then(function(json) {
           for (let i = 0; i < json.length; i++) {
-            let listItem = document.createElement("div");
-            listItem.setAttribute('class', 'col-lg-3 col-md-4 col-sm-6 col-xs-6');
 
             let {
               id,
-              title,
               cover,
-              author
             } = json[i];
 
-            if (id <= 4) {
-              listItem.innerHTML =
-                `<div class="card mb-3">
-                      <!--Card image-->
-                      <div class="view">
-                        <a href="pages/book.html?id=${id}">
-                          <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px">
-                        </a>
-                      </div>
-
-                    </div>`;
-
-              $("#books-list").append(listItem);
+            if (i <= 4) {
+                $("#books-list").append(`<a href="pages/book.html?id=${id}"><img src="${cover}" class="img-thumbnail cover-thumbnail" alt="cover"></a>`);
             }
-
 
           }
         });

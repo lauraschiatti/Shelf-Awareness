@@ -8,9 +8,6 @@ $(document).ready(function() {
       response.json()
         .then(function(json) {
           for (let i = 0; i < json.length; i++) {
-
-            let listItem = document.createElement("div");
-            listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
             let {
               location,
               id,
@@ -20,25 +17,19 @@ $(document).ready(function() {
             } = json[i];
             var date = getDate(held_on);
 
-            listItem.innerHTML =
-              `<div class="card mb-3">
-                  <!--Card image-->
-                  <div class="view">
-                    <a href="pages/event.html?id=${id}">
-                      <img src="${book.cover}" class="card-img-top" alt="photo" style="height: 200px">
-                    </a>
-                  </div>
-
-                  <!--Card content-->
-                  <div class="card-body">
-                    <!--Title-->
-                    <small class="text-primary" > ${date}</small>
-                    <p><small class=""><i class="fa fa-map-marker"></i> ${location}</small></p>
-                    <small class="card-subtitle " style="color: #007bff;"> by ${author.name}</small>
-                  </div>
-
-                </div>`;
-            $("#events-list").append(listItem);
+            $("#events-list").append(`<li class="col-md-12 m-1 thumb-list">
+              <div class="col-md-3">
+                 <a class="pull-left mb-3">
+                    <img class="rounded" src="${book.cover}" alt="cover" style="width: 130px; height: 160px">
+                 </a>
+              </div>
+              <div class="col-md-9">
+                  <small class="text-primary" > ${date}</small>
+                  <p class="font-italic"><i class="fa fa-map-marker"></i> ${location}</p>
+                  <p>by ${author.name}</p>
+                  <a href="pages/event.html?id=${id}">Read more</a>
+              </div>
+            </li>`);
           }
         });
     });

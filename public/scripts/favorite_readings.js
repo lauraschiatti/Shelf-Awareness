@@ -4,39 +4,29 @@ $(document).ready(function() {
       response.json()
         .then(function(json) {
           for (let i = 0; i < json.length; i++) {
-            let listItem = document.createElement("div");
-            listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
 
-            let {
-              id,
-              title,
-              cover,
-              author,
-              genre
-            } = json[i];
+              let {
+                  id,
+                  title,
+                  cover,
+                  author,
+                  genre
+              } = json[i];
 
-            listItem.innerHTML =
-              `<div class="card m-3">
-                        <!--Card image-->
-                        <div class="view">
-                            <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px; width: 140px">
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-                            <small class="text-primary"> ${genre}</small>
-                            <small class="card-title"><a class="text-dark" href="pages/book.html?id=${id}">${title}</a></small>
-                            <p class="card-subtitle"><small class="font-italic">${author.name}</small></p>
-                        </div>
-                    </div>`;
-
-            $("#favorite_readings").append(listItem);
+              $("#favorite-readings").append(`<li class="col-md-12 m-1 thumb-list">
+                <div class="col-md-3">
+                   <a class="pull-left mb-3">
+                      <img class="rounded" src="${cover}" alt="cover" style="width: 130px; height: 160px">
+                   </a>
+                </div>
+                <div class="col-md-9">
+                    <p><span class="badge badge-success"> ${genre}</span></p>
+                    <h5 class="text-danger" > ${title}</h5>
+                    <p class="font-italic">by ${author.name}</p>
+                    <a href="pages/book.html?id=${id}">Read more</a>
+                </div>
+              </li>`);
           }
-          //
-          // $("#related_info_books").append(`<ol class="list-unstyled">
-          //     <li><a href="/index.html"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline">home </span></a></li>
-          //   </ol>`);
-
         });
     });
 });

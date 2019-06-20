@@ -46,7 +46,7 @@ $(document).ready(function() {
           }
 
           $("#related_info").append(`<ol class="list-unstyled">
-              <li><a href="pages/all_literary_genres.html"> <i class="fa fa-angle-double-left"></i> Return to all literary genres</span></a></li>
+              <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to ${title}</span></a></li>
             </ol>`);
 
         });

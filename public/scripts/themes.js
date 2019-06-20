@@ -4,35 +4,31 @@ $(document).ready(function() {
       response.json()
         .then(function(json) {
           for (let i = 0; i < json.length; i++) {
-            let listItem = document.createElement("div");
-            listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
-            let {
-              theme,
-              id
-            } = json[i];
-            let badge_type;
-            switch (i % 4) {
-                case 0: badge_type = "primary"; break;
-                case 1: badge_type = "success"; break;
-                case 2: badge_type = "danger"; break;
-                case 3: badge_type = "warning"; break;
-            }
-            let img_src = getImage(theme);
-            listItem.innerHTML =
-              `<div class="card m-3">
-                <!--Card image-->
-                <div class="view">
-                    <img src="${img_src}" class="card-img-top" alt="photo" style="height: 200px">
-                </div>
+              let {
+                  theme,
+                  id
+              } = json[i];
 
-                <!--Card content-->
-                <div class="card-body">
-                  <h4><span class="badge badge-${badge_type}"> ${theme}</span></h4>
-                  <small class="card-title"><a class="text-dark" href="pages/all_books_by_theme.html?theme=${theme}&id=${id}">See books</a></small>
-                </div>
-              </div>`;
+              let badge_type;
 
-            $("#all_themes").append(listItem);
+              switch (i % 4) {
+                  case 0: badge_type = "primary"; break;
+                  case 1: badge_type = "success"; break;
+                  case 2: badge_type = "danger"; break;
+                  case 3: badge_type = "warning"; break;
+              }
+
+              let img_src = getImage(theme);
+
+              $("#all-themes").append(`<li class="media col-xs-12 m-3">
+                 <div class="col-xs-12 col-md-11 col-lg-9 p-3">
+                   <a class="pull-left mb-3">
+                      <img class="rounded" src="${img_src}" alt="..." style="width: 130px; height: 120px;">
+                   </a>
+                   <h4><span class="badge badge-${badge_type}"> ${theme}</span></h4>
+                   <a href="pages/all_books_by_theme.html?theme=${theme}&id=${id}">See books</a>
+                 </div>
+              </li>`);
           }
         });
     });

@@ -130,7 +130,7 @@ ul, ol {
 -------------------------------------------------- */
 @media (max-width: 575px) {
   body {
-    background-color: blue;
+    /*background-color: blue;*/
   }
 
   .cover-thumbnail{
@@ -142,7 +142,7 @@ ul, ol {
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767px) {
   body {
-    background-color: red;
+    /*background-color: red;*/
   }
   .container {
     max-width: 98%;
@@ -167,7 +167,7 @@ ul, ol {
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991px) {
   body {
-    background-color: orange;
+    /*background-color: orange;*/
   }
 
   .container {
@@ -188,7 +188,7 @@ ul, ol {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   body {
-    background-color: yellow;
+    /*background-color: yellow;*/
   }
 
   .container {
@@ -286,4 +286,19 @@ ul, ol {
 .carousel-indicators li.active {
   border: none;
   background: #888;
+}
+
+
+/* Thumbnails list
+-------------------------------------------------- */
+/* image thumbnail */
+.thumb {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.media{
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 }

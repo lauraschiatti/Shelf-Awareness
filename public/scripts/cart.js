@@ -1,21 +1,45 @@
 $(document).ready(function() {
-     fetch('v2/cart').then(function(response) {
-       return response.json();
-     }).then(function(json) {
-       let {
-         total,
-         books
-       } = json;
 
-       clearCartInfo();
+  fetch('v2/users/loggedInUser')
+    .then(function(response) {
+      // if(response.status=)
+      response.json()
+    .then(function(data) {
+            var user = data[0];
+            currentUser = user;
+            if (user != undefined) {
+              fetch('v2/cart').then(function(response) {
+                return response.json();
+              }).then(function(json) {
+                let {
+                  total,
+                  books
+                } = json;
 
-       if (total == undefined) {
-           total = { 'items': 0, 'value': "0.00", 'currency': "eur" };
-           books = { 'length': 0 };
-       }
+                clearCartInfo();
 
-       fillCartInfo(total, books);
-     });
+                if (total == undefined) {
+                    total = { 'items': 0, 'value': "0.00", 'currency': "eur" };
+                    books = { 'length': 0 };
+                }
+
+                fillCartInfo(total, books);
+              });
+            } else {
+              $('#cartPageDiv').empty();
+              $('#cartPageDiv').append('<p>You must be authorized to access this page</p>');
+            }
+
+
+    })
+    .catch(err => {
+          // toastr.error("You are not logged in");
+        });
+
+    }).catch(err => {
+      // toastr.error("You are not logged in");
+    });
+
  });
 
  $(document).on("click", "#purchaseBooks", function(e) {

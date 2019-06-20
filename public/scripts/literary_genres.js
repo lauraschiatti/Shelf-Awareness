@@ -31,7 +31,7 @@ $(document).ready(function() {
               $("#all-literary-genres").append(`<li class="media col-xs-12 m-3">
                  <div class="col-xs-12 col-md-11 col-lg-9 p-3">
                    <a class="pull-left mb-3">
-                      <img class="rounded" src="${img_src}" alt="..." style="width: 130px; height: 120px;">
+                      <img class="rounded thumb" src="${img_src}" alt="img_genre">
                    </a>
                    <h4><span class="badge badge-${badge_type}"> ${genre}</span></h4>
                    <a href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}">See books</a>

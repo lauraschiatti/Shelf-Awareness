@@ -291,14 +291,12 @@ ul, ol {
 
 /* Thumbnails list
 -------------------------------------------------- */
-/* image thumbnail */
-.thumb {
-  display: block;
-  width: 100%;
-  margin: 0;
-}
-
 .media{
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
+}
+
+.thumb{
+  width: 165px;
+  height: 150px;
 }

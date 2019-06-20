@@ -21,7 +21,7 @@ $(document).ready(function() {
                 <div class="card-body pb-5">
                     <div class="row pb-4">
                         <div class="col-sm-8 border-right">
-                            <h4 class="text-primary mb-0">${name}</h4>
+                            <h4 class="text-primary mb-0">Author << ${name} >></h4>
                         </div>
                         <div class="col-sm-4">
                             <img src="${picture}" class="rounded mx-auto d-block img-fluid" style="width:70%;" />

@@ -27,7 +27,7 @@
                 <div class="card-body pb-5">
                     <div class="row pb-4">
                         <div class="col-sm-8 border-right">
-                            <h4 class="text-dark mb-0">${title}</h4>
+                            <h4 class="text-primary mb-0">Book << ${title} >></h4>
                             <p>by <a href="pages/author.html?id=${author.id}">${author.name}</a></p>
 
                             <h4 class="text-primary"> $ ${price.value} ${price.currency} </h4>
@@ -92,6 +92,10 @@
      $("#booksByGenre").append(`<ol class="list-unstyled mb-1">
           <li><a href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}"> <i class="fa fa-book"></i> All books by genre ${genre}</a></li>
         </ol> `);
+
+       // $("#booksByTheme").append(`<ol class="list-unstyled mb-1">
+       //    <li><a href="pages/all_books_by_genre.html?genre=${genre}&id=${id}&title=${title}"> <i class="fa fa-book"></i> All books by genre ${genre}</a></li>
+       //  </ol> `);
    });
  });
 

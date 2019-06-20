@@ -29,7 +29,8 @@ $(document).ready(function() {
                 <div class="card-body p-4">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 mb-4">
-                            <h4 class="text-primary"> ${location} </h4>
+                            <h5 class="text-primary mb-1">Event << ${book.title} >></h5>
+                            <small> <i class="fa fa-map-pin"></i> ${location} </small>
 
                             <p class="text-success text-uppercase"> ${date}  at ${time}</p>
 

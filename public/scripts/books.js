@@ -21,8 +21,8 @@ $(document).ready(function() {
                    </a>
                 </div>
                 <div class="col-md-9">
-                    <small class="text-primary" > ${genre}</small>
-                    <p class="font-italic">${title}</p>
+                    <p><span class="badge badge-danger"> ${genre}</span></p>
+                    <p class="font-italic pb-0">${title}</p>
                     <p>by ${author.name}</p>
                     <a href="pages/book.html?id=${id}">Read more</a>
                 </div>

@@ -24,7 +24,7 @@ $(document).ready(function() {
     $("#similar_books_header").append(`
         <div class="row pb-4">
           <div class="col-sm-8">
-              <h4 class="text-primary mb-0"><strong>Similar books to </strong> <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${title} <i class="fa fa-angle-double-right"></i></h4>
+              <h4 class="text-primary mb-0">Similar books to <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${title} <i class="fa fa-angle-double-right"></i></h4>
           </div>
       </div>
     `);
@@ -50,22 +50,18 @@ $(document).ready(function() {
               genre
             } = json[i];
 
-            listItem.innerHTML =
-                  `<div class="card m-3">
-                        <!--Card image-->
-                        <div class="view">
-                            <img src="${cover}" class="card-img-top" alt="photo" style="height: 200px">
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-                            <small class="text-primary"> ${genre}</small>
-                            <small class="card-title"><a class="text-dark" href="pages/book.html?id=${id}">${title}</a></small>
-                            <p class="card-subtitle"><small class="font-italic">${author.name}</small></p>
-                        </div>
-                    </div>`;
-
-            $("#similar_books").append(listItem);
+              $("#similar-books").append(`<li class="col-md-12 m-1 thumb-list">
+                <div class="col-md-3">
+                   <a class="pull-left mb-3">
+                      <img class="rounded" src="${cover}" alt="cover" style="width: 130px; height: 160px">
+                   </a>
+                </div>
+                <div class="col-md-9">
+                    <p><span class="badge badge-primary"> ${genre}</span></p>
+                    <small class="card-title"><a class="text-dark" href="pages/book.html?id=${id}">${title}</a></small>
+                    <p>by <span class="font-italic">${author.name}</span></p>
+                </div>
+              </li>`);
           }
     });
   });

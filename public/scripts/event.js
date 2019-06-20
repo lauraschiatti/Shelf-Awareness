@@ -26,14 +26,6 @@ $(document).ready(function() {
     $("#event").append(`
         <div class="row justify-content-md-center">
             <div class="card mb-5 mt-5 col-xs-12 col-md-10">
-                
-                <nav class="breadcrumb mt-4">
-                  <a class="breadcrumb-item text-black" href="pages/all_events.html">Events</a>
-                  <span class="breadcrumb-item active">Book signing</span>
-                </nav>
-                
-                <br>
-                
                 <div class="card-body p-4">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 mb-4">

@@ -1,17 +1,32 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-  <title>Shelf-awareness book store</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title> Shelf-Awareness eBook</title>
+  <base href="/">
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
+  <!-- Bootstrap core CSS-->
+  <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
 </head>
 
 <body>
-  <h1><a id="Documentation_of_the_Backend_part_0"></a>Documentation of the Backend part</h1>
-  <blockquote>
-    <p>Deliverable D1</p>
-  </blockquote>
-  <h2><a id="General_group_information_3"></a>General group information</h2>
-  <table class="table table-striped table-bordered">
-    <thead>
+  <div class="container">
+    <h1><a id="Documentation_of_the_Backend_part_0"></a>Documentation of the Backend part</h1>
+    <blockquote>
+      <p>Deliverable D1</p>
+    </blockquote>
+    <h2><a id="General_group_information_3"></a>General group information</h2>
+    <table class="table table-striped table-bordered">
+      <thead>
       <tr>
         <th>Member n.</th>
         <th>Role</th>
@@ -20,8 +35,8 @@
         <th>Matricola</th>
         <th>Email address</th>
       </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
       <tr>
         <td>1</td>
         <td>administrator</td>
@@ -46,27 +61,27 @@
         <td>904193</td>
         <td><a href="mailto:ana.pesko@mail.polimi.it">ana.pesko@mail.polimi.it</a></td>
       </tr>
-    </tbody>
-  </table>
-  <h2><a id="Links_to_other_deliverables_9"></a>Links to other deliverables</h2>
-  <ul>
-    <li>Deliverable D0: the web application is accessible at<br>
-      <a href="https://example.com">this address</a>.</li>
-    <li>Deliverable D2: the YAML or JSON file containing the specification of the app<br>
-      API can be found at <a href="https://example.com/backend/spec.yaml">this address</a>.</li>
-    <li>Deliverable D3: the SwaggerUI page of the same API is available at<br>
-      <a href="https://example.com/backend/swaggerui">this address</a>.</li>
-    <li>Deliverable D4: the source code of D0 is available as a zip file at<br>
-      <a href="https://example.com/backend/app.zip">this address</a>.</li>
-    <li>Deliverable D5: the address of the online source control repository is<br>
-      available <a href="https://github.com/lauricdd/shelf-awareness-online-bookstore">this address</a>. We hereby declare that this<br>
-      is a private repository and, upon request, we will give access to the<br>
-      instructors.</li>
-  </ul>
-  <h2><a id="Specification_23"></a>Specification</h2>
-  <h3><a id="Web_Architecture_24"></a>Web Architecture</h3>
-  <img src="../assets/img/application.png" alt="logo" class="rounded mx-auto d-block img-fluid" />
-  <p>The application has 3 main components:
+      </tbody>
+    </table>
+    <h2><a id="Links_to_other_deliverables_9"></a>Links to other deliverables</h2>
+    <ul>
+      <li>Deliverable D0: the web application is accessible at<br>
+        <a href="http://polimi-hyp-2019-team-10594805.herokuapp.com/">this address</a>.</li>
+      <li>Deliverable D2: the YAML or JSON file containing the specification of the app<br>
+        API can be found at <a href="https://example.com/backend/spec.yaml">this address</a>.</li>
+      <li>Deliverable D3: the SwaggerUI page of the same API is available at<br>
+        <a href="https://example.com/backend/swaggerui">this address</a>.</li>
+      <li>Deliverable D4: the source code of D0 is available as a zip file at<br>
+        <a href="https://example.com/backend/app.zip">this address</a>.</li>
+      <li>Deliverable D5: the address of the online source control repository is<br>
+        available <a href="https://github.com/lauricdd/shelf-awareness-online-bookstore">this address</a>. We hereby declare that this<br>
+        is a private repository and, upon request, we will give access to the<br>
+        instructors.</li>
+    </ul>
+    <h2><a id="Specification_23"></a>Specification</h2>
+    <h3><a id="Web_Architecture_24"></a>Web Architecture</h3>
+    <img src="../assets/img/application.png" alt="logo" class="rounded mx-auto d-block img-fluid" />
+    <p>The application has 3 main components:
     <ul>
       <li>Presentation layer</li>
       <li>Application layer</li>
@@ -110,19 +125,19 @@
     the server side. The request would be accepted by the appropriate controller which would call the suitable service in order to
     satisfy the request. Upon receiving a response from the service the controller then sends the response to the client side which
     then , possibly, redirects the user and renders the required page.
-  </p>
-  <h3><a id="API_28"></a>API</h3>
-  <h4><a id="REST_compliance_29"></a>REST compliance</h4>
-  <p>In our application we followed REST principles in the sense that the application represents a
-    <i>client-server</i> architecture because they both have different sets of responsibilities.Furthermore,
-    we have a <i>uniform interface</i> separating the client side and the server side. Finally, the application
-    is a <i>layered system</i> as all the components are separated and the only way they communicate is through a proxy.
-    Concerning the communication between the client side and server side, the requirements are clearly set, messages are self descriptive,
-    meaning the data format of a representation comes with its media type. Formats used for the communitaion are
-    <b>application/json</b> and <b>application/x-www-form-urlencoded</b>. However, for our perposes the communication between the client and the server
-    could not be <i>stateless</i> as we needed to keep the session state server side.</p>
-  <h4><a id="OpenAPI_Resource_models_33"></a>OpenAPI Resource models</h4>
-  <p>
+    </p>
+    <h3><a id="API_28"></a>API</h3>
+    <h4><a id="REST_compliance_29"></a>REST compliance</h4>
+    <p>In our application we followed REST principles in the sense that the application represents a
+      <i>client-server</i> architecture because they both have different sets of responsibilities.Furthermore,
+      we have a <i>uniform interface</i> separating the client side and the server side. Finally, the application
+      is a <i>layered system</i> as all the components are separated and the only way they communicate is through a proxy.
+      Concerning the communication between the client side and server side, the requirements are clearly set, messages are self descriptive,
+      meaning the data format of a representation comes with its media type. Formats used for the communitaion are
+      <b>application/json</b> and <b>application/x-www-form-urlencoded</b>. However, for our perposes the communication between the client and the server
+      could not be <i>stateless</i> as we needed to keep the session state server side.</p>
+    <h4><a id="OpenAPI_Resource_models_33"></a>OpenAPI Resource models</h4>
+    <p>
     <ul>
       <li><b>User</b> model represents users of the application.
         They have personal information as well as the email and passoword for accessing the website.</li>
@@ -132,29 +147,29 @@
         reference to their Books</li>
       <li><b>Theme</b> model represents themes of the application. </li>
       <li><b>Cart</b> model represents the cart of the current user in application. It has its description
-      information, as well the reference to all the Books in the cart</li>
+        information, as well the reference to all the Books in the cart</li>
       <li><b>Amount</b> model represents the value of every Book of the application. </li>
       <li><b>Currency</b> model represents currency options of the application. </li>
       <li><b>Review</b> model represents reviews of the application. It has its description information, as well
-         the reference to its User and the Book.</li>
+        the reference to its User and the Book.</li>
       <li><b>Event</b> model represents events of the application. It has its description information, as well
-         the reference to the Book it is about.</li>
+        the reference to the Book it is about.</li>
     </ul>
-  </p>
-  <h3><a id="Data_model_35"></a>Data model</h3>
-  <p>The <i><b>shelfawareness</b></i> database has 11 tables, two of which (<i>knex_migrations</i> and <i>knex_migrations_lock</i>)
-    keep track of the migrations -- changes to the database that were implemented during the development of the project. These are
-    not shown in the ER diagram.
+    </p>
+    <h3><a id="Data_model_35"></a>Data model</h3>
+    <p>The <i><b>shelfawareness</b></i> database has 11 tables, two of which (<i>knex_migrations</i> and <i>knex_migrations_lock</i>)
+      keep track of the migrations -- changes to the database that were implemented during the development of the project. These are
+      not shown in the ER diagram.
 
-    <br /><br /><img src="../assets/img/db_shelfawareness.jpg" alt="logo" class="rounded mx-auto d-block img-fluid" /><br /><br />
+      <br /><br /><img src="../assets/img/db_shelfawareness.jpg" alt="logo" class="rounded mx-auto d-block img-fluid" /><br /><br />
 
-    The remaining 9 tables, shown in the diagram above, relate to actual structure and functionality of the application. All the main
-    tables have their corresponding OpenAPI data models. The main tables are the ones that model an entity in the application (e.g. Book,
-    Event, User...), rather than a 1 to N relationship (e.g. Book -> Themes). A slight exception to this is the <i>books_in_cart</i> table,
-    for which the corresponding model <b>Cart</b> aggregates the information in the table by the specific user (i.e. cart).</p>
-  <h2><a id="Implementation_39"></a>Implementation</h2>
-  <h3><a id="Tools_used_40"></a>Tools used</h3>
-  <p>To implement the web application, the following tools were used:
+      The remaining 9 tables, shown in the diagram above, relate to actual structure and functionality of the application. All the main
+      tables have their corresponding OpenAPI data models. The main tables are the ones that model an entity in the application (e.g. Book,
+      Event, User...), rather than a 1 to N relationship (e.g. Book -> Themes). A slight exception to this is the <i>books_in_cart</i> table,
+      for which the corresponding model <b>Cart</b> aggregates the information in the table by the specific user (i.e. cart).</p>
+    <h2><a id="Implementation_39"></a>Implementation</h2>
+    <h3><a id="Tools_used_40"></a>Tools used</h3>
+    <p>To implement the web application, the following tools were used:
     <ul>
       <li><b>Node.js</b> environment used to write and execute the code for our application</li>
       <li><b>Swagger</b> framework used to consume RESTful web services. Every endpoint was specified in the
@@ -162,55 +177,56 @@
       <li><b>Postgre</b> database used for the data persistence</li>
       <li><b>Knex</b> tool used to help write queries in order to save, update and delete data from the database.</li>
     </ul>
-  </p>
-  <h3><a id="Discussion_43"></a>Discussion</h3>
-  <p>Describe here:</p>
-  <ul>
-    <li>In order to make sure our application adheres to the OpenAPI, we specified every endpoint in the
-      swagger.yaml document and created controllers, methods, accordingly. Only endopoints specified in this
-      document were accessible to the presentation layer. </li>
-    <li>We designed the presentation layer of our application in a way that every page has a static skeleton structure
-      with JavaScript scripts that display dynamically loaded data as well as required page rendering modifications.
-      This way we believe we followed the common practises to partition the web application. </li>
-    <li>In order to store the session state, upon the POST request to login the user, in the User controller,
-      userLoginPOST method we set the session id as well as the loggedin boolean field in the request.
-      Then, on GET request to log out the user, in the User controller,logoutUserGET method we set the session
-      id value in the request as well as the loggedin value.
-      These two methods, userLoginPOST and logoutUserGET, are the only methods changing the session state.
-    </li>
-    <li>For the data persistence we used PostgreSQL relational database for managing the data model.
-      There was no need for No-SQL databases because the parameters of every entity were clearly defined.</li>
-  </ul>
-  <h2><a id="Other_information_54"></a>Other information</h2>
-  <h3><a id="Task_assignment_55"></a>Task assignment</h3>
-  <p>The development tasks have been subdivided among members of the group accordingly:</p>
-  <ul>
-    <li>Laura worked on front end (70%) and OpenAPI Spec and backend implementation (30% of the time)</li>
-    <li>Jefimija worked on front end (30%) and OpenAPI Spec and backend implementation (70% of the time)</li>
-    <li>Ana worked on front end (40%) and OpenAPI Spec and backend implementation (60% of the time)</li>
-  </ul>
-  <h3><a id="Analysis_of_existing_API_61"></a>Analysis of existing API</h3>
-  <p>Describe here if you have found relevant APIs that have inspired the OpenAPI<br>
-    specification and why (at least two).</p>
-  <p>We researched a few of the bookstore websites and the two we found most inspiring were:
+    </p>
+    <h3><a id="Discussion_43"></a>Discussion</h3>
+    <p>Describe here:</p>
+    <ul>
+      <li>In order to make sure our application adheres to the OpenAPI, we specified every endpoint in the
+        swagger.yaml document and created controllers, methods, accordingly. Only endopoints specified in this
+        document were accessible to the presentation layer. </li>
+      <li>We designed the presentation layer of our application in a way that every page has a static skeleton structure
+        with JavaScript scripts that display dynamically loaded data as well as required page rendering modifications.
+        This way we believe we followed the common practises to partition the web application. </li>
+      <li>In order to store the session state, upon the POST request to login the user, in the User controller,
+        userLoginPOST method we set the session id as well as the loggedin boolean field in the request.
+        Then, on GET request to log out the user, in the User controller,logoutUserGET method we set the session
+        id value in the request as well as the loggedin value.
+        These two methods, userLoginPOST and logoutUserGET, are the only methods changing the session state.
+      </li>
+      <li>For the data persistence we used PostgreSQL relational database for managing the data model.
+        There was no need for No-SQL databases because the parameters of every entity were clearly defined.</li>
+    </ul>
+    <h2><a id="Other_information_54"></a>Other information</h2>
+    <h3><a id="Task_assignment_55"></a>Task assignment</h3>
+    <p>The development tasks have been subdivided among members of the group accordingly:</p>
+    <ul>
+      <li>Laura worked on front end (70%) and OpenAPI Spec and backend implementation (30% of the time)</li>
+      <li>Jefimija worked on front end (30%) and OpenAPI Spec and backend implementation (70% of the time)</li>
+      <li>Ana worked on front end (40%) and OpenAPI Spec and backend implementation (60% of the time)</li>
+    </ul>
+    <h3><a id="Analysis_of_existing_API_61"></a>Analysis of existing API</h3>
+    <p>Describe here if you have found relevant APIs that have inspired the OpenAPI<br>
+      specification and why (at least two).</p>
+    <p>We researched a few of the bookstore websites and the two we found most inspiring were:
     <ul>
       <li><a href="https://www.delfi.rs/knjige">Delfi</a></li>
       <li><a href="https://www.waterstones.com/">Waterstones</a></li>
     </ul>
     The mentioned websites have taught us what are good practices when building our application. For example,
     we how to organize our API, how to name our URIs and the organization of the website in general.
-  </p>
-  <h3><a id="Learning_outcome_64"></a>Learning outcome</h3>
-  <p>What was the most important thing all the members have learned while developing this part of the project, what
-    questions remained unanswered, how you will use what you’ve learned in your everyday life?<br>
-    Examples:</p>
-  <ul>
-    <li>Jefimija had experience with writing backend and frontend code and with REST services, but she learned
-      how to organize the website well and would like to further explore promises in JavaScript </li>
-    <li>Ana had experience with SQL, but she learned to apply that knowledge in writing queries with knex
-      and Javascript code and she would further like to explore AJAX and jQuery options</li>
-    <li>Laura had experience with writing front end code, but learned how to deploy on a cloud platform,
-      she would have liked to know more about promises for asynchronous code</li>
-  </ul>
+    </p>
+    <h3><a id="Learning_outcome_64"></a>Learning outcome</h3>
+    <p>What was the most important thing all the members have learned while developing this part of the project, what
+      questions remained unanswered, how you will use what you’ve learned in your everyday life?<br>
+      Examples:</p>
+    <ul>
+      <li>Jefimija had experience with writing backend and frontend code and with REST services, but she learned
+        how to organize the website well and would like to further explore promises in JavaScript </li>
+      <li>Ana had experience with SQL, but she learned to apply that knowledge in writing queries with knex
+        and Javascript code and she would further like to explore AJAX and jQuery options</li>
+      <li>Laura had experience with writing front end code, but learned how to deploy on a cloud platform,
+        she would have liked to know more about promises for asynchronous code</li>
+    </ul>
 
+  </div>
 </body>

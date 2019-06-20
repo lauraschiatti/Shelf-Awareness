@@ -28,7 +28,7 @@ $(document).ready(function() {
                   default: img_src = "assets/img/genres.png";
               }
 
-              $("#all-literary-genres").append(`<li class="media col-xs-12 m-3">
+              $("#all-literary-genres").append(`<li class="col-xs-12 m-3 thumb-list">
                  <div class="col-xs-12 col-md-11 col-lg-9 p-3">
                    <a class="pull-left mb-3">
                       <img class="rounded thumb" src="${img_src}" alt="img_genre">

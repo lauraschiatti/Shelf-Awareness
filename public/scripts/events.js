@@ -1,6 +1,4 @@
-import {
-  getDate
-} from './time.js';
+import {getDate} from './time.js';
 
 $(document).ready(function() {
   fetch('v2/events')
@@ -9,37 +7,30 @@ $(document).ready(function() {
         .then(function(json) {
           for (let i = 0; i < json.length; i++) {
 
-            let listItem = document.createElement("div");
-            listItem.setAttribute('class', 'col-sm-4 col-md-6 col-lg-4');
-            let {
-              location,
-              id,
-              held_on,
-              book,
-              author
-            } = json[i];
-            var date = getDate(held_on);
+              let {
+                  location,
+                  id,
+                  held_on,
+                  book,
+                  author
+              } = json[i];
+              var date = getDate(held_on);
 
-            // TODO: change column held_on to timestamp? or check if the time of the event can be explicitly stated this way
-            listItem.innerHTML =
-              `<div class="card mb-3">
-                  <!--Card image-->
-                  <div class="view">
-                    <a href="pages/event.html?id=${id}">
-                      <img src="${book.cover}" class="card-img-top" alt="photo" style="height: 200px">
-                    </a>
-                  </div>
-
-                  <!--Card content-->
-                  <div class="card-body">
-                    <!--Title-->
+              // TODO: change column held_on to timestamp? or check if the time of the event can be explicitly stated this way
+              $("#all-events").append(`<li class="col-md-12 m-1 thumb-list">
+                <div class="col-md-3">
+                   <a class="pull-left mb-3" href="pages/event.html?id=${id}">
+                      <img class="rounded" src="${book.cover}" alt="cover" style="width: 130px; height: 160px">
+                   </a>
+                </div>
+                <div class="col-md-9">
                     <small class="text-primary" > ${date}</small>
-                    <p><small class=""><i class="fa fa-map-marker"></i> ${location}</small></p>
-                    <small class="card-subtitle " style="color: #007bff;"> by ${author.name}</small>
-                  </div>
+                    <p class="font-italic"><i class="fa fa-map-marker"></i> ${location}</p>
+                    <p>by ${author.name}</p>
+                    <a href="pages/event.html?id=${id}">Read more</a>
+                </div>
+              </li>`);
 
-                </div>`;
-            $("#events-list").append(listItem);
           }
         });
     });

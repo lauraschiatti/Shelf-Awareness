@@ -2,6 +2,7 @@
 
 var utils = require('../utils/writer.js');
 var BookService = require('../service/BookService');
+var ThemeService = require('../service/ThemeService');
 
 module.exports.booksGET = function booksGET (req, res, next) {
   var offset = req.swagger.params['offset'].value;
@@ -21,7 +22,14 @@ module.exports.getBookById = function getBookById (req, res, next) {
 
   BookService.getBookById(bookId)
     .then(function (response) {
-      utils.writeJson(res, response);
+      var book = response;
+      book.themes = [];
+      ThemeService.bookThemesGET(bookId)
+      .then(function (themes) {
+          book.themes = themes;
+          console.log(themes);
+          utils.writeJson(res, book);
+      })
     })
     .catch(function (response) {
       utils.writeJson(res, response);
@@ -105,7 +113,7 @@ module.exports.bestSellersGET = function bestSellersGET (req, res, next) {
 
   BookService.bestSellersGET(offset,limit)
     .then(function (response) {
-      
+
       utils.writeJson(res, response);
     })
     .catch(function (response) {

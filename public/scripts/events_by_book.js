@@ -8,6 +8,7 @@ $(document).ready(function() {
   var titleParam = allParams.split("&")[1];
   var id = idParam.split("=")[1];
   var title = titleParam.split("=")[1];
+  title = title.replace(/%20/g, " ");
 
   fetch('v2/events/byBook/' + id)
     .then(function(response) {
@@ -15,7 +16,7 @@ $(document).ready(function() {
         .then(function(json) {
           $("#events_by_book_header").append(`
               <div class="row pb-4">
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                   <h4 class="text-primary mb-0">Book signing events <i class="fa fa-angle-double-left"></i> <i class="fa fa-book"></i> ${title} <i class="fa fa-angle-double-right"></i></h4>
                 </div>
               </div>

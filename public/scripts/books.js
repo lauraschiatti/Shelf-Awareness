@@ -16,7 +16,7 @@ $(document).ready(function() {
 
               $("#all-books").append(`<li class="col-md-12 m-1 thumb-list">
                 <div class="col-md-3">
-                   <a class="pull-left mb-3" href="pages/event.html?id=${id}">
+                   <a class="pull-left mb-3" href="pages/book.html?id=${id}">
                       <img class="rounded" src="${cover}" alt="cover" style="width: 140px; height: 190px">
                    </a>
                 </div>

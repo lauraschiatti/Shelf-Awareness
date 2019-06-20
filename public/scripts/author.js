@@ -16,6 +16,11 @@ $(document).ready(function() {
 
     $("#author").append(
       `<div class="col-xs-10 col-md-10 col-lg-8 offset-lg-2 main mt-5">
+            <nav class="breadcrumb">
+              <a class="breadcrumb-item text-black" href="pages/all_authors.html">Authors</a>
+              <span class="breadcrumb-item active">${name}</span>
+            </nav>
+  
             <div class="row">
                 <div class="card-body pb-5">
                     <div class="row pb-4">

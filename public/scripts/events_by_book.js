@@ -9,6 +9,7 @@ $(document).ready(function() {
   var id = idParam.split("=")[1];
   var title = titleParam.split("=")[1];
   title = title.replace(/%20/g, " ");
+  title = title.replace(/%27/g, "'");
 
   fetch('v2/events/byBook/' + id)
     .then(function(response) {

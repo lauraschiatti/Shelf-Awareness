@@ -43,11 +43,11 @@ $(document).ready(function() {
                     <p class="card-subtitle"><a class="font-italic" href="pages/author.html?id=${author.id}">${author.name}</a></p>
                 </div>
               </li>`);
-          }
 
-          $("#related_info").append(`<ol class="list-unstyled">
-              <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to ${title}</span></a></li>
-            </ol>`);
+              $("#related_info").append(`<ol class="list-unstyled">
+                  <li><a href="pages/book.html?id=${id}"> <i class="fa fa-angle-double-left"></i> Return to ${title}</span></a></li>
+                </ol>`);
+          }
 
         });
     });

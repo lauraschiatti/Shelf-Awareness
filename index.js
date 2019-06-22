@@ -14,6 +14,14 @@ let cookieParser = require("cookie-parser");
 // Static files
 let serveStatic = require("serve-static");
 
+// Serve spec.yaml explicitly
+// var SwaggerUIBundle = require('swagger-ui-dist').SwaggerUIBundle
+// const ui = SwaggerUIBundle({
+//     url: '/backend/spec.yaml',
+//     dom_id: '#swagger-ui',
+//     enableCookies: true
+// });
+
 // SwaggerRouter configuration
 var options = {
     swaggerUi: path.join(__dirname, '/swagger.json'),
@@ -46,6 +54,9 @@ oas3Tools.initializeMiddleware(swaggerDoc, function (middleware) {
     app.use(middleware.swaggerUi());
 
     app.use(serveStatic(__dirname + "/public"));
+
+    // const swaggerDocument = require('./');
+    // app.use('/backend/swaggerui', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 
     // Start the server
     http.createServer(app).listen(serverPort, function () {

@@ -698,7 +698,9 @@ paths:
         type: "string"
       responses:
         200:
-          description: "succesfull login"
+          description: "successful login"
+          schema:
+            $ref: "#/definitions/User"
         404:
           description: "unauthorized"
       x-swagger-router-controller: "User"
@@ -736,7 +738,9 @@ paths:
         type: "string"
       responses:
         200:
-          description: "succesfull registration"
+          description: "successful registration"
+          schema:
+            $ref: "#/definitions/User"
         404:
           description: "unauthorized"
       x-swagger-router-controller: "User"
@@ -768,7 +772,9 @@ paths:
         type: "string"
       responses:
         200:
-          description: "succesfull creation"
+          description: "successful creation"
+          schema:
+            $ref: "#/definitions/Review"
         404:
           description: "unauthorized"
       x-swagger-router-controller: "Review"
@@ -782,7 +788,7 @@ paths:
       - "application/json"
       responses:
         200:
-          description: "succesful operartion"
+          description: "succesful operation"
           schema:
             $ref: "#/definitions/Cart"
         404:
@@ -812,7 +818,7 @@ paths:
         format: "int64"
       responses:
         200:
-          description: "succesfull addition"
+          description: "successful addition"
         404:
           description: "unauthorized"
       x-swagger-router-controller: "Cart"
@@ -827,7 +833,7 @@ paths:
       - "application/json"
       responses:
         200:
-          description: "succesfull purchase"
+          description: "successful purchase"
         404:
           description: "unauthorized"
       x-swagger-router-controller: "Cart"
@@ -856,9 +862,9 @@ definitions:
     description: "A user"
     example:
       id: 1
-      name: "Andrea Bertini"
-      email: "andrea.bertini@mail.polimi.it"
-      password: 123456
+      name: "Ana Pesko"
+      email: "ana.pesko@mail.polimi.it"
+      password: "pass"
       address: "DEIB"
       creditcard: "xyzabc"
 

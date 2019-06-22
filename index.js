@@ -13,9 +13,8 @@ let cookieParser = require("cookie-parser");
 
 // Static files
 let serveStatic = require("serve-static");
-app.use(serveStatic(__dirname + "/public"));
 
-// swaggerRouter configuration
+// SwaggerRouter configuration
 var options = {
     swaggerUi: path.join(__dirname, '/swagger.json'),
     controllers: path.join(__dirname, './controllers'),
@@ -29,6 +28,7 @@ var swaggerDoc = jsyaml.safeLoad(spec);
 // Add cookies to responses
 app.use(cookieParser());
 app.use(cookieSession({ name: "session", keys: ["abc", "def"] }));
+
 
 // Initialize the Swagger middleware
 oas3Tools.initializeMiddleware(swaggerDoc, function (middleware) {
@@ -45,7 +45,7 @@ oas3Tools.initializeMiddleware(swaggerDoc, function (middleware) {
     // Serve the Swagger documents and Swagger UI
     app.use(middleware.swaggerUi());
 
-    app.use(serveStatic(__dirname + "/www"));
+    app.use(serveStatic(__dirname + "/public"));
 
     // Start the server
     http.createServer(app).listen(serverPort, function () {

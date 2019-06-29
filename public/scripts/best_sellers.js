@@ -16,14 +16,14 @@ $(document).ready(function() {
               $("#best-sellers").append(`<li class="col-md-12 m-1 thumb-list">
                 <div class="col-md-3">
                    <a class="pull-left mb-3">
-                      <img class="rounded" src="${cover}" alt="cover" style="width: 130px; height: 160px">
+                      <img class="rounded book-cover" src="${cover}" alt="cover">
                    </a>
                 </div>
                 <div class="col-md-9">
                     <p><span class="badge badge-success"> ${genre}</span></p>
                     <h5 class="text-danger" > ${title}</h5>
                     <p class="font-italic">by ${author.name}</p>
-                    <a href="pages/book.html?id=${id}">Read more</a>
+                    <a href="pages/book.html?id=${book_id}">Read more</a>
                 </div>
               </li>`);
           }

@@ -16,11 +16,10 @@ $(document).ready(function() {
               } = json[i];
               var date = getDate(held_on);
 
-              // TODO: change column held_on to timestamp? or check if the time of the event can be explicitly stated this way
               $("#all-events").append(`<li class="col-md-12 m-1 thumb-list">
                 <div class="col-md-3">
                    <a class="pull-left mb-3" href="pages/event.html?id=${id}">
-                      <img class="rounded" src="${book.cover}" alt="cover" style="width: 130px; height: 160px">
+                      <img class="rounded book-cover" src="${book.cover}" alt="cover">
                    </a>
                 </div>
                 <div class="col-md-9">

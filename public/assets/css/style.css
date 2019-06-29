@@ -56,6 +56,7 @@ ul, ol {
   font-size: 90%;
 }
 
+
 /* Header
 -------------------------------------------------- */
 .header-logo {
@@ -83,6 +84,7 @@ ul, ol {
   color: #D10024;
 }
 
+
 /* Footer
 -------------------------------------------------- */
 .footer {
@@ -95,6 +97,7 @@ ul, ol {
 .footer p:last-child {
   margin-bottom: 0;
 }
+
 
 /* Cards
 -------------------------------------------------- */
@@ -126,85 +129,6 @@ ul, ol {
   background-color: #fff;
 }
 
-/* Responsive breakpoints
--------------------------------------------------- */
-@media (max-width: 575px) {
-  body {
-    /*background-color: blue;*/
-  }
-
-  .cover-thumbnail{
-    display: none;
-  }
-}
-
-
-/*Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767px) {
-  body {
-    /*background-color: red;*/
-  }
-  .container {
-    max-width: 98%;
-  }
-
-  .card {
-    width: 70%;
-    margin-left: 60px
-  }
-
-  .title{
-    display: none;
-  }
-
-  .cover-thumbnail{
-    width: 100px;
-    height: 150px;
-    margin-right: 10px;
-  }
-}
-
-/*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) and (max-width: 991px) {
-  body {
-    /*background-color: orange;*/
-  }
-
-  .container {
-    max-width: 96%;
-  }
-
-  .header-logo {
-    font-size: 1.8rem;
-  }
-
-  .cover-thumbnail{
-    width:120px;
-    height: 170px;
-    margin-right: 10px;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  body {
-    /*background-color: yellow;*/
-  }
-
-  .container {
-    max-width: 90%;
-  }
-
-  .header-logo {
-    font-size: 2rem;
-  }
-
-  .cover-thumbnail{
-    width:150px;
-    height: 220px;
-    margin-right: 10px;
-  }
-}
 
 /* Login
 -------------------------------------------------- */
@@ -212,6 +136,7 @@ ul, ol {
   color: #D10024;
   font-weight: lighter;
 }
+
 
 /* Reviews Carousel
 -------------------------------------------------- */
@@ -253,41 +178,6 @@ ul, ol {
   top: 4px;
 }
 
-/*.carousel-control i {*/
-  /*font-size: 20px;*/
-  /*margin-right: 2px;*/
-/*}*/
-
-/*.carousel-control.left {*/
-  /*left: auto;*/
-  /*right: 40px;*/
-/*}*/
-
-/*.carousel-control.right i {*/
-  /*margin-right: -2px;*/
-/*}*/
-
-/*.carousel .carousel-indicators {*/
-  /*bottom: 15px;*/
-/*}*/
-
-/*.carousel-indicators li, .carousel-indicators li.active {*/
-  /*width: 11px;*/
-  /*height: 11px;*/
-  /*margin: 1px 5px;*/
-  /*border-radius: 50%;*/
-/*}*/
-
-/*.carousel-indicators li {*/
-  /*background: #e2e2e2;*/
-  /*border-color: transparent;*/
-/*}*/
-
-/*.carousel-indicators li.active {*/
-  /*border: none;*/
-  /*background: #888;*/
-/*}*/
-
 
 /* Thumbnails list
 -------------------------------------------------- */
@@ -296,14 +186,142 @@ ul, ol {
   border-radius: .25rem;
 }
 
-.thumb{
-  width: 165px;
-  height: 150px;
-}
-
 .thumb-list{
   display: flex;
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
+}
+
+
+/* Responsive breakpoints
+-------------------------------------------------- */
+@media (max-width: 575px) {
+  body {
+    background-color: blue;
+  }
+
+  .title{
+    display: none;
+  }
+
+  .cover-thumbnail{
+    display: none;
+  }
+
+  main.container{
+    padding: 1rem!important;
+  }
+
+  .book-cover{
+    width: 105px;
+    height: 140px;
+  }
+
+  .thumb{
+    width: 130px;
+    height: 135px;
+  }
+
+  #author-pic{
+    width: 50%;
+  }
+}
+
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767px) {
+  body {
+    background-color: red;
+  }
+  .container {
+    max-width: 98%;
+  }
+
+  .card {
+    width: 70%;
+    margin-left: 60px
+  }
+
+  .title{
+    display: none;
+  }
+
+  .cover-thumbnail{
+    width: 100px;
+    height: 150px;
+    margin-right: 10px;
+  }
+
+  .book-cover{
+    width: 140px;
+    height: 190px
+  }
+
+  .thumb{
+    width: 135px;
+    height: 150px;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    background-color: orange;
+  }
+
+  .container {
+    max-width: 96%;
+  }
+
+  .header-logo {
+    font-size: 1.8rem;
+  }
+
+  .cover-thumbnail{
+    width:120px;
+    height: 170px;
+    margin-right: 10px;
+  }
+
+  .book-cover{
+    width: 140px;
+    height: 190px
+  }
+
+  .thumb{
+    width: 165px;
+    height: 150px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    background-color: yellow;
+  }
+
+  .container {
+    max-width: 90%;
+  }
+
+  .header-logo {
+    font-size: 2rem;
+  }
+
+  .cover-thumbnail{
+    width:150px;
+    height: 220px;
+    margin-right: 10px;
+  }
+
+  .book-cover{
+    width: 140px;
+    height: 190px
+  }
+
+  .thumb{
+    width: 155px;
+    height: 150px;
+  }
 }

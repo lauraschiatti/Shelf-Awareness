@@ -29,7 +29,7 @@ $(document).ready(function() {
               $("#books-by-author").append(`<li class="col-md-12 m-1 thumb-list">
                 <div class="col-md-3">
                    <a class="pull-left mb-3">
-                      <img class="rounded" src="${cover}" alt="cover" style="width: 130px; height: 160px">
+                      <img class="rounded book-cover" src="${cover}" alt="cover">
                    </a>
                 </div>
                 <div class="col-md-9">
@@ -37,11 +37,11 @@ $(document).ready(function() {
                     <p class="font-weight-bold"><a class="text-dark" href="pages/book.html?id=${id}">${title}</a></p>
                 </div>
               </li>`);
-
-              $("#related_info").append(`<ol class="list-unstyled">
-                  <li><a href="pages/author.html?id=${author_id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline">${author.name} </span></a></li>
-                </ol>`);
           }
+
+          $("#related_info").append(`<ol class="list-unstyled">
+                <li><a href="pages/author.html?id=${author_id}"> <i class="fa fa-angle-double-left"></i> Return to <span style="text-decoration: underline">${json[0].author.name} </span></a></li>
+              </ol>`);
         });
     });
 });

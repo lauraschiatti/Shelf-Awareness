@@ -53,7 +53,7 @@ $(document).ready(function() {
               $("#similar-books").append(`<li class="col-md-12 m-1 thumb-list">
                 <div class="col-md-3">
                    <a class="pull-left mb-3">
-                      <img class="rounded" src="${cover}" alt="cover" style="width: 130px; height: 160px">
+                      <img class="rounded book-cover" src="${cover}" alt="cover">
                    </a>
                 </div>
                 <div class="col-md-9">

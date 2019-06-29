@@ -20,7 +20,7 @@ $(document).ready(function() {
 
               let img_src = getImage(theme);
 
-              $("#all-themes").append(`<li class="col-xs-12 m-3 thumb-list">
+              $("#all-themes").append(`<li class="col-xs-12 m-2 thumb-list">
                  <div class="col-xs-12 col-md-11 col-lg-9 p-3">
                    <a class="pull-left mb-3">
                       <img class="rounded thumb" src="${img_src}" alt="img_theme">

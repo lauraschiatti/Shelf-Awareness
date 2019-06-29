@@ -63,8 +63,8 @@ $(document).ready(function() {
  function fillCartInfo(total, books) {
      $('#cartItems').append(`
        <h4 class="d-flex justify-content-between align-items-center mb-3">
-         <span class="text">Shopping cart</span>
-         <span class="badge badge-secondary badge-pill">${total.items}</span>
+         <p class="text">Shopping cart</p>
+         <p class="badge badge-secondary badge-pill">${total.items}</p>
        </h4>
        <div class="list-group">
      `);
@@ -100,8 +100,8 @@ $(document).ready(function() {
        <div class="list-group">
          <div class="list-group-item">
            <h3 class="d-flex justify-content-between align-items-center mb-3">
-             <span class="text">Cart subtotal:</span>
-             <span class="">${total.value}&euro;</span>
+             <p class="text">Cart subtotal:</p>
+             <p class="">${total.value}&euro;</p>
            </h3>
          </div>
          <div class="list-group-item text-center">

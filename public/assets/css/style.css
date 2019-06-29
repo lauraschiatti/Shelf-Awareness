@@ -197,9 +197,9 @@ ul, ol {
 /* Responsive breakpoints
 -------------------------------------------------- */
 @media (max-width: 575px) {
-  body {
-    background-color: blue;
-  }
+  /*body {*/
+    /*background-color: blue;*/
+  /*}*/
 
   .title{
     display: none;
@@ -231,9 +231,9 @@ ul, ol {
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767px) {
-  body {
-    background-color: red;
-  }
+  /*body {*/
+    /*background-color: red;*/
+  /*}*/
   .container {
     max-width: 98%;
   }
@@ -266,9 +266,9 @@ ul, ol {
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991px) {
-  body {
-    background-color: orange;
-  }
+  /*body {*/
+    /*background-color: orange;*/
+  /*}*/
 
   .container {
     max-width: 96%;
@@ -297,9 +297,9 @@ ul, ol {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  body {
-    background-color: yellow;
-  }
+  /*body {*/
+    /*background-color: yellow;*/
+  /*}*/
 
   .container {
     max-width: 90%;

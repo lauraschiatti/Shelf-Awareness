@@ -71,20 +71,19 @@ $(document).ready(function() {
 
      for (let i = 0; i < books.length; i++) {
        let book = books[i];
+
        $('#cartItems').append(`
          <div class="list-group-item">
            <div class="row">
-             <div class="col-4">
-               <img src="${book.cover}" alt="Book image" style="width:50%; height:100%"/>
+             <div class="col-3 d-none d-md-block">
+               <img class="rounded" src="${book.cover}" alt="cover" style="width: 90px;">
              </div>
-             <div class="col-5">
-               <h6 class="my-0">${book.title}</h6>
-               <small class="text-muted">by ${book.author.name}</small>
-             </div>
-             <div class="col-3">
-               <p class="text-muted">Price: ${book.price.total}&euro;</p>
-               <br />
-               <p class="text-muted">Quantity: ${book.quantity}</p>
+             <div class="col-9">
+               <h5 class="my-0 text-muted"> <a href="pages/book.html?id=${book.book_id}" style="color: #6c757d!important">${book.title}</a></h5>
+               <p class="text-muted">by ${book.author.name}</p>
+
+               <h4><span class="badge badge-danger font-weight-light"> Price: ${book.price.total}&euro;</span></h4>
+               <h4><span class="badge badge-secondary font-weight-light">Quantity: ${book.quantity}</span></span></h4>
              </div>
            </div>
          </div>
@@ -95,16 +94,14 @@ $(document).ready(function() {
 
      $('#cartOverview').append(`
        <h4 class="d-flex justify-content-between align-items-center mb-3">
-         <span class="text">Overview</span>
+         <span class="text text-danger">Overview</span>
        </h4>
        <div class="list-group">
          <div class="list-group-item">
-           <h3 class="d-flex justify-content-between align-items-center mb-3">
-             <p class="text">Cart subtotal:</p>
-             <p class="">${total.value}&euro;</p>
-           </h3>
-         </div>
-         <div class="list-group-item text-center">
+           <h4 class="d-flex justify-content-between align-items-center mb-3">
+             <p>Cart subtotal:</p>
+             <p>${total.value}&euro;</p>
+           </h4>
            <form id="purchaseBooksForm">
              <button class="btn btn-outline-danger" id="purchaseBooks" type="submit">
                <i class="fa fa-shopping-cart"></i> Purchase

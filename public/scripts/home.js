@@ -2,6 +2,8 @@ var currentUser ;
 $(document).ready(function() {
   getUser();
   getBooks();
+  getBestSellers();
+  getFavoriteBooks();
 });
 
 function getBooks() {
@@ -17,11 +19,42 @@ function getBooks() {
             } = json[i];
 
             if (i <= 4) {
-                $("#books-list").append(`<a href="pages/book.html?id=${id}"><img src="${cover}" class="img-thumbnail cover-thumbnail" alt="cover"></a>`);
+                $("#books-list").append(`<a href="pages/book.html?id=${id}"><img src="${cover}" class="img-thumbnail cover-thumbnail m-4" alt="cover"></a>`);
             }
 
           }
         });
+    });
+}
+
+function getFavoriteBooks(){
+    fetch('v2/books/favorite')
+       .then(function(response) {
+          response.json()
+       .then(function(json) {
+         for (let i = 0; i < json.length; i++) {
+           let {
+               id,
+               cover,
+           } = json[i];
+           $("#favorite-readings-home").append(`<a href="pages/book.html?id=${id}"><img src="${cover}" class="img-thumbnail cover-thumbnail m-4" alt="cover"></a>`);
+         }
+       });
+    });
+}
+function getBestSellers(){
+    fetch('v2/books/bestSellers')
+      .then(function(response) {
+         response.json()
+      .then(function(json) {
+        for (let i = 0; i < json.length; i++) {
+          let {
+               id,
+               cover,
+          } = json[i];
+          $("#best-sellers-home").append(`<a href="pages/book.html?id=${id}"><img src="${cover}" class="img-thumbnail cover-thumbnail m-4" alt="cover"></a>`);
+        }
+      });
     });
 }
 

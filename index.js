@@ -29,6 +29,12 @@ var options = {
     useStubs: process.env.NODE_ENV === 'development' // Conditionally turn on stubs (mock mode)
 };
 
+//override default options
+var uiOptions = {
+    apiDocs: '/backend/api-docs',
+    swaggerUi: '/backend/swaggerui'
+};
+
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
 var spec = fs.readFileSync(path.join(__dirname,'api/swagger.yaml'), 'utf8');
 var swaggerDoc = jsyaml.safeLoad(spec);
@@ -51,7 +57,7 @@ oas3Tools.initializeMiddleware(swaggerDoc, function (middleware) {
     app.use(middleware.swaggerRouter(options));
 
     // Serve the Swagger documents and Swagger UI
-    app.use(middleware.swaggerUi());
+    app.use(middleware.swaggerUi(uiOptions));
 
     app.use(serveStatic(__dirname + "/public"));
 

@@ -32,34 +32,55 @@ $(document).on("click", "#registerSubmit", function(e) {
     $("#registerMessage").append('<p>Credit card cannot be empty</p>');
   }
   if (ok) {
-    $.ajax({
-      url: "v2/user/register",
-      contentType: "application/json",
-      dataType: "text",
-      type: "POST",
-      data: JSON.stringify({
-        "name": name,
-        "email": email,
-        "password": password,
-        "address": address,
-        "creditcard": creditcard
 
-      }),
-      success: function(data) {
-        var user = data;
-        if (user == "NOK") {
-          $("#registerMessage").empty();
-          $("#registerMessage").append('<p>Please eneter all the fields correctly. </p>');
-          // }else if(user=="EXISTS"){
-          //     $("#registerMessage").empty();
-          //     $("#registerMessage").append('<p>User already exists. </p>');
-        } else if (user == "OK") {
-          toastr.success("Registration successful");
-          window.location = "/index.html";
-        }
+    $.post('v2/user/register', {
+      name: name,
+      email: email,
+      password: password,
+      address: address,
+      creditcard: creditcard
+    }, function(data, status) {
+      var user = data[0];
+      if(data.name=="error"){
+        $("#registerMessage").empty();
+        $("#registerMessage").append('<p>Registration unsuccessful. </p>');
+      }
+      else if (status == "success") {
+        window.location = "/index.html";
+      }else {
+        $("#registerMessage").empty();
+        $("#registerMessage").append('<p>Registration unsuccessful. </p>');
       }
 
-    });
+    })
+    // $.ajax({
+    //   url: "v2/user/register",
+    //   contentType: "application/json",
+    //   dataType: "text",
+    //   type: "POST",
+    //   data: JSON.stringify({
+    //     "name": name,
+    //     "email": email,
+    //     "password": password,
+    //     "address": address,
+    //     "creditcard": creditcard
+    //
+    //   }),
+    //   success: function(data) {
+    //     var user = data;
+    //     if (user == "NOK") {
+    //       $("#registerMessage").empty();
+    //       $("#registerMessage").append('<p>Please eneter all the fields correctly. </p>');
+    //       // }else if(user=="EXISTS"){
+    //       //     $("#registerMessage").empty();
+    //       //     $("#registerMessage").append('<p>User already exists. </p>');
+    //     } else if (user == "OK") {
+    //       toastr.success("Registration successful");
+    //       window.location = "/index.html";
+    //     }
+    //   }
+    //
+    // });
   }
 
 

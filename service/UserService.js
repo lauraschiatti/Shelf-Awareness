@@ -40,12 +40,12 @@ exports.userRegisterPOST = function(email, password, name, address, creditcard) 
       registeredUser = user;
     })
     .catch((err) => new Promise(function(resolve, reject) {
-      reject("NOK");
+      reject(user);
     }));
   // console.log(registeredUser);
   if (registeredUser == undefined) {
     // console.log("usao u upis");
-    knex('users').insert({
+  return  knex('users').insert({
         name: "" + name + "",
         email: "" + email + "",
         password: "" + password + "",
@@ -55,27 +55,16 @@ exports.userRegisterPOST = function(email, password, name, address, creditcard) 
       .returning('id')
       .then(function(result) {
         var id = result[0];
+        registeredUser = result;
         console.log("Result of insert a row in user: ");
         console.log(id);
-        /*knex('carts').insert({
-            id: id,
-            currency: "eur",
-            value: 0
-          })
-          .then(function(result) {
-            return new Promise(function(resolve, reject) {
-              resolve("OK");
-            });
-        });*/
-        return new Promise(function(resolve, reject) {
-          resolve("OK");
-        });
+        return format(registeredUser);
         // result.json({ success: true, message: 'ok' });     // respond back to request
       });
   }
-  return new Promise(function(resolve, reject) {
-    resolve("OK");
-  });
+  // return new Promise(function(resolve, reject) {
+  //   resolve(registeredUser);
+  // });
 }
 
 /**

@@ -712,7 +712,7 @@ paths:
       description: "Register into the store"
       operationId: "userRegisterPOST"
       consumes:
-      - "application/json"
+      - "application/x-www-form-urlencoded"
       produces:
       - "application/json"
       parameters:

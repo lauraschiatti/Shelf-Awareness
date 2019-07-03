@@ -14,14 +14,6 @@ let cookieParser = require("cookie-parser");
 // Static files
 let serveStatic = require("serve-static");
 
-// Serve spec.yaml explicitly
-// var SwaggerUIBundle = require('swagger-ui-dist').SwaggerUIBundle
-// const ui = SwaggerUIBundle({
-//     url: '/backend/spec.yaml',
-//     dom_id: '#swagger-ui',
-//     enableCookies: true
-// });
-
 // SwaggerRouter configuration
 var options = {
     swaggerUi: path.join(__dirname, '/swagger.json'),
@@ -31,12 +23,12 @@ var options = {
 
 //override default options
 var uiOptions = {
-    apiDocs: '/backend/api-docs',
+    apiDocs: '/public/backend/spec.yaml',
     swaggerUi: '/backend/swaggerui'
 };
 
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
-var spec = fs.readFileSync(path.join(__dirname,'api/swagger.yaml'), 'utf8');
+var spec = fs.readFileSync(path.join(__dirname,'public/backend/spec.yaml'), 'utf8');
 var swaggerDoc = jsyaml.safeLoad(spec);
 
 // Add cookies to responses

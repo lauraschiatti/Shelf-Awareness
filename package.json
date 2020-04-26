@@ -19,7 +19,7 @@
     "cookie-parser": "^1.4.4",
     "cookie-session": "^1.3.3",
     "js-yaml": "^3.3.0",
-    "knex": "^0.16.3",
+    "knex": "^0.21.0",
     "oas3-tools": "^1.0.1",
     "pg": "*",
     "psql": "0.0.1",
